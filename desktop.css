@@ -1,0 +1,327 @@
+	/* Global CSS */
+	body {
+		background-color:snow;
+	}
+	
+	.paddingNone {
+		padding:0px 0px 0px 0px;
+	}
+	
+	.controlBar {
+		height:30px;
+		background-color:blue;
+		border-radius:5px 5px 5px 5px;
+		padding: 0px 0px 0px 0px;
+	}
+	
+	.minimizeButton {		
+		width:20px;
+		height:25px;
+		right:30px;
+		position:absolute;
+	}
+	
+	.closeButton {		
+		width:20px;
+		height:25px;
+		right:0px;
+		position:absolute;
+	}
+	
+	/* Calendar */
+	.ui-datepicker,
+	.ui-datepicker table,
+	.ui-datepicker tr,
+	.ui-datepicker td,
+	.ui-datepicker th {
+    	margin: 0;
+    	padding: 0;
+    	border: none;
+    	border-spacing: 0;
+	}
+	.ui-datepicker {
+    	display: none;
+    	width: 330px;
+    	padding: 30px 35px 30px 25px;
+    	cursor: default;
+ 
+    	text-transform: uppercase;
+    	font-family: Tahoma;
+    	font-size: 13px;
+ 
+    	/*background: #141517;*/
+		/*background: blue;*/
+     	-webkit-border-radius: 3px;
+    	-moz-border-radius: 3px;
+    	border-radius: 3px;
+ 
+		box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+		background:rgba(40,57,101,.8);
+ 
+    	-webkit-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+    	-moz-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+    	box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+	}
+	.ui-datepicker-header {
+    	position: relative;
+    	padding-top:5px;
+		padding-right:5px;
+		padding-bottom: 10px;
+		padding-left:5px;
+    	border-bottom: 1px solid #d6d6d6;
+		background-color:#4682B4;
+		width:280px;
+	}
+ 	
+	.ui-datepicker-title { text-align: center; font-size:12px;  }
+ 
+	.ui-datepicker-month {
+    	position: relative;
+    	padding-right: 15px;    	
+    	color: black;
+		
+	}
+ 
+	.ui-datepicker-year {
+    	padding-left: 15px;
+    	color: #C0C0C0;
+	}
+	.ui-datepicker-month:before {
+    	display: block;
+    	position: absolute;
+    	top: 5px;
+    	right: 0;
+    	width: 5px;
+    	height: 5px;
+    	content: '';
+ 		 		
+    	/*background: #a5cd4e;*/
+		background-color:#778899;
+    	background: -moz-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+    	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5cd4e), color-stop(100%,#6b8f1a));
+    	background: -webkit-linear-gradient(top, #a5cd4e 0%,#6b8f1a 100%);
+    	background: -o-linear-gradient(top, #a5cd4e 0%,#6b8f1a 100%);
+    	background: -ms-linear-gradient(top, #a5cd4e 0%,#6b8f1a 100%);
+    	background: linear-gradient(top, #a5cd4e 0%,#6b8f1a 100%);
+ 
+    	-webkit-border-radius: 5px;
+    	-moz-border-radius: 5px;
+    	border-radius: 5px;
+	}
+	.ui-datepicker-prev,
+	.ui-datepicker-next {
+    	position: absolute;
+    	top: -2px;
+    	padding: 5px;
+    	cursor: pointer;
+		border:1px solid black;
+		background-color:gray;
+	}
+ 
+	.ui-datepicker-prev {
+    	left: 0;
+    	padding-left: 0;
+		background-size: 25px 25px;
+		background-image:url(leftArrow.png);
+		background-repeat: no-repeat;
+	}
+ 
+	.ui-datepicker-next {
+    	right: 0;
+    	padding-right: 0;
+		background-size: 25px 25px;
+		background-image:url(rightArrow.png);
+		background-repeat: no-repeat;
+	}
+ 
+	.ui-datepicker-prev span,
+	.ui-datepicker-next span{
+    	display: block;
+    	width: 20px;
+    	height: 20px;
+    	/*text-indent: -9999px;*/
+ 		
+    	/*background-image: url(../img/arrows.png);*/
+	}
+ 
+	.ui-datepicker-prev span { background-position: 0px 0px; }
+ 
+	.ui-datepicker-next span { background-position: 0px 0px; }
+ 
+	.ui-datepicker-prev-hover span { background-position: 0px 0px; }
+ 
+	.ui-datepicker-next-hover span { background-position: 0px 0px; }
+
+	.ui-datepicker-calendar th {
+    	padding-top: 15px;
+    	padding-bottom: 10px;
+ 		padding-left:5px;
+ 		padding-right:5px;
+    	text-align: center;
+    	font-weight: normal;
+    	color: black;
+		background-color:#778899;
+	}
+
+	.ui-datepicker-calendar td {
+    	padding: 0 7px;
+    	text-align: center;
+    	line-height: 26px;
+		background-color:#778899;
+		
+	}
+ 
+	.ui-datepicker-calendar .ui-state-default {
+    	display: block;
+    	width: 26px;
+    	outline: none;
+     	text-decoration: none;
+    	color: #a8a8a8;
+     	border: 1px solid transparent;
+		background-color:#778899;
+	}
+
+	.ui-datepicker-calendar .ui-state-active {
+    	color: black;
+    	
+		border: 1px solid black;
+    	
+	}
+ 
+	.ui-datepicker-other-month .ui-state-default { color: #565656; border:1px solid black; }
+	
+	
+	/* Login */
+	
+	/* Login Container */
+	.loginContainer {
+		height:768px;
+		width:1024px;
+		background:url("matrixbackground.jpg");
+		border:4px black solid;
+		border-radius:10px 10px 10px 10px;
+	}
+	
+	/* Login Container Menu */
+	.loginContainerMenu {		
+		width:40%;
+		height:30%;
+		border: 3px AliceBlue solid;
+		border-radius:10px 10px 10px 10px;
+		margin-left:28%;
+		margin-top:15%;
+		box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+		background:rgba(40,57,101,.8);
+	}
+	
+	/* Login Container Menu Left */
+	.loginContainerMenuLeft {		
+		width:40%;
+		height:100%;
+		float:left;
+	}
+	
+	/* login Container Menu Left Icon */
+	.loginContainerMenuLeftIcon {		
+		height:80px;
+		width:70px;
+		float:right;
+	}
+	
+	
+	/* Login Container Menu Right */
+	.loginContainerMenuRight {
+		width:50%;
+		height:100%;
+		float:right;
+	}
+	
+	/* login Container Menu Right Title */
+	.loginContainerMenuRightTitle {
+		width:100%;
+		height:60px;
+	}
+	
+	/* login Container Menu Right Title Label */
+	.loginContainerMenuRightTitleLabel {
+		font-family:"Arial", "Helvetica", "sans-serif";
+		color:white;
+		margin-left:55px;
+		font-style:italic;
+	}
+	
+	/* login Container Menu Right Button Div */
+	.loginContainerMenuRightButtonDiv {		
+		width:100%;
+		height:60px;
+	}
+	
+	/* login Container Menu Right Button */
+	.loginContainerMenuRightButton {		
+		margin-left:50px;
+	}
+	
+	/* Desktop */
+	
+	/* Desktop Container */
+	.desktopContainer {		
+		height:768px;
+		width:1024px;
+		background:url("dragonbg.jpg");
+		border:4px black solid;
+		border-radius:10px 10px 10px 10px;
+		position:relative;
+		display:none;
+		z-index:0;
+	}
+	
+	/* desktop Container TopNav */
+	.desktopContainerTopNav {		
+		height:25px;
+		z-index:100;
+	}
+	
+	/* desktop Container TopNav ClockBox */
+	.desktopContainerTopNavClockBox {		
+		width:100%;
+		height:30px;
+		color:snow;
+		text-align: center;
+		padding:5px 0px 0px 0px;
+		
+	}
+	
+	
+	/* desktop Container Desktop Pages */
+	.desktopContainerDesktopPages {		
+		height:715px;
+		width:1024px;
+		position:absolute;
+		background-color:transparent;
+		top:25px;
+		bottom:30px;
+		z-index:1;
+	}
+	
+	/* Calculator Container */
+	.calculatorContainer{
+		width:235px;
+		height:235px;
+		background-color:#5F9EA0;
+		border-radius:5px 5px 5px 5px;
+		display:none;
+	}
+	
+	/* Calculator Display Result Container */
+	.calculatorDisplayResultContainer {
+		height:60px;		
+	}
+	
+	/* Calculator Display Result */
+	.calculatorDisplayResult {
+		width:100%;
+		resize:none;
+	}
+	
+	
+	

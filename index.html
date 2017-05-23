@@ -1,17 +1,16 @@
 <!-- 
 	
 	- When other pages are clicked, close the startmenu.
-	- Position divs in #desktopPages in a certain location.
+	+ Position divs in #desktopPages in a certain location.
 		+ When user clicks on Icon the page will not load on the bottom of the screen.
 	- Make an editor program to view the java and c files.
 	- For the documents section
 		+ Think about the system design.
-		+ Emulate the design of a operating system.
-		+ Have folder system
-			+ When the user gets to the pages with executable code.
-			+ Use PHP to run the code and display it via a terminal.
-			+ When the user gets to the pages with java code.
-			+ Use PHP to run the java file and display it with an applet.
+		- Emulate the design of a operating system.
+		- Have folder system
+			- Use embed to display source code files
+	- When user clicks focuses on a new work page
+		- Fix the changeZIndex function to order them differently
 			
 			
 
@@ -27,149 +26,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="desktop.css">
 <style>
-	body {
-		background-color:snow;
-	}
-	
-	/* Calendar */
-	.ui-datepicker,
-	.ui-datepicker table,
-	.ui-datepicker tr,
-	.ui-datepicker td,
-	.ui-datepicker th {
-    	margin: 0;
-    	padding: 0;
-    	border: none;
-    	border-spacing: 0;
-	}
-	.ui-datepicker {
-    	display: none;
-    	width: 328px;
-    	padding: 30px 30px 30px 30px;
-    	cursor: default;
- 
-    	text-transform: uppercase;
-    	font-family: Tahoma;
-    	font-size: 13px;
- 
-    	background: #141517;
-     	-webkit-border-radius: 3px;
-    	-moz-border-radius: 3px;
-    	border-radius: 3px;
- 
-    	-webkit-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
-    	-moz-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
-    	box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
-	}
-	.ui-datepicker-header {
-    	position: relative;
-    	padding-bottom: 10px;
-    	border-bottom: 1px solid #d6d6d6;
-	}
- 	
-	.ui-datepicker-title { text-align: center; font-size:19px; }
- 
-	.ui-datepicker-month {
-    	position: relative;
-    	padding-right: 15px;    	
-    	color: #565656;
-	}
- 
-	.ui-datepicker-year {
-    	padding-left: 15px;
-    	color: #a8a8a8;
-	}
-	.ui-datepicker-month:before {
-    	display: block;
-    	position: absolute;
-    	top: 5px;
-    	right: 0;
-    	width: 5px;
-    	height: 5px;
-    	content: '';
- 		 		
-    	background: #a5cd4e;
-    	background: -moz-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
-    	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5cd4e), color-stop(100%,#6b8f1a));
-    	background: -webkit-linear-gradient(top, #a5cd4e 0%,#6b8f1a 100%);
-    	background: -o-linear-gradient(top, #a5cd4e 0%,#6b8f1a 100%);
-    	background: -ms-linear-gradient(top, #a5cd4e 0%,#6b8f1a 100%);
-    	background: linear-gradient(top, #a5cd4e 0%,#6b8f1a 100%);
- 
-    	-webkit-border-radius: 5px;
-    	-moz-border-radius: 5px;
-    	border-radius: 5px;
-	}
-	.ui-datepicker-prev,
-	.ui-datepicker-next {
-    	position: absolute;
-    	top: -2px;
-    	padding: 5px;
-    	cursor: pointer;
-	}
- 
-	.ui-datepicker-prev {
-    	left: 0;
-    	padding-left: 0;
-	}
- 
-	.ui-datepicker-next {
-    	right: 0;
-    	padding-right: 0;
-	}
- 
-	.ui-datepicker-prev span,
-	.ui-datepicker-next span{
-    	display: block;
-    	width: 20px;
-    	height: 10px;
-    	text-indent: -9999px;
- 		background-color:aqua;
-    	/*background-image: url(../img/arrows.png);*/
-	}
- 
-	.ui-datepicker-prev span { background-position: 0px 0px; }
- 
-	.ui-datepicker-next span { background-position: -5px 0px; }
- 
-	.ui-datepicker-prev-hover span { background-position: 0px -10px; }
- 
-	.ui-datepicker-next-hover span { background-position: -5px -10px; }
 
-	.ui-datepicker-calendar th {
-    	padding-top: 15px;
-    	padding-bottom: 10px;
- 		padding-left:5px;
- 		padding-right:5px;
-    	text-align: center;
-    	font-weight: normal;
-    	color: #a8a8a8;
-	}
-
-	.ui-datepicker-calendar td {
-    	padding: 0 7px;
-    	text-align: center;
-    	line-height: 26px;
-	}
- 
-	.ui-datepicker-calendar .ui-state-default {
-    	display: block;
-    	width: 26px;
-    	outline: none;
-     	text-decoration: none;
-    	color: #a8a8a8;
-     	border: 1px solid transparent;
-	}
-
-	.ui-datepicker-calendar .ui-state-active {
-    	color: #6a9113;
-    	/*border: 1px solid #6a9113;*/
-    	border: 1px solid blue;
-	}
- 
-	.ui-datepicker-other-month .ui-state-default { color: #565656; }
-	
 </style>
 
 <!-- JavaScript -->
@@ -182,7 +41,6 @@
 	/* 	ZIndex note
 		Keep a current Zindex based on the div recently clicked.
 		Depending on the number of active divs, create a number ordering system.		
-		homeIcon
 		aboutIcon
 		workIcon
 		calcIcon
@@ -207,7 +65,7 @@
 	var zIndexTopNav = 100;
 	var zIndexBottomNav = 100;
 	
-	var zIndexHomeIcon = 10;
+	
 	var zIndexAboutIcon = 10;
 	var zIndexCalcIcon = 10;
 	var zIndexMatrixIcon = 10;
@@ -233,12 +91,7 @@
 	var bottomNavCalculatorShow = 0;
 	var bottomNavMatrixPageShow = 0;
 	
-	/* Stack for Document navigation */
-	var workPageDocumentsFolderList = new Array();
-	
-	
-	
-	
+			
 	/* Login to Desktop */
 	function login () { 		
 		var loginMenu = document.getElementById('login').style.display = 'none';
@@ -256,9 +109,8 @@
 	    var cshow = 0;
 		$('#clockbox').on("click", function(){ 
 	    	if (cshow == 0){
-			  $('#calendar').show();
-			  //var zIndex = document.getElementById('topNav').style.zIndex = '100';
-			  //changeZIndex('topNav');
+			  
+			  $('#calendar').show();			  			 
 			  cshow = 1;
 	    	} else if (cshow == 1){
 	    		$('#calendar').hide();
@@ -286,7 +138,7 @@
 		if(nmin<=9) nmin="0"+nmin;
 		if(nsec<=9) nsec="0"+nsec;
 
-		document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+		document.getElementById('clockboxSpan').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
 	}
 
 	window.onload=function(){
@@ -296,7 +148,7 @@
 	
 	/* Drag and Drop */
 	$( function() {
-	    $( "#homeIcon" ).draggable( {containment: "parent"});
+	    
 	    $( "#aboutIcon" ).draggable( {containment: "parent"});
 	    $( "#workIcon" ).draggable( {containment: "parent"});
 	    $( "#calcIcon" ).draggable( {containment: "parent"});
@@ -306,7 +158,6 @@
 	    $( "#workPage" ).draggable( {containment: "parent"});
 	    $( "#matrixPage" ).draggable( {containment: "parent"});
 	 
-	
 	});
 	
 	/* Icon on click */
@@ -330,15 +181,46 @@
 			} else if (aboutPageShow == 1){
 				
 				changeZIndex('aboutPage');
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				
 			}
 			
 									
 		});
 		$('#aboutPage').on("click", function(){
 			changeZIndex('aboutPage');
+			document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
 		});
 		$('#aboutPage').on("drag", function(){
 			changeZIndex('aboutPage');
+			document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		
@@ -359,15 +241,45 @@
 			} else if (workPageShow == 1){
 				
 				changeZIndex('workPage');
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
 			}
 			
 									
 		});
 		$('#workPage').on("click", function(){
 			changeZIndex('workPage');
+			document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
 		});
 		$('#workPage').on("drag", function(){
 			changeZIndex('workPage');
+			document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 				
@@ -389,14 +301,44 @@
 			} else if (calculatorShow == 1){
 				
 				changeZIndex('calculator');
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
 		$('#calculator').on("click", function(){
 			changeZIndex('calculator');
+			document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
 		});
 		$('#calculator').on("drag", function(){
 			changeZIndex('calculator');
+			document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#matrixIcon').on("click", function () {
@@ -417,14 +359,44 @@
 			} else if (matrixPageShow == 1){
 				
 				changeZIndex('matrixPage');
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
 		$('#matrixPage').on("click", function(){
 			changeZIndex('matrixPage');
+			document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
 		});
 		$('#matrixPage').on("drag", function(){
 			changeZIndex('matrixPage');
+			document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
 		});
 		
 		
@@ -458,37 +430,122 @@
 		//alert(divName);
 		if (divName == 'aboutPage'){
 			if (bottomNavAboutPageShow == 1){
-				$('#bottomNav').append(" <div id='bottomNavAboutPage' style='float:left;width:80px;height:30px;background-color:green;border:1px solid black;padding:0px 0px 0px 0px;text-align:center;'> About Me </div>  ");
-				//$('#bottomNav').append(" <div style='float:left;width:80px;height:30px;background-color:green;border:1px solid black;padding:0px 0px 0px 0px;text-align:center;'> Test Div </div>")
+				$('#bottomNav').append(" <div id='bottomNavAboutPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;'> About Me </div>  ");				
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				
 				$('#bottomNavAboutPage').on("click", function() {
 					var page = document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavMatrixPageShow == 1) {
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
 					changeZIndex('aboutPage');
 				});	
 			}
 		}
 		if (divName == 'workPage'){
 			if (bottomNavWorkPageShow == 1){
-				$('#bottomNav').append(" <div id='bottomNavWorkPage' style='float:left;width:80px;height:30px;background-color:green;border:1px solid black;padding:0px 0px 0px 0px;text-align:center;'> Documents </div>  ");
+				$('#bottomNav').append(" <div id='bottomNavWorkPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;'> Documents </div>  ");
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				
 				$('#bottomNavWorkPage').on("click", function() {
 					var page = document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavMatrixPageShow == 1) {
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
+					
 					changeZIndex('workPage');
 				});	
 			}
 		}
 		if (divName == 'calculator'){
 			if (bottomNavCalculatorShow == 1){
-				$('#bottomNav').append(" <div id='bottomNavCalculator' style='float:left;width:80px;height:30px;background-color:green;border:1px solid black;padding:0px 0px 0px 0px;text-align:center;'> Calculator </div>  ");
+				$('#bottomNav').append(" <div id='bottomNavCalculator' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;'> Calculator </div>  ");
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				
 				$('#bottomNavCalculator').on("click", function() {
 					var page = document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavMatrixPageShow == 1) {
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
 					changeZIndex('calculator');
 				});	
 			}
 		}
 		if (divName == 'matrixPage'){
 			if (bottomNavMatrixPageShow == 1){
-				$('#bottomNav').append(" <div id='bottomNavMatrixPage' style='float:left;width:80px;height:30px;background-color:green;border:1px solid black;padding:0px 0px 0px 0px;text-align:center;'> Terminal </div>  ");
+				$('#bottomNav').append(" <div id='bottomNavMatrixPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;'> Terminal </div>  ");
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+								
 				$('#bottomNavMatrixPage').on("click", function() {
 					var page = document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					
 					changeZIndex('matrixPage');
 				});	
 			}
@@ -557,8 +614,7 @@
 	/* Change Z-Index */
 	function changeZIndex(divName) {
 		/* List of Divs to Change */
-		/* 	homeIcon
-			aboutIcon
+		/* 	aboutIcon
 			workIcon
 			calcIcon
 			matrixIcon
@@ -566,8 +622,7 @@
 			aboutPage
 			workPage
 			matrixPage
-			startMenu
-			
+			startMenu			
 		*/
 		 //zIndexCalculator = 10;
 		 //zIndexAboutPage = 10;
@@ -811,23 +866,23 @@
 </head>
 <body>
 <!-- Classic Login Screen -->
-<div id='login' style='height:768px;width:1024px;background:url("matrixbackground.jpg");border:4px black solid;border-radius:10px 10px 10px 10px;'>
-	<div id='menu' style='width:40%;height:30%;border: 3px AliceBlue solid;border-radius:10px 10px 10px 10px;margin-left:28%;margin-top:15%;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);'>
-		<div style='width:40%;height:100%;float:left;'>			
+<div id='login' class='loginContainer' >
+	<div id='menu' class='loginContainerMenu' >
+		<div class='loginContainerMenuLeft' >			
 			<br>
 			<br>
-			<img src='kingicon.png' style='height:80px; width:70px;float:right;'>
+			<img src='kingicon.png' class='loginContainerMenuLeftIcon' >
 		</div>
-		<div style='width:50%;height:100%;float:right;'>			
+		<div class='loginContainerMenuRight' >			
 			<br>
 			<br>
 			<br>
 			<br>
-			<div style='width:100%;height:60px;'>
-				<label style='font-family:"Arial", "Helvetica", "sans-serif";color:white;margin-left:55px;font-style:italic;'>GUEST</label>
+			<div class='loginContainerMenuRightTitle' >
+				<label class='loginContainerMenuRightTitleLabel' >GUEST</label>
 			</div>								
-			<div style="width:100%;height:60px;">			
-					<button onclick='login();' style='margin-left:45px;' class='btn btn-primary'>Login</button>								
+			<div class='loginContainerMenuRightButtonDiv' >			
+					<button onclick='login();' class='btn btn-primary loginContainerMenuRightButton'>Login</button>								
 			</div>						
 		</div>		
 	</div>
@@ -836,80 +891,83 @@
 <!-- Desktop 
 	Different Z-indexes so divs won't move something in the wrong way.
 -->
-<div id='desktop' style='height:768px;width:1024px;background:url("dragonbg.jpg");border:4px black solid;border-radius:10px 10px 10px 10px;position:relative;display:none;z-index:0;'>	
+<div id='desktop' class='desktopContainer' >	
 	<!-- Top Navigation Bar -->
-	<div id='topNav' class='col-md-12' style='height:25px;z-index:100;'>
-		<div class='col-md-4' style=''>			
+	<div id='topNav' class='col-md-12 desktopContainerTopNav'>
+		<div class='col-md-4' >			
 		</div>
-		<div class='col-md-4' style='padding:0px 0px 0px 0px;'>				
-			<div id='clockbox' style='width:100%;height:30px;color:snow;text-align: center;padding:5px 0px 0px 0px;'>																					
+		<div class='col-md-4 paddingNone' >				
+			<div id='clockbox' class='desktopContainerTopNavClockBox' >																					
+				<span id='clockboxSpan' style='cursor:pointer;'> </span>
 			</div>				
 			<div id ='calendar'></div>												
 		</div>
-		<div class='col-md-4' style='padding:0px 0px 0px 0px;'>			
-			<!-- <button type="button" style='background:url("offIcon.png");background-size: 27px 27px;background-repeat: no-repeat;width:30px;height:30px;right:0px;position:absolute;' onclick='off()'>  </button>  -->
+		<div class='col-md-4 paddingNone' >			
 		</div>
 	</div>
 	
-	<div id='desktopPages' style='height:715px;width:1024px;position:absolute;background-color:transparent;top:25px;bottom:30px;z-index:1;'>
-		<div id='calculator' class='col-md-12' style='width:250px;height:300px;background-color:white;border-radius:5px 5px 5px 5px;display:none;'>
-			<!-- <div class='row'>  -->
-				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;'> 
-					<div class='col-md-4' style='color:white;padding:0px 0px 0px 0px;'> Calculator </div>
-					<div class='col-md-8' style='padding:0px 0px 0px 0px;'> 
-						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='calculator'></button><button class='btn btn-danger' style='width:20px;height:25px;right:0px;position:absolute;' onclick='closePage(this.value)' value='calculator'></button> 
+	<div id='desktopPages' class='desktopContainerDesktopPages' >
+		
+		
+		
+		<!-- Calculator -->
+		<div id='calculator' class=' calculatorContainer' >			
+				<div class='col-md-12 controlBar' > 
+					<div class='col-md-4 paddingNone' style='padding-top:5px;' > <span  style='color:snow;margin-left:50px;'> Calculator </span> </div>
+					<div class='col-md-8 paddingNone' > 
+						<button class='btn btn-warning minimizeButton' onclick='minPage(this.value)' value='calculator'></button><button class='btn btn-danger closeButton' onclick='closePage(this.value)' value='calculator'></button> 
 					</div>
-				</div>
-				<div class='col-md-12' style='height:60px;padding:0px 0px 0px 0px;background-color:orange;'> 
-					<textarea id='displayResult' style='width:100%;resize:none;' readonly></textarea>
-				</div>
-
-				<div class='col-md-12' style='padding:0px 0px 0px 0px;'>
-					<div class='col-md-8' style='background-color:purple;padding:0px 0px 0px 0px;'>
-						<button onclick='calcNumber(this.value)' value='7' class='btn btn-default'> 7 </button>
-						<button onclick='calcNumber(this.value)' value='8' class='btn btn-default'> 8 </button>
-						<button onclick='calcNumber(this.value)' value='9' class='btn btn-default'> 9 </button>
-						<button onclick='calcNumber(this.value)' value='4' class='btn btn-default'> 4 </button>
-						<button onclick='calcNumber(this.value)' value='5' class='btn btn-default'> 5 </button>
-						<button onclick='calcNumber(this.value)' value='6' class='btn btn-default'> 6 </button>
-						<button onclick='calcNumber(this.value)' value='1' class='btn btn-default'> 1 </button>
-						<button onclick='calcNumber(this.value)' value='2' class='btn btn-default'> 2 </button>
-						<button onclick='calcNumber(this.value)' value='3' class='btn btn-default'> 3 </button>
-						<button onclick='calcNumber(this.value)' value='0' class='btn btn-default'> 0 </button>
-						<button onclick='calcNumber(this.value)' value='.' class='btn btn-default'> .&nbsp; </button>
-						<button onclick='calculate()' class='btn btn-default'> = </button>
-					</div>
-					<div class='col-md-2' style='padding:0px 0px 0px 0px;background-color:red;'>
-						<button onclick='calcNumber(this.value)' value='(' class='btn btn-default' style='align:right;'> ( </button>
-						<button onclick='calcNumber(this.value)' value='/' class='btn btn-default'> /&nbsp; </button>	
-						<button onclick='calcNumber(this.value)' value='*' class='btn btn-default'> *&nbsp; </button>
-						<button onclick='calcNumber(this.value)' value='+' class='btn btn-default'> + </button>
-					</div>
-					<div class='col-md-2' style='padding:0px 0px 0px 0px;background-color:green;'> 
-						<button onclick='calcNumber(this.value)' value=')' class='btn btn-default' style='align:right;'> ) </button>
-						<!-- <button onclick='calcBackspace()' class='btn btn-default' style=''> &larr; </button>  -->
-						<button onclick='calcBackspace()' class='btn btn-default' style=''> Del </button>
-						<button onclick='calcNumber(this.value)' value='-' class='btn btn-default'> -&nbsp; </button>
-						<button onclick='calcClear()' class='btn btn-default' style='align:right;'> C </button>
-					</div>
-
-				</div>
-			<!-- </div>  -->
+				</div>						
+				<div class='col-md-12 calculatorDisplayResultContainer paddingNone' > 
+					<textarea id='displayResult' class='calculatorDisplayResult' readonly></textarea>
+				</div>							
+						<div class='col-md-12'>
+							<button onclick='calcNumber(this.value)' value='7' class='btn '> 7 </button>
+							<button onclick='calcNumber(this.value)' value='8' class='btn '> 8 </button>
+							<button onclick='calcNumber(this.value)' value='9' class='btn '> 9 </button>
+							<button onclick='calcBackspace()' class='btn ' > &larr; </button>
+							<button onclick='calcClear()' class='btn ' > C </button>													
+						</div>															
+				
+						<div class='col-md-12'>
+							<button onclick='calcNumber(this.value)' value='4' class='btn '> 4 </button>
+							<button onclick='calcNumber(this.value)' value='5' class='btn '> 5 </button>
+							<button onclick='calcNumber(this.value)' value='6' class='btn '> 6 </button>
+							<button onclick='calcNumber(this.value)' value='(' class='btn ' > &nbsp;( </button>
+							<button onclick='calcNumber(this.value)' value=')' class='btn ' > &nbsp;) </button>													
+						</div>
+				
+						<div class='col-md-12'>						
+							<button onclick='calcNumber(this.value)' value='1' class='btn '> 1 </button>
+							<button onclick='calcNumber(this.value)' value='2' class='btn '> 2 </button>
+							<button onclick='calcNumber(this.value)' value='3' class='btn '> 3 </button>
+							<button onclick='calcNumber(this.value)' value='+' class='btn '> + </button>
+							<button onclick='calcNumber(this.value)' value='-' class='btn '> -&nbsp; </button>
+						</div>					
+				
+						<div class='col-md-12'>
+							<button onclick='calcNumber(this.value)' value='0' class='btn '> 0 </button>
+							<button onclick='calcNumber(this.value)' value='.' class='btn '> .&nbsp; </button>
+							<button onclick='calculate()' class='btn '> = </button>
+							<button onclick='calcNumber(this.value)' value='/' class='btn '> /&nbsp; </button>	
+							<button onclick='calcNumber(this.value)' value='*' class='btn '> *&nbsp; </button>							
+						</div>				
 		</div>
+		
 		<div id='aboutPage'  style='width:500px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;display:none;'> 
-			<!-- <div class='row'>  -->
-				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;right:0px;'> 
-					<div class='col-md-10' style='color:white;padding:0px 0px 0px 0px;'> About Me </div>
-					<div class='col-md-2' style='padding:0px 0px 0px 0px;'> 
+			
+				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;'> 
+					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;'> About Me </span> </div>
+					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
 						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='aboutPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='aboutPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 					</div>
 				</div>
-				<br><br>
-				<div class='col-md-12' style='width:500px;background-color:green;right:0px;position:absolute;'>
+				
+				<div class='col-md-12' style='width:500px;background-color:green;right:0px;'>
 					I am still into Dragon Ball Z. I play video games. I am still in love with pokemon.
 					I am a full believer in steam. I do have a steam account and I play a lot. 		
 				</div>
-			<!-- </div>  -->
+			
 		</div>
 		<div id='workPage' style='width:500px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;display:none;'> 
 			<!-- <div class='row'>  -->
@@ -959,7 +1017,7 @@
 	
 	
 	<!-- Icons -->
-	<img id="homeIcon" src="homeIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
+	
 	<img id="aboutIcon" src="aboutIcon.ico" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	<img id="workIcon" src="workIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	<img id="calcIcon" src="calcIcon.ico" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
@@ -972,9 +1030,11 @@
 				<button class='btn btn-danger' onclick='off()' style='float:right;'>OFF</button>
 			</div>			
 		
-	</div>	
-	<!-- Bottom Menu -->
-	<div id='bottomNav' style='width:100%;height:30px;background-color:orange; bottom:0px;position:absolute;padding:0px 0px 0px 0px;display:inline-block;z-index:100;'>		
+	</div>
+	
+		
+	<!-- Bottom Menu --> 
+	<div id='bottomNav' style='width:100%;height:30px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8); bottom:0px;position:absolute;padding:0px 0px 0px 0px;display:inline-block;z-index:100;border-radius:10px 10px 10px 10px;'>		
 			<button style='height:30px;float:left;' class='btn btn-primary' onclick='startMenu()'>Menu</button>
 			<!-- <div style='float:left;width:80px;height:30px;background-color:green;border:1px solid black;padding:0px 0px 0px 0px;text-align:center;'> Documents </div>
 			 -->					
