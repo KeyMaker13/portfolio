@@ -1078,6 +1078,7 @@
 
 	function openFile(fileName){
 		// instead of load, change the src of the embed
+		//alert(fileName);
 		
 		if (viewerPageShow == 0){
 			changePosition('viewerPage');
@@ -1111,12 +1112,13 @@
 				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
 			}
 		}
-		
-		document.getElementById('viewerPageContent').setAttribute("src",documentFiles[fileName]);
+		//var embed = document.getElementById('viewerPageContent').setAttribute("src",documentFiles[fileName]);
+		$('#viewerPageContent').attr("src",documentFiles[fileName]);
 		//alert(documentFiles[fileName]);
 		
-		
+		var rpage = viewerPageRefresh(fileName);
 		setTimeout(viewerPageZIndex,90);
+		//setTimeout(rpage,100);
 		//changeZIndex('viewerPage');
 		
 	}
@@ -1124,6 +1126,10 @@
 	function viewerPageZIndex(){
 	
 		changeZIndex('viewerPage');
+	}
+	
+	function viewerPageRefresh(fileName){
+		$('#viewerPageContent').attr("src",documentFiles[fileName]);
 	}
 
 	
