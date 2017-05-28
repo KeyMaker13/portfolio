@@ -7,9 +7,7 @@ documents
 │   │   │   │   ├── calendar.txt
 │   │   │   │   ├── hw-01-ch1-sp-calendar.pdf
 │   │   │   │   ├── hw01F.c
-│   │   │   │   ├── hw01F.c~
-│   │   │   │   ├── output.txt
-│   │   │   │   └── output.txt~
+│   │   │   │   └── output.txt
 │   │   │   ├── hw02
 │   │   │   │   ├── hw02.c
 │   │   │   │   ├── hw-02-ch1-sp-GameofLife.pdf
@@ -102,9 +100,7 @@ documents
 │   │       ├── Recitation02
 │   │       │   ├── ch01-ex02-English-text.pdf
 │   │       │   ├── Output.txt
-│   │       │   ├── Output.txt~
-│   │       │   ├── Recitation02.c
-│   │       │   └── Recitation02.c~
+│   │       │   └── Recitation02.c
 │   │       ├── Recitation03
 │   │       │   ├── ch02-ex02-call-by-ref-line-intersection.pdf
 │   │       │   ├── output.txt
@@ -162,19 +158,15 @@ documents
 │   ├── computerArchitecture
 │   │   ├── assignment2
 │   │   │   ├── memory.c
-│   │   │   ├── memory.c~
 │   │   │   ├── memory-large.txt
-│   │   │   ├── memory-large.txt~
 │   │   │   ├── memory-small2.txt
 │   │   │   ├── memory-small3.txt
 │   │   │   ├── memory-small.txt
 │   │   │   └── test.txt
 │   │   └── assignment3
 │   │       ├── memory.c
-│   │       ├── memory.c~
 │   │       ├── memory.c.txt
 │   │       ├── memory-large.txt
-│   │       ├── memory-large.txt~
 │   │       ├── memoryold.c
 │   │       ├── memory-small2.txt
 │   │       ├── memory-small3.txt
@@ -197,43 +189,30 @@ documents
 │   │   ├── cs3733
 │   │   │   ├── assign1
 │   │   │   │   ├── assign1-0.c
-│   │   │   │   ├── assign1-0.c~
 │   │   │   │   ├── assign1.c
-│   │   │   │   ├── assign1.c~
 │   │   │   │   ├── makefile
 │   │   │   │   ├── makefile2
 │   │   │   │   ├── pslibrary.c
-│   │   │   │   ├── pslibrary.c~
 │   │   │   │   ├── pslibrary.h
-│   │   │   │   ├── pslibrary.h~
 │   │   │   │   ├── runalla.c
-│   │   │   │   ├── test.c
-│   │   │   │   └── test.c~
+│   │   │   │   └── test.c
 │   │   │   ├── assign2old
 │   │   │   │   ├── assign1-0.c
-│   │   │   │   ├── assign1-0.c~
 │   │   │   │   ├── assign1.c
-│   │   │   │   ├── assign1.c~
 │   │   │   │   ├── assign2.c
-│   │   │   │   ├── assign2.c~
 │   │   │   │   ├── docu
 │   │   │   │   ├── docu1
 │   │   │   │   ├── makefile
 │   │   │   │   ├── output
 │   │   │   │   ├── pslibrary.c
-│   │   │   │   ├── pslibrary.c~
-│   │   │   │   ├── pslibrary.c~~
 │   │   │   │   ├── pslibrary.h
-│   │   │   │   ├── pslibrary.h~
 │   │   │   │   ├── pslibrary.h.gch
 │   │   │   │   ├── runall.c
 │   │   │   │   └── tfile
 │   │   │   ├── assign3
 │   │   │   │   ├── HEADER.html
 │   │   │   │   ├── myexp.exp
-│   │   │   │   ├── myexp.exp~
 │   │   │   │   ├── myrun.run
-│   │   │   │   ├── myrun.run~
 │   │   │   │   ├── part1.html
 │   │   │   │   ├── part2.html
 │   │   │   │   ├── part3.html
@@ -260,17 +239,14 @@ documents
 │   │   │   │   └── test
 │   │   │   ├── assign4
 │   │   │   │   ├── part0.c
-│   │   │   │   ├── part0.c~
 │   │   │   │   ├── part0.result
 │   │   │   │   ├── part0.result.txt
 │   │   │   │   ├── part1.c
-│   │   │   │   ├── part1.c~
 │   │   │   │   ├── part1.out
 │   │   │   │   ├── part1.out.txt
 │   │   │   │   ├── part1.result
 │   │   │   │   ├── part1.result.txt
 │   │   │   │   ├── part2.c
-│   │   │   │   ├── part2.c~
 │   │   │   │   ├── part2.c.save
 │   │   │   │   ├── part2.out
 │   │   │   │   ├── part2.out.txt
@@ -283,7 +259,6 @@ documents
 │   │   │   │   ├── part2.time
 │   │   │   │   ├── part2.time.txt
 │   │   │   │   ├── part3.c
-│   │   │   │   ├── part3.c~
 │   │   │   │   ├── part3.out
 │   │   │   │   ├── part3.result
 │   │   │   │   ├── part3.result.time
@@ -297,7 +272,6 @@ documents
 │   │   │   │   ├── part4-5.out
 │   │   │   │   ├── part4-8.out
 │   │   │   │   ├── part4.c
-│   │   │   │   ├── part4.c~
 │   │   │   │   ├── part4.c.save
 │   │   │   │   ├── part4.question
 │   │   │   │   ├── part4.question.txt
@@ -307,22 +281,18 @@ documents
 │   │   │   │   ├── part4.times
 │   │   │   │   ├── part4.times.txt
 │   │   │   │   ├── primelib.c
-│   │   │   │   ├── primelib.c~
 │   │   │   │   ├── primelib.h
 │   │   │   │   ├── script.sh
 │   │   │   │   └── testpart1.c
 │   │   │   ├── assign4old
 │   │   │   │   ├── assign4.c
-│   │   │   │   ├── assign4.c~
 │   │   │   │   ├── makefile
 │   │   │   │   ├── nqueens_library.c
-│   │   │   │   ├── nqueens_library.c~
 │   │   │   │   ├── nqueens_library.c.save
 │   │   │   │   ├── nqueens_library.c.save.1
 │   │   │   │   ├── nqueens_library.c.save.2
 │   │   │   │   ├── nqueens_library.c.save.3
-│   │   │   │   ├── nqueens_library.h
-│   │   │   │   └── nqueens_library.h~
+│   │   │   │   └── nqueens_library.h
 │   │   │   ├── assign5
 │   │   │   │   ├── client2.c
 │   │   │   │   ├── client_audio.c
@@ -497,15 +467,11 @@ documents
 │   │   │   │   └── makefile
 │   │   │   ├── recF
 │   │   │   │   ├── counter.c
-│   │   │   │   ├── counter.c~
 │   │   │   │   ├── countertest.c
-│   │   │   │   ├── countertest.c~
 │   │   │   │   ├── gettimeofdaytiming.c
 │   │   │   │   ├── logfile
-│   │   │   │   ├── logfile~
 │   │   │   │   ├── logfile.txt
-│   │   │   │   ├── makefile
-│   │   │   │   └── makefile~
+│   │   │   │   └── makefile
 │   │   │   ├── recG1
 │   │   │   │   ├── ChainOfProcesses
 │   │   │   │   ├── FanOfProcesses
@@ -514,7 +480,6 @@ documents
 │   │   │   │   ├── HEADER.html
 │   │   │   │   ├── logfile.html
 │   │   │   │   ├── ringconfig
-│   │   │   │   ├── ringconfig~
 │   │   │   │   ├── RingOfProcesses
 │   │   │   │   ├── runring
 │   │   │   │   └── TreeOfProcesses
@@ -527,13 +492,11 @@ documents
 │   │   │   │   ├── logfile.answers.html
 │   │   │   │   ├── oldlogfile.html
 │   │   │   │   ├── ringconfig
-│   │   │   │   ├── ringconfig~
 │   │   │   │   ├── RingOfProcesses
 │   │   │   │   ├── runring
 │   │   │   │   └── TreeOfProcesses
 │   │   │   ├── recH
 │   │   │   │   ├── answers.txt
-│   │   │   │   ├── answers.txt~
 │   │   │   │   ├── client2.c
 │   │   │   │   ├── client_audio.c
 │   │   │   │   ├── client.c
@@ -565,13 +528,10 @@ documents
 │   │   │   │   └── u_open.c
 │   │   │   ├── recI
 │   │   │   │   ├── addressconfig
-│   │   │   │   ├── addressconfig~
 │   │   │   │   ├── logfile01.html
 │   │   │   │   ├── logfile02.html
-│   │   │   │   ├── runaddress
-│   │   │   │   └── runaddress~
-│   │   │   ├── test.c
-│   │   │   └── test.c~
+│   │   │   │   └── runaddress
+│   │   │   └── test.c
 │   │   └── sourceCode
 │   │       ├── appendixB
 │   │       │   ├── README
@@ -1257,10 +1217,8 @@ documents
 │       │   ├── active
 │       │   ├── news.awk
 │       │   ├── newsfeed.awk
-│       │   ├── newsfeed.awk~
 │       │   ├── news.notice
 │       │   ├── newsread.awk
-│       │   ├── newsread.awk~
 │       │   ├── newssmall
 │       │   ├── newssmall.sed
 │       │   ├── result.1
@@ -1412,7 +1370,6 @@ documents
 │       │   ├── prog3.c
 │       │   ├── prog4.c
 │       │   ├── prog6.c
-│       │   ├── prog6.c~
 │       │   └── prog6M.c
 │       ├── perl
 │       │   ├── doublespace2.pl
@@ -1446,7 +1403,6 @@ documents
 │       │   ├── prog2.sed
 │       │   ├── prog3.sed
 │       │   ├── prog4.sed
-│       │   ├── prog4.sed~
 │       │   └── prog5.sed
 │       ├── simperl
 │       │   ├── file1
@@ -1516,9 +1472,7 @@ documents
 │       │   ├── tfile1.txt
 │       │   ├── xcomm
 │       │   ├── xcomm.clean
-│       │   ├── xcomm.clean~
-│       │   ├── xcomm.sed
-│       │   └── xcomm.sed~
+│       │   └── xcomm.sed
 │       └── test2l
 │           ├── filein
 │           ├── fileout
@@ -1540,13 +1494,9 @@ documents
     │       ├── burrowswheelertransform.java
     │       ├── MotifFinding.java
     │       ├── problemA1output.txt
-    │       ├── problemA1output.txt~
     │       ├── problemA2output.txt
-    │       ├── problemA2output.txt~
     │       ├── problemB2_c_output.txt
-    │       ├── problemB2_c_output.txt~
-    │       ├── README.txt
-    │       └── README.txt~
+    │       └── README.txt
     ├── dataStructures
     │   ├── balanceproject
     │   │   ├── ArrayIterator.java
@@ -2098,22 +2048,13 @@ documents
     │   │   └── SearchTest.java
     │   ├── week09Init
     │   │   ├── FastSort.java
-    │   │   ├── FastSorts.class
-    │   │   ├── InsertionSortTest.class
     │   │   ├── InsertionSortTest.java
-    │   │   ├── MergeSortTester.class
     │   │   ├── MergeSortTester.java
-    │   │   ├── Name.class
     │   │   ├── Name.java
     │   │   ├── QuadraticSort.java
-    │   │   ├── QuadraticSorts.class
-    │   │   ├── QuickSortTester.class
     │   │   ├── QuickSortTester.java
-    │   │   ├── Searching.class
     │   │   ├── Search.java
-    │   │   ├── SearchTest.class
-    │   │   ├── SearchTest.java
-    │   │   └── Utility.class
+    │   │   └── SearchTest.java
     │   ├── week10
     │   │   ├── argfile
     │   │   ├── ArrayIterator.java
@@ -2172,31 +2113,21 @@ documents
     │   │   ├── UnorderedLinkedList.java
     │   │   └── UnorderedListADT.java
     │   ├── week10Init
-    │   │   ├── ArrayIterator.class
     │   │   ├── ArrayIterator.java
-    │   │   ├── ArraySet.class
     │   │   ├── ArraySet.java
-    │   │   ├── ArraySetTest.class
     │   │   ├── ArraySetTest.java
     │   │   ├── ArrayStack.java
     │   │   ├── BasicLinkedList.java
-    │   │   ├── BinaryTreeADT.class
     │   │   ├── BinaryTreeADT.java
-    │   │   ├── BinaryTreeNode.class
     │   │   ├── BinaryTreeNode.java
     │   │   ├── BitInputStream.java
     │   │   ├── BitOutputStream.java
     │   │   ├── DoubleIterator.java
-    │   │   ├── DoubleNode.class
     │   │   ├── DoubleNode.java
-    │   │   ├── ElementNotFoundException.class
     │   │   ├── ElementNotFoundException.java
-    │   │   ├── EmptyCollectionException.class
     │   │   ├── EmptyCollectionException.java
     │   │   ├── EmptyListException.java
-    │   │   ├── EmptySetException.class
     │   │   ├── EmptySetException.java
-    │   │   ├── EmptyStackException.class
     │   │   ├── EmptyStackException.java
     │   │   ├── FastSort.java
     │   │   ├── HuffmanCodingEntry.java
@@ -2204,59 +2135,37 @@ documents
     │   │   ├── HuffmanDecoderTester.java
     │   │   ├── HuffmanEncoder.java
     │   │   ├── HuffmanEncoderTester.java
-    │   │   ├── IndexedLinkedList.class
     │   │   ├── IndexedLinkedList.java
-    │   │   ├── IndexedListADT.class
     │   │   ├── IndexedListADT.java
-    │   │   ├── LinearNode.class
     │   │   ├── LinearNode.java
-    │   │   ├── LinkedBinaryTree.class
     │   │   ├── LinkedBinaryTree.java
-    │   │   ├── LinkedBinaryTreeTester.class
     │   │   ├── LinkedBinaryTreeTester.java
-    │   │   ├── LinkedInorderTraversalIterator.class
-    │   │   ├── LinkedIterator.class
     │   │   ├── LinkedIterator.java
     │   │   ├── LinkedListIterator.java
     │   │   ├── LinkedListSet.java
     │   │   ├── LinkedListTester.java
-    │   │   ├── LinkedOrderedSet.class
     │   │   ├── LinkedOrderedSet.java
-    │   │   ├── LinkedPriorityQueue.class
     │   │   ├── LinkedPriorityQueue.java
-    │   │   ├── LinkedPriorityQueueTester.class
     │   │   ├── LinkedPriorityQueueTester.java
-    │   │   ├── LinkedQueue.class
     │   │   ├── LinkedQueue.java
-    │   │   ├── LinkedQueueTester.class
     │   │   ├── LinkedQueueTester.java
-    │   │   ├── LinkedSet.class
     │   │   ├── LinkedSet.java
-    │   │   ├── LinkedSetTest.class
     │   │   ├── LinkedSetTest.java
     │   │   ├── LinkedStack.java
     │   │   ├── ListADT.java
-    │   │   ├── NonComparableElementException.class
     │   │   ├── NonComparableElementException.java
-    │   │   ├── OrderedLinkedList.class
     │   │   ├── OrderedLinkedList.java
-    │   │   ├── OrderedListADT.class
     │   │   ├── OrderedListADT.java
-    │   │   ├── PriorityQueueADT.class
     │   │   ├── PriorityQueueADT.java
     │   │   ├── QuadraticSort.java
-    │   │   ├── QueueADT.class
     │   │   ├── QueueADT.java
     │   │   ├── Search.java
-    │   │   ├── SetADT.class
     │   │   ├── SetADT.java
     │   │   ├── SimpleLinkedList.java
     │   │   ├── SimpleListADT.java
     │   │   ├── SimpleNode.java
     │   │   ├── StackADT.java
-    │   │   ├── UnorderedLinkedList.class
     │   │   ├── UnorderedLinkedList.java
-    │   │   ├── UnorderedListADT.class
     │   │   └── UnorderedListADT.java
     │   ├── week11Init
     │   │   ├── argfile
@@ -2617,111 +2526,75 @@ documents
     ├── programmingOne
     │   ├── finalreviewproblems
     │   │   ├── problemFive.java
-    │   │   ├── problemFive.java~
     │   │   ├── problemFour.java
-    │   │   ├── problemFour.java~
     │   │   ├── problemOne.java
-    │   │   ├── problemOne.java~
     │   │   ├── problemSix.java
-    │   │   ├── problemSix.java~
     │   │   ├── problemTwo.java
-    │   │   ├── problemTwo.java~
     │   │   ├── stringAgainFour.java
-    │   │   ├── stringAgainFour.java~
     │   │   ├── stringAgain.java
-    │   │   ├── stringAgain.java~
     │   │   ├── stringAgainThree.java
-    │   │   ├── stringAgainThree.java~
     │   │   └── stringAgainTwo.java
     │   ├── graphics
     │   │   ├── DrawingPanel.java
     │   │   ├── Hyperbola.java
-    │   │   ├── Hyperbola.java~
-    │   │   ├── OutlineExample2.java
-    │   │   └── OutlineExample2.java~
+    │   │   └── OutlineExample2.java
     │   ├── lab3
     │   │   ├── FutureValues.java
-    │   │   ├── FutureValues.java~
     │   │   └── FutureValuesOutput.txt.txt
     │   ├── lab4
     │   │   └── lab4
     │   │       ├── DrawingPanel.java
     │   │       ├── Hyperbola.java
-    │   │       ├── Hyperbola.java~
-    │   │       ├── StarWarsName.java
-    │   │       └── StarWarsName.java~
+    │   │       └── StarWarsName.java
     │   ├── lab5
     │   │   ├── Circles.java
-    │   │   ├── Circles.java~
-    │   │   ├── Circles.java~~
     │   │   ├── circlesOUTPUT.txt
     │   │   └── DrawingPanel.java
     │   ├── lab6
     │   │   ├── Playoffs.java
-    │   │   ├── Playoffs.java~
     │   │   └── PlayoffsOUTPUT.txt
     │   ├── lab7
     │   │   ├── DrawingPanel.java
-    │   │   ├── randomWalk.java
-    │   │   └── randomWalk.java~
+    │   │   └── randomWalk.java
     │   ├── Project1
     │   │   ├── Tables.java
-    │   │   ├── Tables.java~
     │   │   └── tablesOutput.txt
     │   ├── project2
     │   │   └── project2
     │   │       ├── BouncingBall.java
-    │   │       ├── BouncingBall.java~
     │   │       └── DrawingPanel.java
     │   ├── project3
     │   │   ├── DrawingPanel.java
-    │   │   ├── TicTacToe.java
-    │   │   └── TicTacToe.java~
+    │   │   └── TicTacToe.java
     │   ├── week11&12
     │   │   ├── Week11
     │   │   │   ├── FencePost.java
-    │   │   │   ├── FencePost.java~
     │   │   │   ├── RandomNumbers.java
-    │   │   │   ├── RandomNumbers.java~
-    │   │   │   ├── testWhile.java
-    │   │   │   └── testWhile.java~
-    │   │   ├── week11and12.java
-    │   │   └── week11and12.java~
+    │   │   │   └── testWhile.java
+    │   │   └── week11and12.java
     │   ├── Week13
     │   │   ├── array1.java
     │   │   ├── Primes.java
-    │   │   ├── Primes.java~
-    │   │   ├── Temperatures.java
-    │   │   └── Temperatures.java~
+    │   │   └── Temperatures.java
     │   ├── Week16
     │   │   ├── 11-spring-final-answers.pdf
     │   │   ├── array2DDoubles.java
     │   │   ├── ArrayString.java
     │   │   └── reviewActivities.java
     │   ├── week6and7
-    │   │   ├── StringTest.java
-    │   │   └── StringTest.java~
+    │   │   └── StringTest.java
     │   └── Week9
     │       ├── CharacterInterger.java
-    │       ├── CharacterInterger.java~
     │       ├── CharacterMethodsTest.java
-    │       ├── CharacterMethodsTest.java~
     │       ├── codePaths.java
-    │       ├── codePaths.java~
     │       ├── CountAChar.java
-    │       ├── CountAChar.java~
     │       ├── CountUpperLower.java
-    │       ├── CountUpperLower.java~
     │       ├── DrawingPanel.java
     │       ├── percentCorrect.java
-    │       ├── percentCorrect.java~
     │       ├── precondition.java
-    │       ├── precondition.java~
     │       ├── ShiftedMovingCircles.java
-    │       ├── ShiftedMovingCircles.java~
     │       ├── ShiftedStraightLineMove.java
-    │       ├── SwitchCase.java
-    │       └── SwitchCase.java~
+    │       └── SwitchCase.java
     └── programmingTwo
         ├── Bonus
         │   ├── pr1
@@ -2911,4 +2784,4 @@ documents
             │   └── SemiPongPanel.java
             └── ProductCodes.java
 
-209 directories, 2702 files
+209 directories, 2575 files

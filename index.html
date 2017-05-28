@@ -36,31 +36,8 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="workPage.js" type="text/javascript"></script>
-<script type='text/javascript'>
-	/* 	ZIndex note
-		Keep a current Zindex based on the div recently clicked.
-		Depending on the number of active divs, create a number ordering system.		
-		aboutIcon
-		workIcon
-		calcIcon
-		calculator
-		aboutPage
-		workPage
-		matrixPage
-	*/
-	
-	/* 
-		Documents note
-		!folderName
-			+documents
-				-cProgrammingFiles
-					--advancedProgramming
-					--architecture
-				-javaProgrammingFiles
-			
-	
-	*/
+<script src="workPage.js" type="text/javascript" ></script>
+<script type='text/javascript' >
 	
 	var zIndexTopNav = 100;
 	var zIndexBottomNav = 100;
@@ -807,23 +784,10 @@
 	
 	/* Change Z-Index */
 	function changeZIndex(divName) {
-		/* List of Divs to Change */
-		/* 	aboutIcon
-			workIcon
-			calcIcon
-			matrixIcon
-			calculator
-			aboutPage
-			workPage
-			matrixPage
-			startMenu			
-		*/
-		 //zIndexCalculator = 10;
-		 //zIndexAboutPage = 10;
-		 //zIndexWorkPage = 10;
+
 		if (divName == 'aboutPage'){
 			
-			//var zIndex = document.getElementById(divName).style.zIndex+=10;
+			
 			document.getElementById(divName).style.zIndex= zIndexAboutPage;
 			document.getElementById('workPage').style.zIndex=8;
 			document.getElementById('calculator').style.zIndex=7;
@@ -833,7 +797,7 @@
 		}
 		if (divName == 'workPage'){
 			
-			//var zIndex = document.getElementById(divName).style.zIndex+=10;
+			
 			document.getElementById(divName).style.zIndex=zIndexWorkPage;
 			document.getElementById('aboutPage').style.zIndex=8;
 			document.getElementById('calculator').style.zIndex=7;
@@ -843,7 +807,7 @@
 		}
 		if (divName == 'calculator'){
 			
-			//var zIndex = document.getElementById(divName).style.zIndex+=10;
+			
 			document.getElementById(divName).style.zIndex=zIndexCalculator;
 			document.getElementById('aboutPage').style.zIndex=8;
 			document.getElementById('workPage').style.zIndex=7;
@@ -853,7 +817,7 @@
 		}
 		if (divName == 'matrixPage'){
 			
-			//var zIndex = document.getElementById(divName).style.zIndex+=10;
+			
 			document.getElementById(divName).style.zIndex=zIndexMatrixPage;
 			document.getElementById('aboutPage').style.zIndex=8;
 			document.getElementById('workPage').style.zIndex=7;
@@ -863,7 +827,7 @@
 		}
 		if (divName == 'viewerPage'){
 			
-			//var zIndex = document.getElementById(divName).style.zIndex+=10;
+			
 			document.getElementById(divName).style.zIndex=zIndexViewerPage;
 			document.getElementById('aboutPage').style.zIndex=8;
 			document.getElementById('workPage').style.zIndex=7;
@@ -874,7 +838,7 @@
 				
 	}
 
-	
+	/*
 	var documentOrder = new Array();
 
 	var documentLibrary = new Array();
@@ -902,7 +866,8 @@
 	var documentFiles = {};
 	documentFiles["advancedProgrammingHomeworksHw1Calendar_c"] = "documents/cFiles/advancedProgramming/Homeworks/hw01/calendar.c";
 	documentFiles["advancedProgrammingHomeworksHw2hw02_c"] = "documents/cFiles/advancedProgramming/Homeworks/hw02/hw02.c";
-
+	*/
+	
 	var documentCurrentIndex = 0;
 	var documentBackFlag = 0;
 	var documentForwardFlag = 0;
@@ -931,18 +896,24 @@
 	}
 
 	function openDocument(folderName){						
-				
-		//if (folderName == 'collegeFiles' && documentBackFlag == 0){
-		if ( (folderName == 'collegeFiles') && (documentOrder.length == 0 ) ){
+		//testExternalFile();
+		//alert(getDocumentOrderLength());
+		//var test = getDocumentOrderLength();
+		//alert(getDocumentOrderLength());
+		//if ( (folderName == 'collegeFiles') && (documentOrder.length == 0 ) ){
+		if ( (folderName == 'collegeFiles') && (getDocumentOrderLength() == 0 ) ){
 			loadFolder(folderName);
-			documentOrder.push(folderName);
+			//documentOrder.push(folderName);
+			documentOrderPush(folderName);
 			return;
 		}
 		
-		//if ( folderName == 'currentProjects' && documentBackFlag == 0){
-		if ( (folderName == 'currentProjects') && (documentOrder.length == 0) ){
+		
+		//if ( (folderName == 'currentProjects') && (documentOrder.length == 0) ){
+		if ( (folderName == 'currentProjects') && (getDocumentOrderLength() == 0 ) ){
 			loadFolder(folderName);
-			documentOrder.push(folderName);
+			//documentOrder.push(folderName);
+			documentOrderPush(folderName);
 			return;
 		}
 																
@@ -950,7 +921,8 @@
 		if (documentBackFlag == 0){														
 			documentBackFlag = 1;
 			loadFolder(folderName);
-			documentOrder.push(folderName);		
+			//documentOrder.push(folderName);		
+			documentOrderPush(folderName);
 			enableBackButton();
 		// Have to check if the user will click on a folder that is different from the value infront of the 
 		// currentDocumentIndex
@@ -961,30 +933,36 @@
 			// The user has clicked on a folder that is not in the list.
 			// Track the current index and delete the last elements of the array
 			// Disable the forward button
-			if (documentOrder.lastIndexOf(folderName) == -1){												
+			//if (documentOrder.lastIndexOf(folderName) == -1){												
+			if (getDocumentOrderLastIndexOf(folderName) == -1){
 				if (documentForwardFlag == 1){
 					//alert('here');
 					// This means the folder is not in the array
 					// Find the index of the array and remove the ones after.
 					//if (documentOrder.lastIndexOf(folderName) == -1){					
-						alert('here');
-						alert(documentCurrentIndex);
+						//alert('here');
+						//alert(documentCurrentIndex);
 						// slice or splice the array
-						alert(documentOrder);
+						//alert(documentOrder);
+						
 						documentCurrentIndex++;
-						documentOrder = documentOrder.slice(0,documentCurrentIndex);
-						alert(documentCurrentIndex);
-						alert(documentOrder);
+						//documentOrder = documentOrder.slice(0,documentCurrentIndex);
+						setDocumentOrder(documentOrder.slice(0,documentCurrentIndex));
+						
+						//alert(documentCurrentIndex);
+						//alert(documentOrder);
 						
 						loadFolder(folderName);
-						documentOrder.push(folderName);
-						alert(documentCurrentIndex);
-						alert(documentOrder);
+						//documentOrder.push(folderName);
+						documentOrderPush(folderName);
+						//alert(documentCurrentIndex);
+						//alert(documentOrder);
 										
 						documentForwardFlag = 0;
 						//$('#documentForwardButton').prop("disabled", true);
 						disableForwardButton();
-						documentCurrentIndex = (documentOrder.length - 1);												
+						//documentCurrentIndex = (documentOrder.length - 1);												
+						documentCurrentIndex = getDocumentOrderLength() - 1;
 					//} else {
 					//	loadFolder(folderName);
 					//	documentOrder.push(folderName);
@@ -992,15 +970,19 @@
 				
 				} else {
 					loadFolder(folderName);
-					documentOrder.push(folderName);
-					documentCurrentIndex = documentOrder.lastIndexOf(folderName);			
+					//documentOrder.push(folderName);
+					documentOrderPush(folderName);
+					//documentCurrentIndex = documentOrder.lastIndexOf(folderName);			
+					documentCurrentIndex = getDocumentOrderLastIndexOf(folderName);
 				}
 			
 			// The folder is already in the list
 			} else {				
 				loadFolder(folderName);			
-				documentCurrentIndex = documentOrder.lastIndexOf(folderName);				
-				if (documentCurrentIndex == (documentOrder.length -1) ){
+				//documentCurrentIndex = documentOrder.lastIndexOf(folderName);				
+				documentCurrentIndex = getDocumentOrderLastIndexOf(folderName);
+				//if (documentCurrentIndex == (documentOrder.length -1) ){
+				if (documentCurrentIndex == getDocumentOrderLength() - 1){
 					disableForwardButton();
 				} else {
 					enableForwardButton();
@@ -1011,9 +993,17 @@
 
 
 	function loadFolder(folderName){
-		if (documentNames.lastIndexOf(folderName) != -1){		
+		//alert(getDocumentLibrary(0));
+		//alert(getDocumentNamesLastIndexOf(folderName) + 'lastIndexOf');
+		//if (documentNames.lastIndexOf(folderName) != -1){		
+		if (getDocumentNamesLastIndexOf(folderName) != -1){		
 			$('#workPageDocumentsFolderList').empty();
-			$('#workPageDocumentsFolderList').append(documentLibrary[documentNames.lastIndexOf(folderName)]);					
+			//$('#workPageDocumentsFolderList').append(documentLibrary[documentNames.lastIndexOf(folderName)]);
+			$('#workPageDocumentsFolderList').append(getDocumentLibrary(getDocumentNamesLastIndexOf(folderName)));
+			$('#documentFolderNameSpan').html(getDocumentFolderNames(folderName));
+			
+			
+			
 		}		
 	}
 
@@ -1023,7 +1013,8 @@
 		if (documentForwardFlag == 0){
 		
 			documentForwardFlag = 1;
-			documentCurrentIndex = documentOrder.length-1;
+			//documentCurrentIndex = documentOrder.length-1;
+			documentCurrentIndex = getDocumentOrderLength() - 1;
 			//alert(documentCurrentIndex);
 			
 			//$('#documentForwardButton').prop("disabled", false);
@@ -1031,7 +1022,8 @@
 			if (documentCurrentIndex >= 1){
 			
 				documentCurrentIndex--;
-				openDocument(documentOrder[documentCurrentIndex]);
+				//openDocument(documentOrder[documentCurrentIndex]);
+				openDocument(getDocumentOrder(documentCurrentIndex));
 			}
 			if (documentCurrentIndex == 0) {
 				disableBackButton();
@@ -1044,7 +1036,8 @@
 			
 			if (documentCurrentIndex > 0 ){
 				documentCurrentIndex--;
-				openDocument(documentOrder[documentCurrentIndex]);
+				//openDocument(documentOrder[documentCurrentIndex]);
+				openDocument(getDocumentOrder(documentCurrentIndex));
 				
 				if (documentCurrentIndex == 0){
 					disableBackButton();
@@ -1063,10 +1056,13 @@
 				
 		if (documentForwardFlag == 1){		
 			//This means the user has hit the back button						
-			if ( documentCurrentIndex < (documentOrder.length - 1) ){
+			//if ( documentCurrentIndex < (documentOrder.length - 1) ){
+			if ( documentCurrentIndex < (getDocumentOrderLength() - 1) ){
 				documentCurrentIndex++;
-				openDocument(documentOrder[documentCurrentIndex]);
-				if (documentCurrentIndex == (documentOrder.length -1) )	{
+				//openDocument(documentOrder[documentCurrentIndex]);
+				openDocument(getDocumentOrder(documentCurrentIndex));
+				//if (documentCurrentIndex == (documentOrder.length -1) )	{
+				if (documentCurrentIndex == (getDocumentOrderLength() -1) )	{
 					documentForwardFlag = 0;
 					//$('#documentForwardButton').prop("disabled", true);			
 					disableForwardButton();
@@ -1112,26 +1108,19 @@
 				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
 			}
 		}
-		//var embed = document.getElementById('viewerPageContent').setAttribute("src",documentFiles[fileName]);
-		$('#viewerPageContent').attr("src",documentFiles[fileName]);
-		//alert(documentFiles[fileName]);
+				
 		
-		var rpage = viewerPageRefresh(fileName);
-		setTimeout(viewerPageZIndex,90);
-		//setTimeout(rpage,100);
-		//changeZIndex('viewerPage');
-		
+		setTimeout(viewerPageZIndex,50);
+		$('#documentViewerFileNameSpan').html(getDocumentFileNames(fileName));
+		var fileToEmbed = "<embed id='viewerPageContent' src='"+getDocumentFiles(fileName)+"' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>";		
+		$('#viewerPageContent').remove();
+		$('#viewerPageContentContainer').append(fileToEmbed);					
 	}
 	
 	function viewerPageZIndex(){
 	
 		changeZIndex('viewerPage');
 	}
-	
-	function viewerPageRefresh(fileName){
-		$('#viewerPageContent').attr("src",documentFiles[fileName]);
-	}
-
 	
 		
 	/* Calculator */
@@ -1330,7 +1319,7 @@
 					</div>
 				</div>
 				<div id='workPageNavigationBar' class='col-md-12' style='position:absolute;top:30px;'>
-					<button id="documentBackButton" class='btn btn-primary' style='float:left;' onclick='documentsBack()' disabled="true"> Back </button>  <span id='documentFolderNameSpan' style='margin-left:5px;font-size:20px;'> Folder Name </span> <button id="documentForwardButton" class='btn btn-primary' style='float:right;' onclick="documentsForward()" disabled="true"> Forward </button>  
+					<button id="documentBackButton" class='btn btn-primary' style='float:left;' onclick='documentsBack()' disabled="true"> Back </button>  <span id='documentFolderNameSpan' style='margin-left:5px;font-size:20px;'>  </span> <button id="documentForwardButton" class='btn btn-primary' style='float:right;' onclick="documentsForward()" disabled="true"> Forward </button>  
 				
 				</div>									
 				<div id='workPageDocuments' class='col-md-12' style='position:absolute;top:65px;'>
@@ -1348,7 +1337,7 @@
 			
 		</div>
 		
-		<div id ='viewerPage' style='width:500px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;display:none;'>
+		<div id ='viewerPage' style='width:700px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;display:none;'>
 			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;right:0px;'> 
 				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;'> File Viewer </span>  </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
@@ -1356,10 +1345,11 @@
 				</div>
 			</div>
 			<div id='documentViewerNavigationBar' class='col-md-12' style='position:absolute;top:30px;'>
-				<span id='documentViewerNameSpan' style='margin-left:5px;font-size:20px;'> File Name </span>   				
+				<span id='documentViewerFileNameSpan' style='margin-left:5px;font-size:20px;'>  </span>   				
 			</div>
-			<embed id='viewerPageContent' src='' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:DodgerBlue;border:1px solid gray;'>
-						
+			<div id = 'viewerPageContentContainer' class='col-md-12' style='padding:0px;0px;0px;0px;'>
+				<embed id='viewerPageContent' src='' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>
+			</div>		
 		</div>
 
 		<div id='matrixPage' style='width:700px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;display:none;'> 			
@@ -1394,8 +1384,7 @@
 	
 	<!-- Bottom Menu --> 
 	<div id='bottomNav' style='width:100%;height:30px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8); bottom:0px;position:absolute;padding:0px 0px 0px 0px;display:inline-block;z-index:100;border-radius:10px 10px 10px 10px;'>		
-			<button id='bottomNavMenuButton' style='height:30px;float:left;' class='btn btn-primary' onclick='startMenu()'>Menu</button>
-			
+			<button id='bottomNavMenuButton' style='height:30px;float:left;' class='btn btn-primary' onclick='startMenu()'>Menu</button>			
 	</div>	
 </div>
 
