@@ -59,12 +59,13 @@ var collegeFiles = "<div style='width:100%;height:60px;'>" +
 						"<label for='folder'>C Programming Files </label>" +
 					"</div> " +
 				"</div>" +
-				"<div style='width:100%;height:60px;'>" +
-					"<div id='javaFiles' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
-						"<img id='folder' src='documentFolder.png' width='50' height='50' > " +
-						"<label for='folder'>Java Programming Files </label>" +
-					"</div>"+
-				"</div>";
+				" ";
+				//"<div style='width:100%;height:60px;'>" +
+				//	"<div id='javaFiles' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
+				//		"<img id='folder' src='documentFolder.png' width='50' height='50' > " +
+				//		"<label for='folder'>Java Programming Files </label>" +
+				//	"</div>"+
+				//"</div>";
 
 var cFiles = 	"<div style='width:100%;height:60px;'>" +
 					"<div id='advancedProgramming' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
@@ -72,12 +73,13 @@ var cFiles = 	"<div style='width:100%;height:60px;'>" +
 						"<label for='folder'>Advanced Programming </label>" +
 					"</div>" +
 				"</div>" +
-				"<div style='width:100%;height:60px;'>" +
-					"<div id='computerArchitecture' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
-						"<img id='folder' src='documentFolder.png' width='50' height='50' > " +
-						"<label for='folder'> Computer Architecture </label>" +
-					"</div>" +
-				"</div>";
+				" ";
+				//"<div style='width:100%;height:60px;'>" +
+				//	"<div id='computerArchitecture' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
+				//		"<img id='folder' src='documentFolder.png' width='50' height='50' > " +
+				//		"<label for='folder'> Computer Architecture </label>" +
+				//	"</div>" +
+				//"</div>";
 
 var advancedProgramming = 	"<div style='width:100%;height:60px;'>" +
 								"<div id='advancedProgrammingHomeworks' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
@@ -85,18 +87,19 @@ var advancedProgramming = 	"<div style='width:100%;height:60px;'>" +
 									"<label for='folder'>Homeworks </label>" +
 								"</div>"+
 							"</div>" +
-							"<div style='width:100%;height:60px;'>" +
-								"<div id='advancedProgrammingPractice' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
-									"<img id='folder' src='documentFolder.png' width='50' height='50' >" +
-									"<label for='folder'>Practice </label>" +
-								"</div>"+
-							"</div>" +
-							"<div style='width:100%;height:60px;'>" +
-								"<div id='advancedProgrammingRecitations' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
-									"<img id='folder' src='documentFolder.png' width='50' height='50' >" +
-									"<label for='folder'>Recitations </label>" +
-									"</div>"+
-							"</div>";
+							" ";
+							//"<div style='width:100%;height:60px;'>" +
+							//	"<div id='advancedProgrammingPractice' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
+							//		"<img id='folder' src='documentFolder.png' width='50' height='50' >" +
+							//		"<label for='folder'>Practice </label>" +
+							//	"</div>"+
+							//"</div>" +
+							//"<div style='width:100%;height:60px;'>" +
+							//	"<div id='advancedProgrammingRecitations' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
+							//		"<img id='folder' src='documentFolder.png' width='50' height='50' >" +
+							//		"<label for='folder'>Recitations </label>" +
+							//		"</div>"+
+							//"</div>";
 
 var advancedProgrammingHomeworks =	"<div style='width:100%;height:60px;'>" +
 										"<div id='advancedProgrammingHomeworksHw1' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
@@ -123,6 +126,14 @@ var advancedProgrammingHomeworks =	"<div style='width:100%;height:60px;'>" +
 										"</div>"+
 									"</div>" +
 									"<div style='width:100%;height:60px;'>" +
+										"<div id='advancedProgrammingHomeworksHw4F' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
+											"<img id='folder' src='documentFolder.png' width='50' height='50' >" +
+											"<label for='folder'>Homework 4 Final</label>" +
+										"</div>"+
+									"</div>" +
+									" ";
+									/*
+									"<div style='width:100%;height:60px;'>" +
 										"<div id='advancedProgrammingHomeworksHw5' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
 											"<img id='folder' src='documentFolder.png' width='50' height='50' >" +
 											"<label for='folder'>Homework 5</label>" +
@@ -135,7 +146,7 @@ var advancedProgrammingHomeworks =	"<div style='width:100%;height:60px;'>" +
 										"</div>"+
 									"</div>" +
 									"<div style='width:100%;height:60px;'>" +
-										"<div id='advancedProgrammingHomeworksHw7' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
+										"<div id='advancedProgrammingHomeworksHw6' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
 											"<img id='folder' src='documentFolder.png' width='50' height='50' >" +
 											"<label for='folder'>Homework 7</label>" +
 										"</div>"+
@@ -152,7 +163,7 @@ var advancedProgrammingHomeworks =	"<div style='width:100%;height:60px;'>" +
 											"<label for='folder'>Homework 9</label>" +
 										"</div>"+
 									"</div>";
-
+									*/
 var advancedProgrammingHomeworksHw1 = 	"<a id = 'advancedProgrammingHomeworksHw1Calendar_c' href='#' onclick='openFile(this.id)'> calendar.c </a>" +
 										"<br>" +
 										"<a id = 'advancedProgrammingHomeworksHw1Calendar_txt' href='#' onclick='openFile(this.id)' > calendar.txt </a>" +
@@ -177,13 +188,21 @@ var advancedProgrammingHomeworksHw3 = 	"<a id = 'advancedProgrammingHomeworksHw3
 										"<br>" +
 										"<a id = 'advancedProgrammingHomeworksHw3Output_txt' href='#' onclick='openFile(this.id)'> output.txt </a> ";
 
-var advancedProgrammingHomeworksHw4 = 	"<a id = 'advancedProgrammingHomeworksHw4Hw04.c' href='#' onclick='openFile(this.id)' > hw04.c </a> " +
+var advancedProgrammingHomeworksHw4 = 	"<a id = 'advancedProgrammingHomeworksHw4Hw04_c' href='#' onclick='openFile(this.id)' > hw04.c </a> " +
 										"<br>" +
 										"<a id = 'advancedProgrammingHomeworksHw4Hw-04-ch2-sp-payroll_pdf' href='#' onclick='openFile(this.id)'> hw-04-ch2-sp-payroll.pdf </a> " +
 										"<br>" +
 										"<a id = 'advancedProgrammingHomeworksHw4Output_txt' href='#' onclick='openFile(this.id)' > output.txt </a>" +
 										"<br>" +
 										"<a id = 'advancedProgrammingHomeworksHw4Valgrindoutput_txt' href='#' onclick='openFile(this.id)'> valgrindOutput.txt </a> ";										
+
+var advancedProgrammingHomeworksHw4F = 	"<a id = 'advancedProgrammingHomeworksHw4FHw04FinalVersion_c' href='#' onclick='openFile(this.id)' > hw04FinalVersion.c </a> " +
+										"<br>" +
+										"<a id = 'advancedProgrammingHomeworksHw4FHw-04-ch2-sp-payroll_pdf' href='#' onclick='openFile(this.id)'> hw-04-ch2-sp-payroll.pdf </a> " +
+										"<br>" +
+										"<a id = 'advancedProgrammingHomeworksHw4FOutput_txt' href='#' onclick='openFile(this.id)' > output.txt </a>" +
+										"<br>" +
+										"<a id = 'advancedProgrammingHomeworksHw4FValgrindoutput_txt' href='#' onclick='openFile(this.id)'> valgrind output.txt </a> ";
 										
 										
 var advancedProgrammingPractice = 	"fall2010MidtermOne.c" +
@@ -204,6 +223,16 @@ var advancedProgrammingPractice = 	"fall2010MidtermOne.c" +
 									"<br>" +
 									"TestingHaxPad.c";
 									
+var currentProjects = 		"<div style='width:100%;height:60px;'>" +
+								"<div id ='rubixCube' style='width:250px;height:60px;' onclick='openDocument(this.id)' >" +
+									"<img id='folder' src='documentFolder.png' width='50' height='50' >" +
+									"<label for='folder'>Rubix Cube </label>" +
+								"</div> " +
+							"</div>";
+
+var rubixCube = 	"<a id = 'rubixCube_HTML' href='#' onclick='openFile(this.id)' > index.html </a> ";
+						
+									
 var documentOrder = new Array();
 
 var documentLibrary = new Array();
@@ -215,8 +244,11 @@ documentLibrary.push(advancedProgrammingHomeworksHw1);
 documentLibrary.push(advancedProgrammingHomeworksHw2);
 documentLibrary.push(advancedProgrammingHomeworksHw3);
 documentLibrary.push(advancedProgrammingHomeworksHw4);
+documentLibrary.push(advancedProgrammingHomeworksHw4F);
 
 documentLibrary.push(advancedProgrammingPractice);
+documentLibrary.push(currentProjects);
+documentLibrary.push(rubixCube);
 
 
 var documentNames = new Array();
@@ -228,10 +260,11 @@ documentNames.push('advancedProgrammingHomeworksHw1');
 documentNames.push('advancedProgrammingHomeworksHw2');
 documentNames.push('advancedProgrammingHomeworksHw3');
 documentNames.push('advancedProgrammingHomeworksHw4');
-
-
+documentNames.push('advancedProgrammingHomeworksHw4F');
 
 documentNames.push('advancedProgrammingPractice');
+documentNames.push('currentProjects');
+documentNames.push('rubixCube');
 
 
 //This is where the src to the files will be
@@ -256,32 +289,72 @@ documentFiles["advancedProgrammingHomeworksHw3Hw-03-ch2-sp-wordsearch-string-poi
 documentFiles["advancedProgrammingHomeworksHw3Output_txt"] = "documents/cFiles/advancedProgramming/Homeworks/hw03/output.txt";
 
 /* advancedProgramming/Homeworks/hw04 */
-documentFiles["advancedProgrammingHomeworksHw4Hw04.c"] = "documents/cFiles/advancedProgramming/Homeworks/hw04/hw04.c";
+documentFiles["advancedProgrammingHomeworksHw4Hw04_c"] = "documents/cFiles/advancedProgramming/Homeworks/hw04/hw04.c";
 documentFiles["advancedProgrammingHomeworksHw4Hw-04-ch2-sp-payroll_pdf"] = "documents/cFiles/advancedProgramming/Homeworks/hw04/hw-04-ch2-sp-payroll.pdf";
 documentFiles["advancedProgrammingHomeworksHw4Output_txt"] = "documents/cFiles/advancedProgramming/Homeworks/hw04/output.txt";
 documentFiles["advancedProgrammingHomeworksHw4Valgrindoutput_txt"] = "documents/cFiles/advancedProgramming/Homeworks/hw04/valgrindOutput.txt";
 
+/* advancedProgramming/Homeworks/hw04F */
+documentFiles["advancedProgrammingHomeworksHw4FHw04FinalVersion_c"] = "documents/cFiles/advancedProgramming/Homeworks/hw04F/hw04FinalVersion.c";
+documentFiles["advancedProgrammingHomeworksHw4FHw-04-ch2-sp-payroll_pdf"] = "documents/cFiles/advancedProgramming/Homeworks/hw04F/hw-04-ch2-sp-payroll.pdf";
+documentFiles["advancedProgrammingHomeworksHw4FOutput_txt"] = "documents/cFiles/advancedProgramming/Homeworks/hw04F/output.txt";
+documentFiles["advancedProgrammingHomeworksHw4FValgrindoutput_txt"] = "documents/cFiles/advancedProgramming/Homeworks/hw04F/valgrind output.txt";
+
+/* currentProjects/rubixcube/index.html */
+documentFiles["rubixCube_HTML"] = "currentProjects/rubixcube/index.html";
+
 
 var documentFileNames = {};
+/* advancedProgramming/Homeworks/hw01 */
 documentFileNames["advancedProgrammingHomeworksHw1Calendar_c"] = "Calendar.c";
 documentFileNames["advancedProgrammingHomeworksHw1Calendar_txt"] = "Calendar.txt";
 documentFileNames["advancedProgrammingHomeworksHw1Hw01F_c"] = "Hw01F.c";
 documentFileNames["advancedProgrammingHomeworksHw1Hw-01-ch1-sp-calendar_pdf"] = "Hw-01-ch1-sp-calendar.pdf";
 documentFileNames["advancedProgrammingHomeworksHw1output_txt"] = "output.txt";
 
+/* advancedProgramming/Homeworks/hw02 */
+documentFileNames["advancedProgrammingHomeworksHw2hw02_c"] = "hw02.c";
+documentFileNames["advancedProgrammingHomeworksHw2Hw-02-ch1-sp-GameofLife_pdf"] = "hw-02-ch1-sp-GameofLife.pdf";
+documentFileNames["advancedProgrammingHomeworksHw2Output_txt"] = "output.txt";
+
+/* advancedProgramming/Homeworks/hw03 */
+documentFileNames["advancedProgrammingHomeworksHw3Computer_gif"] = "computer.gif";
+documentFileNames["advancedProgrammingHomeworksHw3hw03_c"] = "hw03.c";
+documentFileNames["advancedProgrammingHomeworksHw3Hw-03-ch2-sp-wordsearch-string-pointer_pdf"] = "hw-03-ch2-sp-wordsearch-string-pointer.pdf";
+documentFileNames["advancedProgrammingHomeworksHw3Output_txt"] = "output.txt";
+
+/* advancedProgramming/Homeworks/hw04 */
+documentFileNames["advancedProgrammingHomeworksHw4Hw04_c"] = "hw04.c";
+documentFileNames["advancedProgrammingHomeworksHw4Hw-04-ch2-sp-payroll_pdf"] = "hw-04-ch2-sp-payroll.pdf";
+documentFileNames["advancedProgrammingHomeworksHw4Output_txt"] = "output.txt";
+documentFileNames["advancedProgrammingHomeworksHw4Valgrindoutput_txt"] = "valgrindOutput.txt";
+
+/* advancedProgramming/Homeworks/hw04F */
+documentFileNames["advancedProgrammingHomeworksHw4FHw04FinalVersion_c"] = "hw04FinalVersion.c";
+documentFileNames["advancedProgrammingHomeworksHw4FHw-04-ch2-sp-payroll_pdf"] = "hw-04-ch2-sp-payroll.pdf";
+documentFileNames["advancedProgrammingHomeworksHw4FOutput_txt"] = "output.txt";
+documentFileNames["advancedProgrammingHomeworksHw4FValgrindoutput_txt"] = "valgrind output.txt";
+
+/* currentProjects/rubixcube/ */
+documentFileNames["rubixCube_HTML"] = "index.html";
 
 var documentFolderNames = {};
 documentFolderNames["collegeFiles"] = "College Files";
 documentFolderNames["cFiles"] = "C Programming Files";
 
-
+/* Advanced Programming */
 documentFolderNames['advancedProgramming'] = "Advanced Programming";
 documentFolderNames['advancedProgrammingHomeworks'] = "Homeworks";
 documentFolderNames['advancedProgrammingHomeworksHw1'] = "Homework 1";
 documentFolderNames['advancedProgrammingHomeworksHw2'] = "Homework 2";
 documentFolderNames['advancedProgrammingHomeworksHw3'] = "Homework 3";
 documentFolderNames['advancedProgrammingHomeworksHw4'] = "Homework 4";
+documentFolderNames['advancedProgrammingHomeworksHw4F'] = "Homework 4 Final";
 documentFolderNames['advancedProgrammingPractice'] = "Practice";
+
+/* current projects */
+documentFolderNames["currentProjects"] = "Current Projects";
+documentFolderNames["rubixCube"] = "Rubix Cube";
 
 
 

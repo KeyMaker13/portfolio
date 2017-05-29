@@ -508,8 +508,7 @@
 	}
 	
 	function appendBottomNav(divName){
-		
-		
+				
 		if (divName == 'aboutPage'){
 			if (bottomNavAboutPageShow == 1){
 				$('#bottomNav').append(" <div id='bottomNavAboutPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> About Me </div>  ");				
@@ -756,12 +755,17 @@
 			
 			workPageShow = 0;
 			removeBottomNav('workPage');
-			documentOrder = new Array();
-			
+			//documentOrder = new Array();		
+			setDocumentOrder(new Array());
 			documentCurrentIndex = 0;
 			documentBackFlag = 0;
 			documentForwardFlag = 0;
+			disableBackButton();
+			disableForwardButton();
 			$('#workPageDocumentsFolderList').empty();
+			$('#documentViewerFileNameSpan').html("");
+			$('#documentFolderNameSpan').html("");
+			
 			
 		}
 		if (divName == 'calculator'){
@@ -829,8 +833,8 @@
 			
 			
 			document.getElementById(divName).style.zIndex=zIndexViewerPage;
-			document.getElementById('aboutPage').style.zIndex=8;
-			document.getElementById('workPage').style.zIndex=7;
+			document.getElementById('workPage').style.zIndex=8;
+			document.getElementById('aboutPage').style.zIndex=7;
 			document.getElementById('calculator').style.zIndex=6;
 			document.getElementById('matrixPage').style.zIndex=5;
 			
@@ -1193,7 +1197,7 @@
 			<br>
 			<br>
 			<div class='loginContainerMenuRightTitle' >
-				<span style='color:snow;' >This portfolio is 95% complete.</span><br>
+				<span style='color:snow;padding-left:20px;' >JavaScript Desktop</span><br>
 				<label class='loginContainerMenuRightTitleLabel' >GUEST</label>
 			</div>								
 			<div class='loginContainerMenuRightButtonDiv' >			
@@ -1221,14 +1225,11 @@
 		</div>
 	</div>
 	
-	<div id='desktopPages' class='desktopContainerDesktopPages' >
-		
-		
-		
+	<div id='desktopPages' class='desktopContainerDesktopPages' >						
 		<!-- Calculator -->
 		<div id='calculator' class=' calculatorContainer' >			
 				<div class='col-md-12 controlBar' > 
-					<div class='col-md-8 paddingNone' style='padding-top:5px;' > <span  style='color:snow;margin-left:50px;'> Calculator </span> </div>
+					<div class='col-md-8 paddingNone' style='padding-top:5px;' > <span  style='color:snow;margin-left:50px;font-size:16px;'> Calculator </span> </div>
 					<div class='col-md-4 paddingNone' > 
 						<button class='btn btn-warning minimizeButton' onclick='minPage(this.value)' value='calculator'></button><button class='btn btn-danger closeButton' onclick='closePage(this.value)' value='calculator'></button> 
 					</div>
@@ -1269,51 +1270,40 @@
 						</div>				
 		</div>
 		
-		<div id='aboutPage'  style='width:500px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;display:none;'> 
-			
+		<div id='aboutPage'  style='width:500px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>			
 				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;'> 
-					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;'> About Me </span> </div>
+					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> About Me </span> </div>
 					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
 						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='aboutPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='aboutPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 					</div>
-				</div>
-				
-				<div class='col-md-12' style='width:500px;'>
-					
+				</div>				
+				<div class='col-md-12' style='width:500px;'>					
 						<code>
-							<a href='https://www.linkedin.com/in/ivancapistran/'> Linkedin account. </a> <br>
-							<a href='https://github.com/keymaker13'> Github account. </a><br>
-							I began programming when I was 12 years old. My current goal is to master the art of computer programming.
-							I am still a kid at heart because I do currently play pokemon. I also collect the cards.
-							I have gotten into Pokemon Go and I did not get too far. Right now I play Pokemon Trading Card Game Online.
-							Video Games? I do play. Steam account I do have.<br>
-							Question I usually don't ask. <br>
-							Do you know what Valve is? <br>
-							Do you know who Gordon Freeman is?<br>
-							Well if you do know what Valve is. <br>
-							If you also know who Gordon Freeman is. <br>
-							Then you are someone I can see as being on their way to master the art of computer programming.<br>
-							The era of mastery of computer graphics. The evolution onto better gaming.<br>
-							Think here.<br>
-							My biggest dream is to design a Playstation One Software Development Kit. I currently have not 
-							started on the project.
-							It will be an IDE software that allows the user to drag and drop models and create video games for the 
-							Playstation One.<br>
-							I want to create a C/C++ compiler and make my own libraries for the IDE.
+							<a href='https://www.linkedin.com/in/ivancapistran/' style='font-size:16px;'>Linkedin account</a> 
 							<br>
-							My latest Project I am working on is a Rubix Cube Game in JavaScript.																	
-																													
-						</code>
-					
-					
-					
-				</div>
-			
+							<a href='https://github.com/keymaker13' style='font-size:16px;'>Github account</a><br>
+							I began programming when I was 12 years old. My current goal is to master the art of computer programming.
+							I want to design a Playstation One Software Development Kit. It will be an IDE software that allows the user to drag and drop models and create video games for the 
+							Playstation One.
+							I want to create a C/C++ compiler and make my own libraries for the IDE. It is my hearts desire to study the C programming language specifically designed for 
+							the PlayStation One.
+							<br><br>
+							My latest Project I am working on is a Rubix Cube Game in JavaScript. 
+							For this portfolio I am currently displaying my college source code on the documents folder. At this moment I am still completing 
+							the folders and files.
+							You can still search through my source code on my github.<br>
+							I have began my portfolio site. I will continue to add projects on the Current Projects folder.
+							<br>
+							
+						</code>															
+				</div>			
 		</div>
-		<div id='workPage' style='width:500px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;display:none;'> 
+		
+		
+		<div id='workPage' style='width:500px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 
 			
-				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;right:0px;'> 
-					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;'> Documents </span>  </div>
+				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Documents </span>  </div>
 					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
 						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='workPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='workPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 					</div>
@@ -1337,9 +1327,9 @@
 			
 		</div>
 		
-		<div id ='viewerPage' style='width:700px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;display:none;'>
-			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;right:0px;'> 
-				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;'> File Viewer </span>  </div>
+		<div id ='viewerPage' style='width:700px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
+			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> File Viewer </span>  </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
 					<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='viewerPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='viewerPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 				</div>
@@ -1352,9 +1342,9 @@
 			</div>		
 		</div>
 
-		<div id='matrixPage' style='width:700px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;display:none;'> 			
-				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;right:0px;'> 
-					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;'> Terminal </span> </div>
+		<div id='matrixPage' style='width:700px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Terminal </span> </div>
 					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
 						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='matrixPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='matrixPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 					</div>
