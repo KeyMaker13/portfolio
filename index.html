@@ -39,6 +39,8 @@
 <script src="workPage.js" type="text/javascript" ></script>
 <script type='text/javascript' >
 	
+	
+	
 	var zIndexTopNav = 100;
 	var zIndexBottomNav = 100;
 	
@@ -899,13 +901,14 @@
 		$('#documentForwardButton').prop("disabled", true);
 	}
 
-	function openDocument(folderName){						
+	function openDocument(folderName){	
+		
 		//testExternalFile();
 		//alert(getDocumentOrderLength());
 		//var test = getDocumentOrderLength();
 		//alert(getDocumentOrderLength());
 		//if ( (folderName == 'collegeFiles') && (documentOrder.length == 0 ) ){
-		if ( (folderName == 'collegeFiles') && (getDocumentOrderLength() == 0 ) ){
+		if ( (folderName == 'documents') && (getDocumentOrderLength() == 0 ) ){
 			loadFolder(folderName);
 			//documentOrder.push(folderName);
 			documentOrderPush(folderName);
@@ -1116,9 +1119,29 @@
 		
 		setTimeout(viewerPageZIndex,50);
 		$('#documentViewerFileNameSpan').html(getDocumentFileNames(fileName));
-		var fileToEmbed = "<embed id='viewerPageContent' src='"+getDocumentFiles(fileName)+"' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>";		
+		
+		//var convertToText = " ";
+		var fileToEmbed = "<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;overflow-y:auto;'>   </div>";
 		$('#viewerPageContent').remove();
-		$('#viewerPageContentContainer').append(fileToEmbed);					
+		$('#viewerPageContentContainer').append(fileToEmbed);	
+		
+		jQuery.get(getDocumentFiles(fileName), function(data) {
+			//alert(data);
+			//convertToText = data;
+			//alert(convertToText);
+			
+			$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + data + "</pre>");
+			
+		});
+		
+		//alert(convertToText);
+		//alert(convertToText);
+		//var fileToEmbed = "<embed id='viewerPageContent' src='"+getDocumentFiles(fileName)+"'  class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>";
+		//var fileToEmbed = "<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;scroll-y:auto;'> Test: "+ convertToText +" </div>";
+		//alert(convertToText);
+		
+		//$('#viewerPageContent').remove();
+		//$('#viewerPageContentContainer').append(fileToEmbed);					
 	}
 	
 	function viewerPageZIndex(){
@@ -1182,7 +1205,7 @@
 	}
 </script>
 </head>
-<body>
+<body style='background-color:steelblue;'>
 <!-- Classic Login Screen -->
 <div id='login' class='loginContainer' >
 	<div id='menu' class='loginContainerMenu' >
@@ -1289,10 +1312,7 @@
 							the PlayStation One.
 							<br><br>
 							My latest Project I am working on is a Rubix Cube Game in JavaScript. 
-							For this portfolio I am currently displaying my college source code on the documents folder. At this moment I am still completing 
-							the folders and files.
-							You can still search through my source code on my github.<br>
-							I have began my portfolio site. I will continue to add projects on the Current Projects folder.
+							For this portfolio I am currently displaying it at a resolution size of 1024 x 768.
 							<br>
 							
 						</code>															
@@ -1315,11 +1335,11 @@
 				<div id='workPageDocuments' class='col-md-12' style='position:absolute;top:65px;'>
 					<div class='row'>
 						<div class='col-md-4' style='border:1px solid black;height:100px;padding-top:10px;'>							
-							<div id='collegeFiles' style='width:100%;height:20px;border:1px solid black;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);color:snow;' onclick='openDocument(this.id)'> <span style='cursor:pointer;padding-left:15px;'> College Files </span> </div>
+							<div id='documents' style='width:100%;height:20px;border:1px solid black;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);color:snow;' onclick='openDocument(this.id)'> <span style='cursor:pointer;padding-left:15px;'> College Files </span> </div>
 							<br>
 							<div id='currentProjects' style='width:100%;height:20px;border:1px solid black;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);color:snow;' onclick='openDocument(this.id)'> <span style='cursor:pointer;padding-left:15px;'> Current Projects </span> </div>
 						</div>
-						<div id='workPageDocumentsFolderList' class='col-md-8' style='border:1px solid black;overflow-y:auto;max-height:520px;'>																																	
+						<div id='workPageDocumentsFolderList' class='col-md-8' style='border:1px solid black;overflow-y:auto;max-height:520px;padding-top:5px;'>																																	
 						</div>
 					</div>
 					
@@ -1338,7 +1358,8 @@
 				<span id='documentViewerFileNameSpan' style='margin-left:5px;font-size:20px;'>  </span>   				
 			</div>
 			<div id = 'viewerPageContentContainer' class='col-md-12' style='padding:0px;0px;0px;0px;'>
-				<embed id='viewerPageContent' src='' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>
+				<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;overflow-y:auto;'> </div>
+				<!--<embed id='viewerPageContent' src='' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>-->
 			</div>		
 		</div>
 
