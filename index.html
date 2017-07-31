@@ -1,20 +1,7 @@
-<!-- 
-	
-	- When other pages are clicked, close the startmenu.
-	+ Position divs in #desktopPages in a certain location.
-		+ When user clicks on Icon the page will not load on the bottom of the screen.
-	- Make an editor program to view the java and c files.
-	- For the documents section
-		+ Think about the system design.
-		- Emulate the design of a operating system.
-		- Have folder system
-			- Use embed to display source code files
-	- When user clicks focuses on a new work page
-		- Fix the changeZIndex function to order them differently
-	- A web browser on the portfolio for the About Me links
-	- Show Resume on portfolio
+<!--
+    Welcome to the source code. Feel free to browse. 
 
- -->
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,8 +25,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="workPage.js" type="text/javascript" ></script>
 <script type='text/javascript' >
-	
-	
 	
 	var zIndexTopNav = 100;
 	var zIndexBottomNav = 100;
@@ -65,7 +50,6 @@
 	var positionCalculatorY = 60;
 	var positionViewerPageY = 65;
 	var positionMatrixPageY = 50;
-	
 	
 	var aboutPageShow = 0;
 	var workPageShow = 0;
@@ -102,15 +86,13 @@
 			document.getElementById('bottomNavMenuButton').classList.add('btn-primary');
 		}		
 		document.getElementById('login').style.display = 'block';
-		
 	}
-
+    
 	/* Calendar and Time */
 	$( function() {
 	    var cshow = 0;
 		$('#clockbox').on("click", function(){ 
 	    	if (cshow == 0){
-			  
 			  $('#calendar').show();			  			 
 			  cshow = 1;
 	    	} else if (cshow == 1){
@@ -149,7 +131,6 @@
 	
 	/* Drag and Drop */
 	$( function() {
-	    
 	    $( "#aboutIcon" ).draggable( {containment: "parent"});
 	    $( "#workIcon" ).draggable( {containment: "parent"});
 	    $( "#calcIcon" ).draggable( {containment: "parent"});
@@ -159,7 +140,6 @@
 	    $( "#workPage" ).draggable( {containment: "parent"});
 	    $( "#matrixPage" ).draggable( {containment: "parent"});
 		$( "#viewerPage" ).draggable( {containment: "parent"});
-	 
 	});
 	
 	/* Icon on click */
@@ -170,18 +150,13 @@
 				document.getElementById('aboutPage').style.display = 'block';				
 				aboutPageShow = 1;
 				changeZIndex('aboutPage');
-				
-				
 				if (bottomNavAboutPageShow == 0){
-				
 					bottomNavAboutPageShow = 1;
 					appendBottomNav('aboutPage');
 				} else{ 
 					
-					
 				}															
 			} else if (aboutPageShow == 1){
-				
 				changeZIndex('aboutPage');
 				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
 				if (bottomNavWorkPageShow == 1) {
@@ -196,11 +171,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
-				
-			}
-			
-									
+			}						
 		});
+        
 		$('#aboutPage').on("click", function(){
 			changeZIndex('aboutPage');
 			document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
@@ -216,8 +189,8 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
-			
 		});
+        
 		$('#aboutPage').on("drag", function(){
 			changeZIndex('aboutPage');
 			document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
@@ -235,7 +208,6 @@
 			}
 		});
 		
-		
 		$('#workIcon').on("click", function (){ 
 			if (workPageShow == 0){
 				changePosition('workPage');
@@ -243,11 +215,9 @@
 				workPageShow = 1;
 				changeZIndex('workPage');
 				if (bottomNavWorkPageShow == 0){
-					
 					bottomNavWorkPageShow = 1;
 					appendBottomNav('workPage');
 				} else{ 
-					
 					
 				}												
 			} else if (workPageShow == 1){
@@ -266,10 +236,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
-			}
-			
-									
+			}				
 		});
+        
 		$('#workPage').on("click", function(){
 			changeZIndex('workPage');
 			document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
@@ -303,8 +272,7 @@
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
 		});
-		
-				
+			
 		$('#calcIcon').on("click", function () {
 			if ( calculatorShow == 0 ){
 				changePosition('calculator');
@@ -312,16 +280,12 @@
 				calculatorShow = 1;
 				changeZIndex('calculator');				
 				if (bottomNavCalculatorShow == 0){
-					
 					bottomNavCalculatorShow = 1;
 					appendBottomNav('calculator');
 				} else{ 
 					
-					
 				}
-				
 			} else if (calculatorShow == 1){
-				
 				changeZIndex('calculator');
 				document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
 				if (bottomNavAboutPageShow == 1) {
@@ -355,6 +319,7 @@
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
 		});
+        
 		$('#calculator').on("drag", function(){
 			changeZIndex('calculator');
 			document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
@@ -842,36 +807,6 @@
 		}
 				
 	}
-
-	/*
-	var documentOrder = new Array();
-
-	var documentLibrary = new Array();
-	documentLibrary.push(collegeFiles);
-	documentLibrary.push(cFiles);
-	documentLibrary.push(advancedProgramming);
-	documentLibrary.push(advancedProgrammingHomeworks);
-	documentLibrary.push(advancedProgrammingHomeworksHw1);
-	documentLibrary.push(advancedProgrammingHomeworksHw2);
-
-	documentLibrary.push(advancedProgrammingPractice);
-
-
-	var documentNames = new Array();
-	documentNames.push('collegeFiles');
-	documentNames.push('cFiles');
-	documentNames.push('advancedProgramming');
-	documentNames.push('advancedProgrammingHomeworks');
-	documentNames.push('advancedProgrammingHomeworksHw1');
-	documentNames.push('advancedProgrammingHomeworksHw2');
-
-	documentNames.push('advancedProgrammingPractice');
-
-	//This is where the src to the files will be
-	var documentFiles = {};
-	documentFiles["advancedProgrammingHomeworksHw1Calendar_c"] = "documents/cFiles/advancedProgramming/Homeworks/hw01/calendar.c";
-	documentFiles["advancedProgrammingHomeworksHw2hw02_c"] = "documents/cFiles/advancedProgramming/Homeworks/hw02/hw02.c";
-	*/
 	
 	var documentCurrentIndex = 0;
 	var documentBackFlag = 0;
