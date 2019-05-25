@@ -1,0 +1,116 @@
+<!--
+    Welcome to the source code. Feel free to browse. 
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Terminal</title>
+
+<script src="terminal.js" type="text/javascript" ></script>
+
+</head>
+
+<body>
+
+<textarea id='terminal'>
+
+
+</textarea>
+
+
+<!--
+<canvas id='terminal' style='background-color:orange;position:absolute;top:30px;height:500px;overflow-y:auto;width:698px;'> 
+</canvas>
+-->
+
+<!-- Terminal javascript -->
+<script type='text/javascript'>
+
+//var width = terminal.width = 698;
+//var height = terminal.height = 500;
+
+
+var textarea = document.getElementById('terminal');
+
+
+
+
+var terminalHTML = document.getElementById('terminal');
+var terminalCTX = terminalHTML.getContext('2d');
+
+//alert(terminalCTX.width);
+terminalCTX.font="13px Comic Sans MS";
+//terminalCTX.fillStyle='rgba(0,0,0,0.05)';
+terminalCTX.fillText("$",0,13); 
+
+var terminalLetterX = 13;
+var terminalLetterY = 0;
+var cmd = '';
+var cmdLength = 0;
+
+alert(breakDownCMD('help'));
+
+window.onload = function() {
+
+    document.addEventListener('mousedown', function(event) { 
+        lastDownTarget = event.target;
+        alert('here');
+    }, false);
+
+    document.addEventListener('keydown', function(event) {
+        
+		if(lastDownTarget == terminalHTML) {
+            
+			var tempText = event;
+			alert(tempText.key);
+			
+			if ( tempText.key === 'Backspace' ){
+				if (terminalLetterX > 13){
+				
+					cmd = cmd.slice(0,-1);
+					cmdLength--;
+					terminalCTX.clearRect(terminalLetterX-8,terminalLetterY, terminalLetterX, terminalLetterY+17); 
+					terminalLetterX = terminalLetterX-8;
+				}
+			} else if (tempText.key === 'Enter') {
+				
+				
+				alert(cmd);
+				alert(breakDownCMD(cmd));
+				
+				
+				
+				
+				terminalCTX.fillText("\n",terminalLetterX,13);
+				terminalCTX.fillText(breakDownCMD(cmd),terminalLetterX,13);
+				//cmd += tempText.key;
+				//cmdLength++;
+				
+				
+				
+			} else if (tempText.code === 'Space' ) {
+				
+			
+			
+			} else {
+			
+				terminalCTX.fillText(tempText.key,terminalLetterX,13);
+				cmd += tempText.key;
+				cmdLength++;
+				
+				
+				terminalLetterX = terminalLetterX+8;
+			
+			}
+			
+			
+        }
+    }, false);
+};
+
+</script>
+
+</body>
+</html>

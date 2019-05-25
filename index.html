@@ -14,7 +14,9 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link rel="stylesheet" href="desktop.css">
+<!-- create style sheet classes -->
 <style>
+
 
 </style>
 
@@ -23,9 +25,12 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="workPage.js" type="text/javascript" ></script>
-<script type='text/javascript' >
-	
+
+
+<script src="workPage.js" type="text/javascript" ></script> 
+<script type='text/javascript' > 
+
+		
 	var zIndexTopNav = 100;
 	var zIndexBottomNav = 100;
 	
@@ -664,7 +669,7 @@
 		}
 	}
 	
-	function removeBottomNav(divName){
+	function removeBottomNav(divName){ 
 		
 		if (divName == 'aboutPage'){
 			$('#bottomNavAboutPage').remove();
@@ -1095,21 +1100,18 @@
 	}
 	function calculate(){
 		//regular expression checking for paranthesis
-		var re = /[\d\(*\)]/g;		
-		//var reg = new RegExp('\d\(*\)');		
-		var testString = '3(9)';
-		//testString.replace(re,)
+
+		var value = $('#displayResult').html();
+		var pattern1 = /(\d)(\()/g; 
+		var pattern2 = /(\))(\()/g;
+		var pattern3 = /(\))(\d)/g;
+		var value1 = value.replace(pattern1 , "$1"+'*'+"$2");  
+		var value2 = value1.replace(pattern2 , "$1"+'*'+"$2");
+		var value3 = value2.replace(pattern3, "$1"+'*'+"$2");
 		
-		
-		//var testvalue = eval( 3*(3)  );
-		//alert(testvalue);
-		
-		//alert( eval( 3(3)  ) );
-		
-		var value = $('#displayResult').html();				
-		
+
 		try {   
-			var test = eval(value);
+			var test = eval(value3);
 			$('#displayResult').html(test);
 		}	
 		catch(error){ 
@@ -1146,7 +1148,7 @@
 		<div class='loginContainerMenuLeft' >			
 			<br>
 			<br>
-			<img src='kingicon.png' class='loginContainerMenuLeftIcon' >
+			<img src='userIcon.png' class='loginContainerMenuLeftIcon' >
 		</div>
 		<div class='loginContainerMenuRight' >			
 			<br>
@@ -1304,7 +1306,18 @@
 						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='matrixPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='matrixPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 					</div>
 				</div>
-				<canvas id='matrixLetters' style='width:698px;height:569px;position:absolute;bottom:0px;right:0px;'></canvas>			
+				
+				<!--
+				<iframe src="terminal.html" style='background-color:blue;position:absolute;top:30px;height:500px;overflow-y:auto;width:698px;'></iframe>
+				-->
+				
+				<!--
+				<canvas id='terminal'  style='background-color:blue;position:absolute;top:30px;height:500px;overflow-y:auto;width:698px;'></canvas>
+				-->
+				
+				
+				<canvas id='matrixLetters' style='width:698px;height:569px;position:absolute;bottom:0px;right:0px;'></canvas>	
+				
 		</div>
 	</div>
 	
@@ -1331,13 +1344,17 @@
 </div>
 
 
-
 <script type='text/javascript'>
 <!-- Matrix Letters -->
+
+
 var s = window.screen;
+var matrixLetters = document.getElementById('matrixLetters');
+
+//var width = matrixLetters.width = s.width*(0.45);
+//var height = matrixLetters.height = s.height*(0.60);
 var width = matrixLetters.width = s.width*(0.45);
 var height = matrixLetters.height = s.height*(0.60);
-
 var letters = Array(256).join(1).split('');
 
 // y_pos > 768
@@ -1349,10 +1366,12 @@ var draw = function () {
 		text = String.fromCharCode(Math.floor(Math.random() * (30000 - 60)) + 60); 
 		x_pos = index * 13;
 		matrixLetters.getContext('2d').fillText(text, x_pos, y_pos);
-		letters[index] = (y_pos > 500 + Math.random() * 1e4) ? 0 : y_pos + 13;			
+		letters[index] = (y_pos > 500 + Math.random() * 1e4) ? 0 : y_pos + 13; 		
 		});		
 };	  
 setInterval(draw, 36);
+
+
 </script>
 </body>
 </html>
