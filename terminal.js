@@ -20,39 +20,18 @@ class Terminal {
 	
 	get help() {
 		
-		var t = ""+"\n"+
-				"help"+"\n"+
-				"ls"+"\n"+
-				"cp"+"\n"+
-				"mv"+"\n"+
-				"rm"+"\n"+
+		var t =	"These are the following commands for this Terminal."+"<br>"+
+				"help "+"ls "+"cp "+"mv "+"rm "+"cd "+"<br>"+
+				"mkdir "+"rmdir "+"find "+ "cat "+"nano "+"clear "+"<br>"+
+				"games "+"neo "+"jobs "+"exit "+"reboot "+"shutdown "+"<br>";
 				
-				
-				"cd"+"\n"+
-				"mkdir"+"\n"+
-				"rmdir"+"\n"+
-				"find"+"\n"+
-				
-				
-				"cat"+"\n"+
-				"nano"+"\n"+
-				"clear"+"\n"+
-				"games"+"\n"+
-				"neo"+"\n"+
-				"jobs"+"\n"+
-				
-				
-				"exit"+"\n"+
-				"reboot"+"\n"+
-				"shutdown"+"\n";
-				
-		
 		return t;
 	}
 	
 	get ls(){
-		var t = "This is ls which scans the drive and displays the files and folders";
-		
+		var t = "This is ls which scans the drive and displays the files and folders."+"<br>";
+			
+		return t;
 	}
 	
 	
@@ -63,11 +42,19 @@ const term = new Terminal();
 
 function breakDownCMD(cmd){
 	
+	var t = cmd.trimRight();
 	
-	if (cmd === "help"){
+	if (t === "help"){
 	
 		return term.help;
+	} else if (t === "ls") {
+		
+		return term.ls;
+	} else {
+		
+		return -1;
 	}
+	
 	
 	
 	

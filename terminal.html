@@ -9,15 +9,14 @@
 <title>Terminal</title>
 
 <script src="terminal.js" type="text/javascript" ></script>
-
 </head>
 
 <body>
 
-<textarea id='terminal'>
+<nav id='terminal' style='width:600px;height:500px;background-color:black;color:SpringGreen;overflow-y:auto;'>
 
 
-</textarea>
+</nav>
 
 
 <!--
@@ -28,27 +27,16 @@
 <!-- Terminal javascript -->
 <script type='text/javascript'>
 
-//var width = terminal.width = 698;
-//var height = terminal.height = 500;
-
-
-var textarea = document.getElementById('terminal');
-
-
-
-
 var terminalHTML = document.getElementById('terminal');
-var terminalCTX = terminalHTML.getContext('2d');
-
-//alert(terminalCTX.width);
-terminalCTX.font="13px Comic Sans MS";
-//terminalCTX.fillStyle='rgba(0,0,0,0.05)';
-terminalCTX.fillText("$",0,13); 
 
 var terminalLetterX = 13;
 var terminalLetterY = 0;
 var cmd = '';
 var cmdLength = 0;
+var firstClick = 0;
+var correctCounter = 0;
+var terminalInput = null;
+var terminalInputText = "";
 
 alert(breakDownCMD('help'));
 
@@ -56,53 +44,101 @@ window.onload = function() {
 
     document.addEventListener('mousedown', function(event) { 
         lastDownTarget = event.target;
-        alert('here');
+		
+		if(lastDownTarget == terminalHTML) {
+				if (firstClick === 0){
+				alert('fshere');
+				terminalHTML.innerHTML += "<nav id='terminalInput"+correctCounter+"'>$_ </nav>";
+			
+				terminalInputText = "terminalInput"+correctCounter+"";
+				terminalInput = document.getElementById(terminalInputText.toString());
+			
+				firstClick = 1;
+				}else {
+		
+				terminalInput = document.getElementById(terminalInputText.toString());
+	
+				}
+				
+		}
+		
     }, false);
 
+	
+	
+	
     document.addEventListener('keydown', function(event) {
         
 		if(lastDownTarget == terminalHTML) {
+		
+		if(firstClick === 0){
+			alert('fshere');
+			terminalHTML.innerHTML += "<nav id='terminalInput"+correctCounter+"'>$_ </nav>";
+			
+			terminalInputText = "terminalInput"+correctCounter+"";
+			terminalInput = document.getElementById(terminalInputText.toString());
+			
+			firstClick = 1;
+		}else {
+		
+			terminalInput = document.getElementById(terminalInputText.toString());
+	
+		}
+		
+		
             
 			var tempText = event;
 			alert(tempText.key);
 			
 			if ( tempText.key === 'Backspace' ){
-				if (terminalLetterX > 13){
 				
 					cmd = cmd.slice(0,-1);
 					cmdLength--;
-					terminalCTX.clearRect(terminalLetterX-8,terminalLetterY, terminalLetterX, terminalLetterY+17); 
-					terminalLetterX = terminalLetterX-8;
-				}
+					terminalInput.innerHTML = "$_ " + cmd;
+					
 			} else if (tempText.key === 'Enter') {
 				
 				
 				alert(cmd);
 				alert(breakDownCMD(cmd));
+				if (breakDownCMD(cmd) != -1){
+					alert('brokedown');
+					correctCounter = correctCounter + 1;
+					terminalHTML.innerHTML += "<br>"+ breakDownCMD(cmd) + "<br>" + "<nav id='terminalInput"+correctCounter+"' >$_ </nav>";
+					cmd = "";
+					cmdLength = 0;
+					terminalInputText = "terminalInput"+correctCounter+"";
+					alert(terminalInputText.toString());
+					terminalInput = document.getElementById(terminalInputText.toString());
+	
+					
+				
+				}
 				
 				
 				
-				
-				terminalCTX.fillText("\n",terminalLetterX,13);
-				terminalCTX.fillText(breakDownCMD(cmd),terminalLetterX,13);
-				//cmd += tempText.key;
-				//cmdLength++;
 				
 				
 				
 			} else if (tempText.code === 'Space' ) {
 				
+				cmd += tempText.key;
+				cmdLength++;
+				terminalInput.innerHTML += tempText.key;
 			
 			
 			} else {
 			
-				terminalCTX.fillText(tempText.key,terminalLetterX,13);
+			
+				alert('here');
+				//appendlastChild use this
+				
 				cmd += tempText.key;
 				cmdLength++;
 				
+				terminalInput.innerHTML += tempText.key;
 				
-				terminalLetterX = terminalLetterX+8;
-			
+				
 			}
 			
 			
