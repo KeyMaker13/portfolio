@@ -14,8 +14,6 @@
 <body>
 
 <nav id='terminal' style='width:600px;height:500px;background-color:black;color:SpringGreen;overflow-y:auto;'>
-
-
 </nav>
 
 
@@ -38,7 +36,7 @@ var correctCounter = 0;
 var terminalInput = null;
 var terminalInputText = "";
 
-alert(breakDownCMD('help'));
+alert(breakDownCMD('ls'));
 
 window.onload = function() {
 
@@ -102,6 +100,10 @@ window.onload = function() {
 				alert(cmd);
 				alert(breakDownCMD(cmd));
 				if (breakDownCMD(cmd) != -1){
+					
+					
+					alert(getCookie("path=root;"));
+					alert(getCookie("path=root\test.html;"));
 					alert('brokedown');
 					correctCounter = correctCounter + 1;
 					terminalHTML.innerHTML += "<br>"+ breakDownCMD(cmd) + "<br>" + "<nav id='terminalInput"+correctCounter+"' >$_ </nav>";
@@ -145,6 +147,8 @@ window.onload = function() {
         }
     }, false);
 };
+
+alert(getCookie("root"));
 
 </script>
 

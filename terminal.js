@@ -7,8 +7,6 @@
 // use cookies to store files 
 // become a user on the pc
 
-'use strict';
-
 
 class Terminal { 
 	
@@ -30,7 +28,14 @@ class Terminal {
 	
 	get ls(){
 		var t = "This is ls which scans the drive and displays the files and folders."+"<br>";
-			
+		
+		// set path with cookies setCookie("path=root/test","type=folder",30);
+		setCookie("path=root;type=folder;current=no;", "data=none;", 5);
+		setCookie("path=root\test;type=folder;current=no;", "data=none;", 5);
+		setCookie("path=root\test_html;type=file;current=no;", "data='testtext';", 5);
+		
+		
+
 		return t;
 	}
 	
@@ -46,11 +51,15 @@ function breakDownCMD(cmd){
 	
 	if (t === "help"){
 	
+		//setCookie("test","true",15);
+		//alert(getCookie("test"));
 		return term.help;
 	} else if (t === "ls") {
 		
 		return term.ls;
 	} else {
+		
+		
 		
 		return -1;
 	}
@@ -63,6 +72,30 @@ function breakDownCMD(cmd){
 function helpPrompt(){
 	
 	return term.help;
+}
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
 
 function terminalTest(){
