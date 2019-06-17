@@ -30,11 +30,16 @@ class Terminal {
 		var t = "This is ls which scans the drive and displays the files and folders."+"<br>";
 		
 		// set path with cookies setCookie("path=root/test","type=folder",30);
-		setCookie("path=root;type=folder;current=no;", "data=none;", 5);
+		setCookie("path=root;type=folder;current=no;", "data=test;", 5);
 		setCookie("path=root\test;type=folder;current=no;", "data=none;", 5);
 		setCookie("path=root\test_html;type=file;current=no;", "data='testtext';", 5);
 		
-		
+
+		return t;
+	}
+
+	get cp(){
+		var t = "This is to copy a file."
 
 		return t;
 	}
@@ -56,6 +61,9 @@ function breakDownCMD(cmd){
 		return term.help;
 	} else if (t === "ls") {
 		
+
+
+
 		return term.ls;
 	} else {
 		

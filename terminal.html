@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Terminal</title>
 
+<script src="workPage.js" type='text/javascript'></script>
 <script src="terminal.js" type="text/javascript" ></script>
 </head>
 
@@ -103,7 +104,7 @@ window.onload = function() {
 					
 					
 					alert(getCookie("path=root;"));
-					alert(getCookie("path=root\test.html;"));
+					//alert(getCookie("path=root\test.html;"));
 					alert('brokedown');
 					correctCounter = correctCounter + 1;
 					terminalHTML.innerHTML += "<br>"+ breakDownCMD(cmd) + "<br>" + "<nav id='terminalInput"+correctCounter+"' >$_ </nav>";
@@ -114,7 +115,6 @@ window.onload = function() {
 					terminalInput = document.getElementById(terminalInputText.toString());
 	
 					
-				
 				}
 				
 				
