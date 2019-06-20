@@ -25,21 +25,16 @@ class Terminal {
 				
 		return t;
 	}
+
 	
 	get ls(){
 		var t = "This is ls which scans the drive and displays the files and folders."+"<br>";
-		
-		// set path with cookies setCookie("path=root/test","type=folder",30);
-		setCookie("path=root;type=folder;current=no;", "data=test;", 5);
-		setCookie("path=root\test;type=folder;current=no;", "data=none;", 5);
-		setCookie("path=root\test_html;type=file;current=no;", "data='testtext';", 5);
-		
-
+	
 		return t;
 	}
 
-	get cp(){
-		var t = "This is to copy a file."
+	get cd(){
+		var t = "This is to change a directory."
 
 		return t;
 	}
@@ -52,12 +47,14 @@ const term = new Terminal();
 
 function breakDownCMD(cmd){
 	
+
 	var t = cmd.trimRight();
-	
+	// breakdown into 1 or 2 words.
+
+
 	if (t === "help"){
 	
-		//setCookie("test","true",15);
-		//alert(getCookie("test"));
+		
 		return term.help;
 	} else if (t === "ls") {
 		
@@ -65,7 +62,12 @@ function breakDownCMD(cmd){
 
 
 		return term.ls;
-	} else {
+	} else if (t == 'cd') {
+	
+	
+	
+		return term.cd;
+ 	} else {
 		
 		
 		

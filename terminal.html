@@ -37,7 +37,6 @@ var correctCounter = 0;
 var terminalInput = null;
 var terminalInputText = "";
 
-alert(breakDownCMD('ls'));
 
 window.onload = function() {
 
@@ -46,7 +45,7 @@ window.onload = function() {
 		
 		if(lastDownTarget == terminalHTML) {
 				if (firstClick === 0){
-				alert('fshere');
+				
 				terminalHTML.innerHTML += "<nav id='terminalInput"+correctCounter+"'>$_ </nav>";
 			
 				terminalInputText = "terminalInput"+correctCounter+"";
@@ -64,14 +63,12 @@ window.onload = function() {
     }, false);
 
 	
-	
-	
     document.addEventListener('keydown', function(event) {
         
 		if(lastDownTarget == terminalHTML) {
 		
 		if(firstClick === 0){
-			alert('fshere');
+			
 			terminalHTML.innerHTML += "<nav id='terminalInput"+correctCounter+"'>$_ </nav>";
 			
 			terminalInputText = "terminalInput"+correctCounter+"";
@@ -87,7 +84,8 @@ window.onload = function() {
 		
             
 			var tempText = event;
-			alert(tempText.key);
+		if ( cmdLength < 50 ){ 	
+		
 			
 			if ( tempText.key === 'Backspace' ){
 				
@@ -97,29 +95,34 @@ window.onload = function() {
 					
 			} else if (tempText.key === 'Enter') {
 				
+			
 				
-				alert(cmd);
-				alert(breakDownCMD(cmd));
+				
 				if (breakDownCMD(cmd) != -1){
 					
-					
-					alert(getCookie("path=root;"));
-					//alert(getCookie("path=root\test.html;"));
-					alert('brokedown');
 					correctCounter = correctCounter + 1;
 					terminalHTML.innerHTML += "<br>"+ breakDownCMD(cmd) + "<br>" + "<nav id='terminalInput"+correctCounter+"' >$_ </nav>";
 					cmd = "";
 					cmdLength = 0;
 					terminalInputText = "terminalInput"+correctCounter+"";
-					alert(terminalInputText.toString());
+					
 					terminalInput = document.getElementById(terminalInputText.toString());
 	
 					
+				} else if (cmd === 'clear' ){
+					
+					correctCounter = correctCounter + 1;
+					terminalHTML.innerHTML = "<nav id='terminalInput"+correctCounter+"' >$_ </nav>";
+					cmd = "";
+					cmdLength = 0;
+					terminalInputText = "terminalInput"+correctCounter+"";
+					
+					terminalInput = document.getElementById(terminalInputText.toString());
+			
+					
+
+
 				}
-				
-				
-				
-				
 				
 				
 			} else if (tempText.code === 'Space' ) {
@@ -128,27 +131,46 @@ window.onload = function() {
 				cmdLength++;
 				terminalInput.innerHTML += tempText.key;
 			
-			
-			} else {
-			
-			
-				alert('here');
-				//appendlastChild use this
+
+			} else if (tempText.key.match(/\w/g) && tempText.key.length == 1   ) {
 				
 				cmd += tempText.key;
 				cmdLength++;
-				
 				terminalInput.innerHTML += tempText.key;
+
+			} else if ( (tempText.code == 'ControlLeft') || (tempText.code == 'ShiftLeft')  ||  (tempText.code == 'AltLeft') ||  (tempText.code == 'Tab') ||  (tempText.code == 'Escape') ){
+
+
+			} else if ( (tempText.code == 'ControlRight') || (tempText.code == 'ShiftRight')  || (tempText.code == 'AltRight')) {
+
+			
 				
-				
+			} else {
+
+
+
 			}
 			
+		} else {
+			
+			
+			if ( tempText.key === 'Backspace' ){
+				
+				cmd = cmd.slice(0,-1);
+				cmdLength--;
+				terminalInput.innerHTML = "$_ " + cmd;
+			}
+
+
+
+
+		}
 			
         }
     }, false);
 };
 
-alert(getCookie("root"));
+
 
 </script>
 
