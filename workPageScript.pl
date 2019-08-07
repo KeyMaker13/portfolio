@@ -131,7 +131,7 @@ print $jsFile "var documentFolderNames = {};\n";
 
 for (@ARGV) {
 	variableNames($_);
-
+	
 }
 
 for (@ARGV) {

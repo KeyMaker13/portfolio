@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>Terminal</title>
 
+
+
 <script src="workPage.js" type='text/javascript'></script>
 <script src="terminal.js" type="text/javascript" ></script>
 </head>
@@ -82,10 +84,11 @@ window.onload = function() {
 			}
 			
 			var tempText = event;
-			alert(tempText.keyCode);
+			
+
 			if ( cmdLength < 50 ){ 	
 				
-				if ( tempText.key === 'Backspace' ){
+				if ( (tempText.key === 'Backspace') || (tempText.keyCode == 8) ){
 				
 					cmd = cmd.slice(0,-1);
 					cmdLength--;
