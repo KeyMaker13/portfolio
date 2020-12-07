@@ -21,6 +21,22 @@
 </style>
 
 <!-- JavaScript -->
+
+<script src="Build/Cesium/Cesium.js"></script>
+    <style>
+      @import url(Build/Cesium/Widgets/widgets.css);
+      html,
+      body,
+      #cesiumContainer {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Latest compiled and minified JavaScript -->
@@ -37,37 +53,43 @@
 	var zIndexAboutIcon = 10;
 	var zIndexCalcIcon = 10;
 	var zIndexMatrixIcon = 10;
+	var zIndexGlobeIcon = 10;
 	
 	var zIndexCalculator = 10;
 	var zIndexAboutPage = 10;
 	var zIndexWorkPage = 10;
 	var zIndexViewerPage = 10;
 	var zIndexMatrixPage = 10;
+	var zIndexGlobePage = 10;
 	
 	var positionAboutPageX = 60;
 	var positionWorkPageX = 80;
 	var positionCalculatorX = 100;
 	var positionViewerPageX = 120;
 	var positionMatrixPageX = 140;
+	var positionGlobePageX = 150;
 	
 	var positionAboutPageY = 40;
 	var positionWorkPageY = 50;
 	var positionCalculatorY = 60;
 	var positionViewerPageY = 65;
 	var positionMatrixPageY = 50;
-	
+	var positionGlobePageY = 65;
+
 	var aboutPageShow = 0;
 	var workPageShow = 0;
 	var calculatorShow = 0;
 	var viewerPageShow = 0;
 	var matrixPageShow = 0;
 	var startMenuShow = 0;
+	var globePageShow = 0;
 	
 	var bottomNavAboutPageShow = 0;
 	var bottomNavWorkPageShow = 0;
 	var bottomNavCalculatorShow = 0;
 	var bottomNavViewerPageShow = 0;
 	var bottomNavMatrixPageShow = 0;
+	var bottomNavGlobePageShow = 0;
 	
 	
 	/* Login to Desktop */
@@ -139,12 +161,14 @@
 	    $( "#aboutIcon" ).draggable( {containment: "parent"});
 	    $( "#workIcon" ).draggable( {containment: "parent"});
 	    $( "#calcIcon" ).draggable( {containment: "parent"});
-	    $( "#matrixIcon" ).draggable( {containment: "parent"});
+		$( "#matrixIcon" ).draggable( {containment: "parent"});
+		$( "#globeIcon" ).draggable({containment:"parant"});
 	    $( "#calculator" ).draggable( {containment: "parent"});
 	    $( "#aboutPage" ).draggable( {containment: "parent"});
 	    $( "#workPage" ).draggable( {containment: "parent"});
 	    $( "#matrixPage" ).draggable( {containment: "parent"});
 		$( "#viewerPage" ).draggable( {containment: "parent"});
+		$( '#globePage').draggable( {containment: "parent"});
 	});
 	
 	/* Icon on click */
@@ -176,6 +200,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 			}						
 		});
         
@@ -194,6 +221,9 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
         
 		$('#aboutPage').on("drag", function(){
@@ -211,6 +241,9 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
 		
 		$('#workIcon').on("click", function (){ 
@@ -240,6 +273,11 @@
 				}
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+
+				}
+
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
 			}				
 		});
@@ -259,6 +297,10 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
+
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
 		
 		$('#workPage').on("drag", function(){
@@ -276,6 +318,9 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
 			
 		$('#calcIcon').on("click", function () {
@@ -305,6 +350,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -323,6 +371,9 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
         
 		$('#calculator').on("drag", function(){
@@ -340,6 +391,9 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
 		
 		$('#viewerPage').on("click", function(){
@@ -358,6 +412,9 @@
 			if (bottomNavWorkPageShow == 1) {
 				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
 		
 		$('#viewerPage').on("drag", function(){
@@ -375,6 +432,9 @@
 			if (bottomNavWorkPageShow == 1) {
 				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
 		
 		
@@ -410,6 +470,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -428,6 +491,9 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 		});
 		
 		$('#matrixPage').on("drag", function(){
@@ -445,9 +511,91 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+
+
+		
+		
+		$('#globeIcon').on("click", function () {
+			if ( globePageShow == 0 ){
+				changePosition('globePage');
+				document.getElementById('globePage').style.display = 'block';
+				globePageShow = 1;
+				changeZIndex('globePage');				
+				if (bottomNavGlobePageShow == 0){
+					
+					bottomNavGlobePageShow = 1;
+					appendBottomNav('globePage');
+				} else{ 
+					
+					
+				}
+				
+			} else if (globePageShow == 1){
+				
+				changeZIndex('globePage');
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			}
 		});
 		
+		$('#globePage').on("click", function(){
+			changeZIndex('globePage');
+			document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+		});
 		
+		$('#globePage').on("drag", function(){
+			changeZIndex('globePage');
+			document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+		});
+
 	});
 	
 	function changePosition(divName){
@@ -476,6 +624,13 @@
 			document.getElementById(divName).style.top = ''+positionViewerPageY+'px';
 			document.getElementById(divName).style.left = ''+positionViewerPageX+'px';
 		}
+
+		if (divName == 'globePage'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionGlobePageY+'px';
+			document.getElementById(divName).style.left = ''+positionGlobePageX+'px';
+		}
+
 	}
 	
 	function appendBottomNav(divName){
@@ -496,6 +651,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 				
 				$('#bottomNavAboutPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -512,6 +670,9 @@
 					if (bottomNavViewerPageShow == 1) {
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 					changeZIndex('aboutPage');
 				});	
 			}
@@ -532,6 +693,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 				
 				$('#bottomNavWorkPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -548,6 +712,9 @@
 					if (bottomNavViewerPageShow == 1) {
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 					
 					changeZIndex('workPage');
 				});	
@@ -570,6 +737,9 @@
 				if (bottomNavMatrixPageShow == 1) {
 					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 				
 				$('#bottomNavViewerPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -586,6 +756,9 @@
 					if (bottomNavMatrixPageShow == 1) {
 						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
 					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 					
 					changeZIndex('viewerPage');
 				});	
@@ -610,7 +783,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
-				
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 				$('#bottomNavCalculator').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
 					document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
@@ -626,6 +801,9 @@
 					if (bottomNavViewerPageShow == 1) {
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 					changeZIndex('calculator');
 				});	
 			}
@@ -646,6 +824,9 @@
 				if (bottomNavViewerPageShow == 1) {
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 								
 				$('#bottomNavMatrixPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -662,11 +843,64 @@
 					if (bottomNavViewerPageShow == 1) {
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
 					
 					changeZIndex('matrixPage');
 				});	
 			}
 		}
+
+		if (divName == 'globePage'){
+			
+			if (bottomNavGlobePageShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavGlobePage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> 3D Globe </div>  ");
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavMatrixPageShow == 1){
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+
+								
+				$('#bottomNavGlobePage').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavViewerPageShow == 1) {
+						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavMatrixPageShow == 1){
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+					
+					changeZIndex('globePage');
+				});	
+			}
+		}
+
+
+
+
 	}
 	
 	function removeBottomNav(divName){ 
@@ -691,6 +925,11 @@
 			$('#bottomNavViewerPage').remove();
 			bottomNavViewerPageShow = 0;
 		}
+		if (divName == 'globePage'){
+			$('#bottomNavGlobePage').remove();
+			bottomNavGlobePageShow = 0;
+		}
+
 		
 	}
 	
@@ -711,6 +950,9 @@
 		}
 		if (divName == 'viewerPage'){
 			viewerPageShow = 0;
+		}
+		if (divName == 'globePage'){
+			globePageShow = 0;
 		}
 	}
 	
@@ -754,6 +996,11 @@
 			viewerPageShow = 0;
 			removeBottomNav('viewerPage');
 		}
+		if (divName == 'globePage'){
+			
+			globePageShow = 0;
+			removeBottomNav('globePage');
+		}
 		
 	}
 	
@@ -768,6 +1015,7 @@
 			document.getElementById('calculator').style.zIndex=7;
 			document.getElementById('matrixPage').style.zIndex=6;
 			document.getElementById('viewerPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
 			
 		}
 		if (divName == 'workPage'){
@@ -778,6 +1026,7 @@
 			document.getElementById('calculator').style.zIndex=7;
 			document.getElementById('matrixPage').style.zIndex=6;
 			document.getElementById('viewerPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
 			
 		}
 		if (divName == 'calculator'){
@@ -788,6 +1037,7 @@
 			document.getElementById('workPage').style.zIndex=7;
 			document.getElementById('matrixPage').style.zIndex=6;
 			document.getElementById('viewerPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
 			
 		}
 		if (divName == 'matrixPage'){
@@ -798,6 +1048,7 @@
 			document.getElementById('workPage').style.zIndex=7;
 			document.getElementById('calculator').style.zIndex=6;
 			document.getElementById('viewerPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
 			
 		}
 		if (divName == 'viewerPage'){
@@ -808,6 +1059,18 @@
 			document.getElementById('aboutPage').style.zIndex=7;
 			document.getElementById('calculator').style.zIndex=6;
 			document.getElementById('matrixPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
+			
+		}
+		if (divName == 'globePage'){
+			
+			
+			document.getElementById(divName).style.zIndex=zIndexGlobePage;
+			document.getElementById('workPage').style.zIndex=8;
+			document.getElementById('aboutPage').style.zIndex=7;
+			document.getElementById('calculator').style.zIndex=6;
+			document.getElementById('matrixPage').style.zIndex=5;
+			document.getElementById("viewerPage").style.zIndex=4;
 			
 		}
 				
@@ -1332,8 +1595,22 @@
 				<canvas id='matrixLetters' style='width:698px;height:569px;position:absolute;bottom:0px;right:0px;'></canvas>	
 				
 		</div>
-	</div>
+		
+
+		<div id='globePage' style='width:600px;height:400px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> 3D Globe </span> </div>
+				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
+					<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='globePage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='globePage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
+				</div>
+			</div>
+			<div style="width:100%;height:100%;position:absolute;margin-top:30px;">
+				<div id="cesiumContainer"></div>
+			</div>
+		</div>
 	
+	
+	</div>
 		
 	
 	
@@ -1343,6 +1620,7 @@
 	<img id="workIcon" src="workIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	<img id="calcIcon" src="calcIcon.ico" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	<img id="matrixIcon" src="terminalIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
+	<img id="globeIcon" src="globeicon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	
 	
 	<div id='startMenu' style='width:90px;height:50px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);z-index:100;bottom:30px;left:0px;position:absolute;display:none;padding:5px 5px 5px 5px;'>				
@@ -1350,12 +1628,17 @@
 	</div>
 	
 	
-	<!-- Bottom Menu --> 
+	<!-- Bottom Menu -->
 	<div id='bottomNav' style='width:100%;height:30px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8); bottom:0px;position:absolute;padding:0px 0px 0px 0px;display:inline-block;z-index:100;border-radius:10px 10px 10px 10px;'>		
 			<button id='bottomNavMenuButton' style='height:30px;float:left;' class='btn btn-primary' onclick='startMenu()'>Menu</button>			
 	</div>	
 </div>
 
+
+
+<script type="text/javascript">
+	var viewer = new Cesium.Viewer("cesiumContainer");
+</script>
 
 <!-- Matrix Letters -->
 <script type='text/javascript'>
