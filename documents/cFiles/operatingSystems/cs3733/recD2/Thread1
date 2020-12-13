@@ -1,4 +1,0 @@
-void *firstThread(void *args) {
-total+=read(fd,buf+total,2);
-return NULL;
-}

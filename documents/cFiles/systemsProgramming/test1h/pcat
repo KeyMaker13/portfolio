@@ -1,8 +1,0 @@
-#!/usr/bin/perl -w
-open(OUT,">$ARGV[$#ARGV]") or die "Could not open outfile";
-while(<ARGV>) {	
-print OUT $_;
-}
-
-
-
