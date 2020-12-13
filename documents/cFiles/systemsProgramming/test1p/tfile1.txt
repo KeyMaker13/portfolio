@@ -1,4 +1,0 @@
-maynard test
-capistr test
-user  	test
-banned	tester

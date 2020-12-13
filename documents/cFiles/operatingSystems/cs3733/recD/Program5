@@ -1,5 +1,0 @@
-fd = open("infile",O_RDONLY,0777);
-pthread_create(&tid,NULL,firstThread,NULL);
-total+=read(fd,buf+total,2);
-total+=read(fd,buf+total,2);
-pthread_join(tid);
