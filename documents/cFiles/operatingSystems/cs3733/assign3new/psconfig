@@ -1,8 +1,0 @@
-logdir .
-logfn logfile.html
-imagename gifim
-user Ivan Capistran
-portable true
-quiet
-run myrun
-exp myexp
