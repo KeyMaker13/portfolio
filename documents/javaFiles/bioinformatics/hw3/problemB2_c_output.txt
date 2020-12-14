@@ -1,0 +1,32 @@
+11 rotations
+
+actgctcggct
+ctgctcggcta
+tgctcggctac
+gctcggctact
+ctcggctactg
+tcggctactgc
+cggctactgct
+ggctactgctc
+gctactgctcg
+ctactgctcgg
+tactgctcggc
+
+actgctcggct
+cggctactgct
+ctactgctcgg
+ctcggctactg
+ctgctcggcta
+gctactgctcg
+gctcggctact
+ggctactgctc
+tactgctcggc
+tcggctactgc
+tgctcggctac
+
+ttggagtcccc
+
+2t2g1a1g1t4c
+Compressed length: 12
+
+Final sequence : ttggagtcccc
