@@ -1,6 +1,0 @@
-# Makefile comments……
-all: driver 
-tidy:
-rm -f ,* .,* *~ core a.out *.o graphics.ps
-# C compilations
-gccx -o driver driver.c mnemonics.c
