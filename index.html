@@ -1,0 +1,1707 @@
+<!--
+    Welcome to the source code. Feel free to browse. 
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ivan Capistran</title>
+<!-- CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css">  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="desktop.css">
+<!-- create style sheet classes -->
+<style>
+
+
+</style>
+
+<!-- JavaScript -->
+
+<script type="text/javascript">
+	
+	if (screen.width <= 699) {
+		document.location = "mobile.html";
+	}
+
+	if ( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) ) {
+	   //location.replace("mobile.html");
+	   document.location = "mobile.html";
+	}
+
+	if (navigator.userAgent.match(/Android/i)){
+
+		//location.replace("mobile.html");
+		document.location = "mobile.html";
+	}
+
+	
+</script>
+
+<script src="Build/Cesium/Cesium.js"></script>
+    <style>
+      @import url(Build/Cesium/Widgets/widgets.css);
+      #cesiumContainer {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script src="workPage.js" type="text/javascript" ></script> 
+<script type='text/javascript' > 
+
+		
+	var zIndexTopNav = 100;
+	var zIndexBottomNav = 100;
+	
+	var zIndexAboutIcon = 10;
+	var zIndexCalcIcon = 10;
+	var zIndexMatrixIcon = 10;
+	var zIndexGlobeIcon = 10;
+	
+	var zIndexCalculator = 10;
+	var zIndexAboutPage = 10;
+	var zIndexWorkPage = 10;
+	var zIndexViewerPage = 10;
+	var zIndexMatrixPage = 10;
+	var zIndexGlobePage = 10;
+	
+	var positionAboutPageX = 60;
+	var positionWorkPageX = 80;
+	var positionCalculatorX = 100;
+	var positionViewerPageX = 120;
+	var positionMatrixPageX = 140;
+	var positionGlobePageX = 150;
+	
+	var positionAboutPageY = 40;
+	var positionWorkPageY = 50;
+	var positionCalculatorY = 60;
+	var positionViewerPageY = 65;
+	var positionMatrixPageY = 50;
+	var positionGlobePageY = 65;
+
+	var aboutPageShow = 0;
+	var workPageShow = 0;
+	var calculatorShow = 0;
+	var viewerPageShow = 0;
+	var matrixPageShow = 0;
+	var startMenuShow = 0;
+	var globePageShow = 0;
+	
+	var bottomNavAboutPageShow = 0;
+	var bottomNavWorkPageShow = 0;
+	var bottomNavCalculatorShow = 0;
+	var bottomNavViewerPageShow = 0;
+	var bottomNavMatrixPageShow = 0;
+	var bottomNavGlobePageShow = 0;
+	
+	
+	/* Login to Desktop */
+	function login () { 		
+		document.getElementById('login').style.display = 'none';
+		document.getElementById('desktop').style.display = 'block';		
+	}
+	
+	/* Log off Desktop */
+	function off(){		
+		document.getElementById('desktop').style.display = 'none';
+		if (startMenuShow == 0){ 
+			document.getElementById('startMenu').style.display = 'block';
+			startMenuShow = 1;
+			document.getElementById('bottomNavMenuButton').classList.remove('btn-primary');
+			document.getElementById('bottomNavMenuButton').classList.add('btn-info');
+		} else if ( startMenuShow == 1 ){
+			document.getElementById('startMenu').style.display = 'none';
+			startMenuShow = 0;
+			document.getElementById('bottomNavMenuButton').classList.remove('btn-info');
+			document.getElementById('bottomNavMenuButton').classList.add('btn-primary');
+		}		
+		document.getElementById('login').style.display = 'block';
+	}
+    
+	/* Calendar and Time */
+	$( function() {
+	    var cshow = 0;
+		$('#clockbox').on("click", function(){ 
+	    	if (cshow == 0){
+			  $('#calendar').show();			  			 
+			  cshow = 1;
+	    	} else if (cshow == 1){
+	    		$('#calendar').hide();
+	    		cshow = 0;
+	    	}
+	    });
+	    $("#calendar").datepicker();
+	    $('#calendar').hide();
+	});
+
+	tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+	tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+
+	function GetClock(){
+		var d=new Date();
+		var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+		if(nyear<1000) nyear+=1900;
+		var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+		if(nhour==0){ap=" AM";nhour=12;}
+		else if(nhour<12){ap=" AM";}
+		else if(nhour==12){ap=" PM";}
+		else if(nhour>12){ap=" PM";nhour-=12;}
+
+		if(nmin<=9) nmin="0"+nmin;
+		if(nsec<=9) nsec="0"+nsec;
+
+		document.getElementById('clockboxSpan').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+	}
+
+	window.onload=function(){
+		GetClock();
+		setInterval(GetClock,1000);
+	}
+	
+	/* Drag and Drop */
+	$( function() {
+	    $( "#aboutIcon" ).draggable( {containment: "parent"});
+	    $( "#workIcon" ).draggable( {containment: "parent"});
+	    $( "#calcIcon" ).draggable( {containment: "parent"});
+		$( "#matrixIcon" ).draggable( {containment: "parent"});
+		$( "#globeIcon" ).draggable({containment:"parant"});
+	    $( "#calculator" ).draggable( {containment: "parent"});
+	    $( "#aboutPage" ).draggable( {containment: "parent"});
+	    $( "#workPage" ).draggable( {containment: "parent"});
+	    $( "#matrixPage" ).draggable( {containment: "parent"});
+		$( "#viewerPage" ).draggable( {containment: "parent"});
+		$( '#globePage').draggable( {containment: "parent"});
+	});
+	
+	/* Icon on click */
+	$( function() {
+		$('#aboutIcon').on("click", function (){ 
+			if (aboutPageShow == 0){
+				changePosition('aboutPage');
+				document.getElementById('aboutPage').style.display = 'block';				
+				aboutPageShow = 1;
+				changeZIndex('aboutPage');
+				if (bottomNavAboutPageShow == 0){
+					bottomNavAboutPageShow = 1;
+					appendBottomNav('aboutPage');
+				} else{ 
+					
+				}															
+			} else if (aboutPageShow == 1){
+				changeZIndex('aboutPage');
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+			}						
+		});
+        
+		$('#aboutPage').on("click", function(){
+			changeZIndex('aboutPage');
+			document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+        
+		$('#aboutPage').on("drag", function(){
+			changeZIndex('aboutPage');
+			document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+		
+		$('#workIcon').on("click", function (){ 
+			if (workPageShow == 0){
+				changePosition('workPage');
+				document.getElementById('workPage').style.display = 'block';
+				workPageShow = 1;
+				changeZIndex('workPage');
+				if (bottomNavWorkPageShow == 0){
+					bottomNavWorkPageShow = 1;
+					appendBottomNav('workPage');
+				} else{ 
+					
+				}												
+			} else if (workPageShow == 1){
+				
+				changeZIndex('workPage');
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+
+				}
+
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+			}				
+		});
+        
+		$('#workPage').on("click", function(){
+			changeZIndex('workPage');
+			document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+		
+		$('#workPage').on("drag", function(){
+			changeZIndex('workPage');
+			document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+			
+		$('#calcIcon').on("click", function () {
+			if ( calculatorShow == 0 ){
+				changePosition('calculator');
+				document.getElementById('calculator').style.display = 'block';
+				calculatorShow = 1;
+				changeZIndex('calculator');				
+				if (bottomNavCalculatorShow == 0){
+					bottomNavCalculatorShow = 1;
+					appendBottomNav('calculator');
+				} else{ 
+					
+				}
+			} else if (calculatorShow == 1){
+				changeZIndex('calculator');
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+			}
+		});
+		
+		$('#calculator').on("click", function(){
+			changeZIndex('calculator');
+			document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+        
+		$('#calculator').on("drag", function(){
+			changeZIndex('calculator');
+			document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+		
+		$('#viewerPage').on("click", function(){
+			changeZIndex('viewerPage');
+			document.getElementById('bottomNavViewerPage').style.backgroundColor = '#565656';					
+						
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+		
+		$('#viewerPage').on("drag", function(){
+			changeZIndex('viewerPage');
+			document.getElementById('bottomNavViewerPage').style.backgroundColor = '#565656';					
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+		
+		
+		
+		$('#matrixIcon').on("click", function () {
+			if ( matrixPageShow == 0 ){
+				changePosition('matrixPage');
+				document.getElementById('matrixPage').style.display = 'block';
+				matrixPageShow = 1;
+				changeZIndex('matrixPage');				
+				if (bottomNavMatrixPageShow == 0){
+					
+					bottomNavMatrixPageShow = 1;
+					appendBottomNav('matrixPage');
+				} else{ 
+					
+					
+				}
+				
+			} else if (matrixPageShow == 1){
+				
+				changeZIndex('matrixPage');
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+			}
+		});
+		
+		$('#matrixPage').on("click", function(){
+			changeZIndex('matrixPage');
+			document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+		
+		$('#matrixPage').on("drag", function(){
+			changeZIndex('matrixPage');
+			document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+		});
+
+
+		
+		
+		$('#globeIcon').on("click", function () {
+			if ( globePageShow == 0 ){
+				changePosition('globePage');
+				document.getElementById('globePage').style.display = 'block';
+				globePageShow = 1;
+				changeZIndex('globePage');				
+				if (bottomNavGlobePageShow == 0){
+					
+					bottomNavGlobePageShow = 1;
+					appendBottomNav('globePage');
+				} else{ 
+					
+					
+				}
+				
+			} else if (globePageShow == 1){
+				
+				changeZIndex('globePage');
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			}
+		});
+		
+		$('#globePage').on("click", function(){
+			changeZIndex('globePage');
+			document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+		});
+		
+		$('#globePage').on("drag", function(){
+			changeZIndex('globePage');
+			document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+		});
+
+	});
+	
+	function changePosition(divName){
+		if (divName == 'aboutPage'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionAboutPageY+'px';
+			document.getElementById(divName).style.left = ''+positionAboutPageX+'px';
+		}
+		if (divName == 'workPage'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionWorkPageY+'px';
+			document.getElementById(divName).style.left = ''+positionWorkPageX+'px';
+		}
+		if (divName == 'calculator'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionCalculatorY+'px';
+			document.getElementById(divName).style.left = ''+positionCalculatorX+'px';
+		}
+		if (divName == 'matrixPage'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionMatrixPageY+'px';
+			document.getElementById(divName).style.left = ''+positionMatrixPageX+'px';
+		}
+		if (divName == 'viewerPage'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionViewerPageY+'px';
+			document.getElementById(divName).style.left = ''+positionViewerPageX+'px';
+		}
+
+		if (divName == 'globePage'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionGlobePageY+'px';
+			document.getElementById(divName).style.left = ''+positionGlobePageX+'px';
+		}
+
+	}
+	
+	function appendBottomNav(divName){
+				
+		if (divName == 'aboutPage'){
+			if (bottomNavAboutPageShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavAboutPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> About Me </div>  ");				
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+				
+				$('#bottomNavAboutPage').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#565656';					
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavMatrixPageShow == 1) {
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavViewerPageShow == 1) {
+						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+					changeZIndex('aboutPage');
+				});	
+			}
+		}
+		if (divName == 'workPage'){
+			if (bottomNavWorkPageShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavWorkPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> Documents </div>  ");
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+				
+				$('#bottomNavWorkPage').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavMatrixPageShow == 1) {
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavViewerPageShow == 1) {
+						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+					
+					changeZIndex('workPage');
+				});	
+			}
+		}
+		
+		if (divName == 'viewerPage'){
+			if (bottomNavViewerPageShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavViewerPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> File Preview </div> ");
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#565656';					
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+				
+				$('#bottomNavViewerPage').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#565656';					
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavMatrixPageShow == 1) {
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+					
+					changeZIndex('viewerPage');
+				});	
+			}
+		}
+		
+		
+		
+		if (divName == 'calculator'){
+			if (bottomNavCalculatorShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavCalculator' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> Calculator </div>  ");
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+				$('#bottomNavCalculator').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavMatrixPageShow == 1) {
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavViewerPageShow == 1) {
+						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+					changeZIndex('calculator');
+				});	
+			}
+		}
+		if (divName == 'matrixPage'){
+			if (bottomNavMatrixPageShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavMatrixPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> Terminal </div>  ");
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+								
+				$('#bottomNavMatrixPage').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavViewerPageShow == 1) {
+						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+					
+					changeZIndex('matrixPage');
+				});	
+			}
+		}
+
+		if (divName == 'globePage'){
+			
+			if (bottomNavGlobePageShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavGlobePage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> 3D Globe </div>  ");
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavMatrixPageShow == 1){
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+
+								
+				$('#bottomNavGlobePage').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavViewerPageShow == 1) {
+						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavMatrixPageShow == 1){
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+					
+					changeZIndex('globePage');
+				});	
+			}
+		}
+
+
+
+
+	}
+	
+	function removeBottomNav(divName){ 
+		
+		if (divName == 'aboutPage'){
+			$('#bottomNavAboutPage').remove();
+			bottomNavAboutPageShow = 0;			
+		}
+		if (divName == 'workPage'){
+			$('#bottomNavWorkPage').remove();
+			bottomNavWorkPageShow = 0;
+		}
+		if (divName == 'calculator'){
+			$('#bottomNavCalculator').remove();
+			bottomNavCalculatorShow = 0;
+		}
+		if (divName == 'matrixPage'){
+			$('#bottomNavMatrixPage').remove();
+			bottomNavMatrixPageShow = 0;
+		}
+		if (divName == 'viewerPage'){
+			$('#bottomNavViewerPage').remove();
+			bottomNavViewerPageShow = 0;
+		}
+		if (divName == 'globePage'){
+			$('#bottomNavGlobePage').remove();
+			bottomNavGlobePageShow = 0;
+		}
+
+		
+	}
+	
+	function minPage(divName){
+		
+		document.getElementById(divName).style.display = 'none';
+		if (divName == 'aboutPage'){
+			aboutPageShow = 0;
+		}
+		if (divName == 'workPage'){
+			workPageShow = 0;
+		}
+		if (divName == 'calculator'){
+			calculatorShow = 0;
+		}
+		if (divName == 'matrixPage'){
+			matrixPageShow = 0;
+		}
+		if (divName == 'viewerPage'){
+			viewerPageShow = 0;
+		}
+		if (divName == 'globePage'){
+			globePageShow = 0;
+		}
+	}
+	
+	function closePage(divName){
+				
+		document.getElementById(divName).style.display = 'none';
+		if (divName == 'aboutPage'){
+			
+			aboutPageShow = 0;
+			removeBottomNav('aboutPage');
+		}
+		if (divName == 'workPage'){
+			
+			workPageShow = 0;
+			removeBottomNav('workPage');
+			//documentOrder = new Array();		
+			setDocumentOrder(new Array());
+			documentCurrentIndex = 0;
+			documentBackFlag = 0;
+			documentForwardFlag = 0;
+			disableBackButton();
+			disableForwardButton();
+			$('#workPageDocumentsFolderList').empty();
+			$('#documentViewerFileNameSpan').html("");
+			$('#documentFolderNameSpan').html("");
+			
+			
+		}
+		if (divName == 'calculator'){
+			
+			calculatorShow = 0;
+			removeBottomNav('calculator');
+		}
+		if (divName == 'matrixPage'){
+			
+			matrixPageShow = 0;
+			removeBottomNav('matrixPage');
+		}
+		if (divName == 'viewerPage'){
+			
+			viewerPageShow = 0;
+			removeBottomNav('viewerPage');
+		}
+		if (divName == 'globePage'){
+			
+			globePageShow = 0;
+			removeBottomNav('globePage');
+		}
+		
+	}
+	
+	/* Change Z-Index */
+	function changeZIndex(divName) {
+
+		if (divName == 'aboutPage'){
+			
+			
+			document.getElementById(divName).style.zIndex= zIndexAboutPage;
+			document.getElementById('workPage').style.zIndex=8;
+			document.getElementById('calculator').style.zIndex=7;
+			document.getElementById('matrixPage').style.zIndex=6;
+			document.getElementById('viewerPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
+			
+		}
+		if (divName == 'workPage'){
+			
+			
+			document.getElementById(divName).style.zIndex=zIndexWorkPage;
+			document.getElementById('aboutPage').style.zIndex=8;
+			document.getElementById('calculator').style.zIndex=7;
+			document.getElementById('matrixPage').style.zIndex=6;
+			document.getElementById('viewerPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
+			
+		}
+		if (divName == 'calculator'){
+			
+			
+			document.getElementById(divName).style.zIndex=zIndexCalculator;
+			document.getElementById('aboutPage').style.zIndex=8;
+			document.getElementById('workPage').style.zIndex=7;
+			document.getElementById('matrixPage').style.zIndex=6;
+			document.getElementById('viewerPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
+			
+		}
+		if (divName == 'matrixPage'){
+			
+			
+			document.getElementById(divName).style.zIndex=zIndexMatrixPage;
+			document.getElementById('aboutPage').style.zIndex=8;
+			document.getElementById('workPage').style.zIndex=7;
+			document.getElementById('calculator').style.zIndex=6;
+			document.getElementById('viewerPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
+			
+		}
+		if (divName == 'viewerPage'){
+			
+			
+			document.getElementById(divName).style.zIndex=zIndexViewerPage;
+			document.getElementById('workPage').style.zIndex=8;
+			document.getElementById('aboutPage').style.zIndex=7;
+			document.getElementById('calculator').style.zIndex=6;
+			document.getElementById('matrixPage').style.zIndex=5;
+			document.getElementById('globePage').style.zIndex=4;
+			
+		}
+		if (divName == 'globePage'){
+			
+			
+			document.getElementById(divName).style.zIndex=zIndexGlobePage;
+			document.getElementById('workPage').style.zIndex=8;
+			document.getElementById('aboutPage').style.zIndex=7;
+			document.getElementById('calculator').style.zIndex=6;
+			document.getElementById('matrixPage').style.zIndex=5;
+			document.getElementById("viewerPage").style.zIndex=4;
+			
+		}
+				
+	}
+	
+	var documentCurrentIndex = 0;
+	var documentBackFlag = 0;
+	var documentForwardFlag = 0;
+	var documentBackButtonClick = 0;
+	var documentForwardButtonClick = 0;
+	
+
+	function test(folderName){
+		alert('here');
+		alert(folderName);
+	}
+
+	function enableBackButton(){
+		$('#documentBackButton').prop("disabled", false);
+	}
+	
+	function disableBackButton(){
+		$('#documentBackButton').prop("disabled", true);
+	}
+	
+	function enableForwardButton() {
+		$('#documentForwardButton').prop("disabled", false);
+	}
+	function disableForwardButton() {
+		$('#documentForwardButton').prop("disabled", true);
+	}
+
+	function openDocument(folderName){	
+		
+		//testExternalFile();
+		//alert(getDocumentOrderLength());
+		//var test = getDocumentOrderLength();
+		//alert(getDocumentOrderLength());
+		//if ( (folderName == 'collegeFiles') && (documentOrder.length == 0 ) ){
+		if ( (folderName == 'documents') && (getDocumentOrderLength() == 0 ) ){
+			loadFolder(folderName);
+			//documentOrder.push(folderName);
+			documentOrderPush(folderName);
+			return;
+		}
+		
+		
+		//if ( (folderName == 'currentProjects') && (documentOrder.length == 0) ){
+		if ( (folderName == 'currentProjects') && (getDocumentOrderLength() == 0 ) ){
+			loadFolder(folderName);
+			//documentOrder.push(folderName);
+			documentOrderPush(folderName);
+			return;
+		}
+																
+		// The user has clicked on a folder for the first time
+		if (documentBackFlag == 0){														
+			documentBackFlag = 1;
+			loadFolder(folderName);
+			//documentOrder.push(folderName);		
+			documentOrderPush(folderName);
+			enableBackButton();
+		// Have to check if the user will click on a folder that is different from the value infront of the 
+		// currentDocumentIndex
+		} else if (documentBackFlag == 1){					
+						
+			//$('#documentBackButton').prop("disabled", false);
+			enableBackButton();
+			// The user has clicked on a folder that is not in the list.
+			// Track the current index and delete the last elements of the array
+			// Disable the forward button
+			//if (documentOrder.lastIndexOf(folderName) == -1){												
+			if (getDocumentOrderLastIndexOf(folderName) == -1){
+				if (documentForwardFlag == 1){
+					//alert('here');
+					// This means the folder is not in the array
+					// Find the index of the array and remove the ones after.
+					//if (documentOrder.lastIndexOf(folderName) == -1){					
+						//alert('here');
+						//alert(documentCurrentIndex);
+						// slice or splice the array
+						//alert(documentOrder);
+						
+						documentCurrentIndex++;
+						//documentOrder = documentOrder.slice(0,documentCurrentIndex);
+						setDocumentOrder(documentOrder.slice(0,documentCurrentIndex));
+						
+						//alert(documentCurrentIndex);
+						//alert(documentOrder);
+						
+						loadFolder(folderName);
+						//documentOrder.push(folderName);
+						documentOrderPush(folderName);
+						//alert(documentCurrentIndex);
+						//alert(documentOrder);
+										
+						documentForwardFlag = 0;
+						//$('#documentForwardButton').prop("disabled", true);
+						disableForwardButton();
+						//documentCurrentIndex = (documentOrder.length - 1);												
+						documentCurrentIndex = getDocumentOrderLength() - 1;
+					//} else {
+					//	loadFolder(folderName);
+					//	documentOrder.push(folderName);
+					//}
+				
+				} else {
+					loadFolder(folderName);
+					//documentOrder.push(folderName);
+					documentOrderPush(folderName);
+					//documentCurrentIndex = documentOrder.lastIndexOf(folderName);			
+					documentCurrentIndex = getDocumentOrderLastIndexOf(folderName);
+				}
+			
+			// The folder is already in the list
+			} else {				
+				loadFolder(folderName);			
+				//documentCurrentIndex = documentOrder.lastIndexOf(folderName);				
+				documentCurrentIndex = getDocumentOrderLastIndexOf(folderName);
+				//if (documentCurrentIndex == (documentOrder.length -1) ){
+				if (documentCurrentIndex == getDocumentOrderLength() - 1){
+					disableForwardButton();
+				} else {
+					enableForwardButton();
+				}											
+			}		
+		}						
+	}
+
+
+	function loadFolder(folderName){
+		//alert(getDocumentLibrary(0));
+		//alert(getDocumentNamesLastIndexOf(folderName) + 'lastIndexOf');
+		//if (documentNames.lastIndexOf(folderName) != -1){		
+		if (getDocumentNamesLastIndexOf(folderName) != -1){		
+			$('#workPageDocumentsFolderList').empty();
+			//$('#workPageDocumentsFolderList').append(documentLibrary[documentNames.lastIndexOf(folderName)]);
+			$('#workPageDocumentsFolderList').append(getDocumentLibrary(getDocumentNamesLastIndexOf(folderName)));
+			$('#documentFolderNameSpan').html(getDocumentFolderNames(folderName));
+			
+			
+			
+		}		
+	}
+
+	function documentsBack() {
+	
+		//This means the user has hit the back button for the first time.
+		if (documentForwardFlag == 0){
+		
+			documentForwardFlag = 1;
+			//documentCurrentIndex = documentOrder.length-1;
+			documentCurrentIndex = getDocumentOrderLength() - 1;
+			//alert(documentCurrentIndex);
+			
+			//$('#documentForwardButton').prop("disabled", false);
+			enableForwardButton();
+			if (documentCurrentIndex >= 1){
+			
+				documentCurrentIndex--;
+				//openDocument(documentOrder[documentCurrentIndex]);
+				openDocument(getDocumentOrder(documentCurrentIndex));
+			}
+			if (documentCurrentIndex == 0) {
+				disableBackButton();
+			}
+			
+		} else if (documentForwardFlag == 1){
+			//This means the user has hit the back button again.
+			//alert(documentCurrentIndex);
+			//$('#documentBackButton').prop("disabled", false);
+			
+			if (documentCurrentIndex > 0 ){
+				documentCurrentIndex--;
+				//openDocument(documentOrder[documentCurrentIndex]);
+				openDocument(getDocumentOrder(documentCurrentIndex));
+				
+				if (documentCurrentIndex == 0){
+					disableBackButton();
+				}
+				
+			} 
+			//if ( (documentCurrentIndex == 0) && (documentOrder.length > 1  ) ) {
+				//documentCurrentIndex--;
+				//disableBackButton();
+				//openDocument(documentOrder[documentCurrentIndex]);
+			//}																		
+		}	
+	}
+
+	function documentsForward() {
+				
+		if (documentForwardFlag == 1){		
+			//This means the user has hit the back button						
+			//if ( documentCurrentIndex < (documentOrder.length - 1) ){
+			if ( documentCurrentIndex < (getDocumentOrderLength() - 1) ){
+				documentCurrentIndex++;
+				//openDocument(documentOrder[documentCurrentIndex]);
+				openDocument(getDocumentOrder(documentCurrentIndex));
+				//if (documentCurrentIndex == (documentOrder.length -1) )	{
+				if (documentCurrentIndex == (getDocumentOrderLength() -1) )	{
+					documentForwardFlag = 0;
+					//$('#documentForwardButton').prop("disabled", true);			
+					disableForwardButton();
+				}
+			} 
+		}		
+	}
+
+
+	function openFile(fileName){
+		// instead of load, change the src of the embed
+		//alert(fileName);
+		
+		if (viewerPageShow == 0){
+			changePosition('viewerPage');
+			document.getElementById('viewerPage').style.display = 'block';				
+			viewerPageShow = 1;
+			changeZIndex('viewerPage');
+			
+			if (bottomNavViewerPageShow == 0){
+				
+				bottomNavViewerPageShow = 1;
+				appendBottomNav('viewerPage');
+			} else{ 
+					
+					
+			}															
+			
+		} else if (viewerPageShow == 1){
+				
+			changeZIndex('viewerPage');
+			document.getElementById('bottomNavViewerPage').style.backgroundColor = '#565656';					
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+		}
+				
+		
+		setTimeout(viewerPageZIndex,50);
+		$('#documentViewerFileNameSpan').html(getDocumentFileNames(fileName));
+		
+		//var convertToText = " ";
+		var fileToEmbed = "<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;overflow-y:auto;'>   </div>";
+		$('#viewerPageContent').remove();
+		$('#viewerPageContentContainer').append(fileToEmbed);	
+		
+		jQuery.get(getDocumentFiles(fileName), function(data) {
+			//alert(data);
+			//convertToText = data;
+			//alert(convertToText);
+			var sanitizedData = $('<div>').text(data).html();
+			//$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + data + "</pre>");
+			$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + sanitizedData + "</pre>");
+			
+		});
+		
+		//alert(convertToText);
+		//alert(convertToText);
+		//var fileToEmbed = "<embed id='viewerPageContent' src='"+getDocumentFiles(fileName)+"'  class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>";
+		//var fileToEmbed = "<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;scroll-y:auto;'> Test: "+ convertToText +" </div>";
+		//alert(convertToText);
+		
+		//$('#viewerPageContent').remove();
+		//$('#viewerPageContentContainer').append(fileToEmbed);					
+	}
+	
+	function viewerPageZIndex(){
+	
+		changeZIndex('viewerPage');
+	}
+	
+		
+	/* Calculator */
+	function calcNumber(numberValue){				
+		$('#displayResult').append(numberValue);
+	}
+	function calcBackspace(){
+		var value = $('#displayResult').html();
+		var nvalue = value.slice(0,-1);
+		$('#displayResult').html(nvalue);
+	}
+	function calculate(){
+		//regular expression checking for paranthesis
+
+		var value = $('#displayResult').html();
+		var pattern1 = /(\d)(\()/g; 
+		var pattern2 = /(\))(\()/g;
+		var pattern3 = /(\))(\d)/g;
+		var value1 = value.replace(pattern1 , "$1"+'*'+"$2");  
+		var value2 = value1.replace(pattern2 , "$1"+'*'+"$2");
+		var value3 = value2.replace(pattern3, "$1"+'*'+"$2");
+		
+
+		try {   
+			var test = eval(value3);
+			$('#displayResult').html(test);
+		}	
+		catch(error){ 
+			$('#displayResult').html('undefined');
+		}
+		 		
+	}
+	function calcClear(){
+		$('#displayResult').html(''); 				
+	}
+	
+	function startMenu(){		
+		if (startMenuShow == 0){ 
+			document.getElementById('startMenu').style.display = 'block';
+			startMenuShow = 1;
+			document.getElementById('bottomNavMenuButton').classList.remove('btn-primary');
+			document.getElementById('bottomNavMenuButton').classList.add('btn-info');
+			
+		} else if ( startMenuShow == 1 ){
+			
+			document.getElementById('startMenu').style.display = 'none';
+			startMenuShow = 0;
+			document.getElementById('bottomNavMenuButton').classList.remove('btn-info');
+			document.getElementById('bottomNavMenuButton').classList.add('btn-primary');
+			
+		}
+	}
+</script>
+</head>
+<body style='background-color:steelblue;'>
+<!-- Classic Login Screen -->
+<div id='login' class='loginContainer' >
+	<div id='menu' class='loginContainerMenu' >
+		<div class='loginContainerMenuLeft' >			
+			<br>
+			<br>
+			<img src='userIcon.png' class='loginContainerMenuLeftIcon' >
+		</div>
+		<div class='loginContainerMenuRight' >			
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class='loginContainerMenuRightTitle' >
+				<span style='color:snow;padding-left:20px;' >JavaScript Desktop</span><br>
+				<label class='loginContainerMenuRightTitleLabel' >GUEST</label>
+			</div>								
+			<div class='loginContainerMenuRightButtonDiv' >			
+					<button onclick='login();' class='btn btn-primary loginContainerMenuRightButton'>Login</button>								
+			</div>						
+		</div>		
+	</div>
+</div>
+
+<!-- Desktop 
+	Different Z-indexes so divs won't move something in the wrong way.
+-->
+<div id='desktop' class='desktopContainer' >	
+	<!-- Top Navigation Bar -->
+	<div id='topNav' class='col-md-12 desktopContainerTopNav'>
+		<div class='col-md-4' >			
+		</div>
+		<div class='col-md-4 paddingNone' >				
+			<div id='clockbox' class='desktopContainerTopNavClockBox' >																					
+				<span id='clockboxSpan' style='cursor:pointer;'> </span>
+			</div>				
+			<div id ='calendar'></div>												
+		</div>
+		<div class='col-md-4 paddingNone' >			
+		</div>
+	</div>
+	
+	<div id='desktopPages' class='desktopContainerDesktopPages' >						
+		<!-- Calculator -->
+		<div id='calculator' class=' calculatorContainer' >			
+				<div class='col-md-12 controlBar' > 
+					<div class='col-md-8 paddingNone' style='padding-top:5px;' > <span  style='color:snow;margin-left:50px;font-size:16px;'> Calculator </span> </div>
+					<div class='col-md-4 paddingNone' > 
+						<button class='btn btn-warning minimizeButton' onclick='minPage(this.value)' value='calculator'></button><button class='btn btn-danger closeButton' onclick='closePage(this.value)' value='calculator'></button> 
+					</div>
+				</div>						
+				<div class='col-md-12 calculatorDisplayResultContainer paddingNone' > 
+					<textarea id='displayResult' class='calculatorDisplayResult' readonly></textarea>
+				</div>	
+											
+						<div class='col-md-12'>
+							<button onclick='calcNumber(this.value)' value='7' class='btn '> 7 </button>
+							<button onclick='calcNumber(this.value)' value='8' class='btn '> 8 </button>
+							<button onclick='calcNumber(this.value)' value='9' class='btn '> 9 </button>
+							<button onclick='calcBackspace()' class='btn ' > &larr; </button>
+							<button onclick='calcClear()' class='btn ' > C </button>													
+						</div>															
+				
+						<div class='col-md-12'>
+							<button onclick='calcNumber(this.value)' value='4' class='btn '> 4 </button>
+							<button onclick='calcNumber(this.value)' value='5' class='btn '> 5 </button>
+							<button onclick='calcNumber(this.value)' value='6' class='btn '> 6 </button>
+							<button onclick='calcNumber(this.value)' value='(' class='btn ' > &nbsp;( </button>
+							<button onclick='calcNumber(this.value)' value=')' class='btn ' > &nbsp;) </button>													
+						</div>
+				
+						<div class='col-md-12'>						
+							<button onclick='calcNumber(this.value)' value='1' class='btn '> 1 </button>
+							<button onclick='calcNumber(this.value)' value='2' class='btn '> 2 </button>
+							<button onclick='calcNumber(this.value)' value='3' class='btn '> 3 </button>
+							<button onclick='calcNumber(this.value)' value='+' class='btn '> + </button>
+							<button onclick='calcNumber(this.value)' value='-' class='btn '> -&nbsp; </button>
+						</div>					
+				
+						<div class='col-md-12'>
+							<button onclick='calcNumber(this.value)' value='0' class='btn '> 0 </button>
+							<button onclick='calcNumber(this.value)' value='.' class='btn '> .&nbsp; </button>
+							<button onclick='calculate()' class='btn '> = </button>
+							<button onclick='calcNumber(this.value)' value='/' class='btn '> /&nbsp; </button>	
+							<button onclick='calcNumber(this.value)' value='*' class='btn '> *&nbsp; </button>							
+						</div>				
+		</div>
+		
+		<div id='aboutPage'  style='width:600px;height:630px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>			
+				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;'> 
+					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> About Me </span> </div>
+					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
+						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='aboutPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='aboutPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
+					</div>
+				</div>				
+				<div class='col-md-12' style='width:500px;'>					
+					<br>	
+					<code>
+						This is my portfolio website. I used plain javascript and jQuery. You can check out my social media.<br>
+								<a href='https://www.linkedin.com/in/ivancapistran/' style='font-size:16px;'>Linkedin</a> : 
+								<a href='https://github.com/keymaker13' style='font-size:16px;'>Github</a> :
+								<a href='https://www.facebook.com/KeyMaker13/' style='font-size:16px;'> Facebook </a> : 
+								<a href='https://twitter.com/IvanCapistran13' style='font-size:16px;'> Twitter </a> :
+								<a href='https://www.instagram.com/ivancapistran13/' style='font-size:16px;'> Instagram </a> :
+								<a href='https://imgur.com/user/keymaker13' style='font-size:16px;'> Imgur </a> :
+								<a href='https://www.pinterest.com/ivancapistran13/_saved/' style='font-size:16px;'> Pinterest </a> : 
+								<a href='https://www.reddit.com/user/codecaptain' style='font-size:16px;'> Reddit </a> : 
+								<a href='https://www.tiktok.com/@ivancapistran?lang=en' style='font-size:16px;'> Tiktok </a> : 
+								<a href='https://www.tumblr.com/blog/codecaptain' style='font-size:16px;'> Tumblr </a> : 
+								<a href='https://stackoverflow.com/users/2926236/keymaker13' style='font-size:16px;'> Stackoverflow </a> :
+								<a href='https://steamcommunity.com/id/ivancapistran/' style='font-size:16px;'> Steam </a> :								
+							<br>
+							This Portfolio has the directory folder and listing of college files.<br>
+							+++Projects+++<br>
+							+ Constructed a program that simulates cache in memory. <br>
+							 cFiles/computerArchitecture/assignment3/memory.c <br>
+							<a href="https://github.com/KeyMaker13/c/blob/master/Computer%20Architecture/cs3853/assignment3/memory.c" > github link </a><br>
+
+							<br>+ Made a custom command line interpreter. <br>
+							cFiles/systemsProgramming/assign8a/mesh.c <br> 
+							<a href="https://github.com/KeyMaker13/c/blob/master/Systems%20Programming%20Class/courses/cs/3423/assign8a/mesh.c"> github link</a><br>
+							
+							<br>+ Created a binary search tree that links the nodes. <br>
+							javaFiles/dataStructures/bstproject/LinkedBinarySearchTreeTester.java <br>
+							<a href="https://github.com/KeyMaker13/java/blob/master/DataStructuresClass/bstproject/src/bst/LinkedBinarySearchTreeTester.java">github link</a> <br> 
+							<br>+ Wrote the game of life. <br>
+							cFiles/advancedProgramming/Homeworks/hw02/hw02.c<br>
+							<a href="https://github.com/KeyMaker13/c/blob/master/Advanced%20Programming%20Class/Homeworks/hw02/hw02.c">github link</a> <br>
+							<br>+ Worked a simulator of customers that interact with clerks. <br>
+							javaFiles/dataStructures/banksimulationproject/BufferedSimulationTester.java <br>
+							<a href="https://github.com/KeyMaker13/java/blob/master/DataStructuresClass/banksimulationproject/src/bank/BufferedSimulationTester.java">github link</a> <br>
+							 	
+					</code>	
+						<br>
+						
+				</div>			
+		</div>
+		
+		
+		<div id='workPage' style='width:500px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 
+			
+				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Documents </span>  </div>
+					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
+						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='workPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='workPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
+					</div>
+				</div>
+				<div id='workPageNavigationBar' class='col-md-12' style='position:absolute;top:30px;'>
+					<button id="documentBackButton" class='btn btn-primary' style='float:left;' onclick='documentsBack()' disabled="true"> Back </button>  <span id='documentFolderNameSpan' style='margin-left:5px;font-size:20px;'>  </span> <button id="documentForwardButton" class='btn btn-primary' style='float:right;' onclick="documentsForward()" disabled="true"> Forward </button>  
+				
+				</div>									
+				<div id='workPageDocuments' class='col-md-12' style='position:absolute;top:65px;'>
+					<div class='row'>
+						<div class='col-md-4' style='border:1px solid black;height:100px;padding-top:10px;'>							
+							<div id='documents' style='width:100%;height:20px;border:1px solid black;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);color:snow;' onclick='openDocument(this.id)'> <span style='cursor:pointer;padding-left:15px;'> College Files </span> </div>
+							<br>
+							<!-- <div id='currentProjects' style='width:100%;height:20px;border:1px solid black;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);color:snow;' onclick='openDocument(this.id)'> <span style='cursor:pointer;padding-left:15px;'> Current Projects </span> </div> 
+							-->
+							</div>
+						<div id='workPageDocumentsFolderList' class='col-md-8' style='border:1px solid black;overflow-y:auto;max-height:520px;padding-top:5px;'>																																	
+						</div>
+					</div>
+					
+				</div>				 				
+			
+		</div>
+		
+		<div id ='viewerPage' style='width:700px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
+			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> File Viewer </span>  </div>
+				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
+					<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='viewerPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='viewerPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
+				</div>
+			</div>
+			<div id='documentViewerNavigationBar' class='col-md-12' style='position:absolute;top:30px;'>
+				<span id='documentViewerFileNameSpan' style='margin-left:5px;font-size:20px;'>  </span>   				
+			</div>
+			<div id = 'viewerPageContentContainer' class='col-md-12' style='padding:0px 0px 0px 0px;'>
+				<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;overflow-y:auto;'> </div>
+				<!--<embed id='viewerPageContent' src='' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>-->
+			</div>		
+		</div>
+
+		<div id='matrixPage' style='width:700px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Terminal </span> </div>
+					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
+						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='matrixPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='matrixPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
+					</div>
+				</div>
+				
+				<!--
+				<iframe src="terminal.html" style='background-color:blue;position:absolute;top:30px;height:500px;overflow-y:auto;width:698px;'></iframe>
+				-->
+				
+				<!--
+				<canvas id='terminal'  style='background-color:blue;position:absolute;top:30px;height:500px;overflow-y:auto;width:698px;'></canvas>
+				-->
+				
+				
+				<canvas id='matrixLetters' style='width:698px;height:569px;position:absolute;bottom:0px;right:0px;'></canvas>	
+				
+		</div>
+		
+
+		<div id='globePage' style='width:600px;height:400px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> 3D Globe </span> </div>
+				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
+					<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='globePage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='globePage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
+				</div>
+			</div>
+			<div style="width:100%;height:100%;position:absolute;margin-top:30px;">
+				<div id="cesiumContainer"></div>
+			</div>
+		</div>
+	
+	
+	</div>
+		
+	
+	
+	<!-- Icons -->
+	
+	<img id="aboutIcon" src="aboutIcon.ico" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
+	<img id="workIcon" src="workIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
+	<img id="calcIcon" src="calcIcon.ico" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
+	<img id="matrixIcon" src="terminalIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
+	<img id="globeIcon" src="globeicon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
+	
+	
+	<div id='startMenu' style='width:90px;height:50px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);z-index:100;bottom:30px;left:0px;position:absolute;display:none;padding:5px 5px 5px 5px;'>				
+			<button class='btn btn-warning' onclick='off()' style='float:right;'>Suspend</button>		
+	</div>
+	
+	
+	<!-- Bottom Menu -->
+	<div id='bottomNav' style='width:100%;height:30px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8); bottom:0px;position:absolute;padding:0px 0px 0px 0px;display:inline-block;z-index:100;border-radius:10px 10px 10px 10px;'>		
+			<button id='bottomNavMenuButton' style='height:30px;float:left;' class='btn btn-primary' onclick='startMenu()'>Menu</button>			
+	</div>	
+</div>
+
+
+
+<script type="text/javascript">
+	Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzMzk2NjFiZS1iODllLTQyNzItYjU0NS05Y2Y0ZjIwZmVkNDYiLCJpZCI6MzgwMzksImlhdCI6MTYwNTgyNTkwMn0.uPoeu3gUMRV4txl68cHgAmaGeBjO9YkbTfvBD-jKlj8';
+	var viewer = new Cesium.Viewer("cesiumContainer");
+</script>
+
+<!-- Matrix Letters -->
+<script type='text/javascript'>
+
+
+
+var s = window.screen;
+var matrixLetters = document.getElementById('matrixLetters');
+
+//var width = matrixLetters.width = s.width*(0.45);
+//var height = matrixLetters.height = s.height*(0.60);
+var width = matrixLetters.width = s.width*(0.45);
+var height = matrixLetters.height = s.height*(0.60);
+var letters = Array(256).join(1).split('');
+
+// y_pos > 768
+var draw = function () {
+	matrixLetters.getContext('2d').fillStyle='rgba(0,0,0,0.05)';
+	matrixLetters.getContext('2d').fillRect(0,0,width,height);
+	matrixLetters.getContext('2d').fillStyle='#0F0';
+	letters.map(function(y_pos, index){
+		text = String.fromCharCode(Math.floor(Math.random() * (30000 - 60)) + 60); 
+		x_pos = index * 13;
+		matrixLetters.getContext('2d').fillText(text, x_pos, y_pos);
+		letters[index] = (y_pos > 500 + Math.random() * 1e4) ? 0 : y_pos + 13; 		
+		});		
+};	  
+setInterval(draw, 36);
+
+
+</script>
+</body>
+</html>
