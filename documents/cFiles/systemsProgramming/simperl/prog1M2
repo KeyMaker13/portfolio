@@ -1,6 +1,0 @@
-#!/usr/bin/perl -w
-
-foreach $dir ( @ARGV ) {
-  print "$dir\n";
-}
-
