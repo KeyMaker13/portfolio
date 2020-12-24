@@ -742,7 +742,7 @@
 		if (divName == 'viewerPage'){
 			if (bottomNavViewerPageShow == 1){
 				$('#bottomNav').append(" <div id='bottomNavViewerPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> File Preview </div> ");
-				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#565656';					
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#565656';		
 				if (bottomNavWorkPageShow == 1) {
 					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
 				}
@@ -1298,6 +1298,29 @@
 		}		
 	}
 
+	
+	function checkFile(file) {
+		
+		var extension = file.substr((file.lastIndexOf('.') +1));
+		
+		//if (!/(pdf|zip|doc)$/ig.test(extension)) {
+	  if (extension == 'pdf' ){
+		  //alert("Invalid file type: "+extension+".  Please use DOC, PDF or Zip.");
+		  
+		  return 1;
+	   } else if (extension == 'docx'){
+
+
+		  return 2;
+	  } else {
+
+		  //alert('here');
+		  return 0;
+	   }
+	   
+	   return 0;
+  }
+
 
 	function openFile(fileName){
 		// instead of load, change the src of the embed
@@ -1345,16 +1368,37 @@
 		$('#viewerPageContent').remove();
 		$('#viewerPageContentContainer').append(fileToEmbed);	
 		
-		jQuery.get(getDocumentFiles(fileName), function(data) {
-			//alert(data);
-			//convertToText = data;
-			//alert(convertToText);
-			var sanitizedData = $('<div>').text(data).html();
-			//$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + data + "</pre>");
-			$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + sanitizedData + "</pre>");
-			
-		});
+
+		var fileChecked = checkFile(getDocumentFiles(fileName));
 		
+
+		jQuery.get(getDocumentFiles(fileName), function(data) {
+
+			if (fileChecked == 1){
+
+				$('#viewerPageContent').html("<iframe src='"+ getDocumentFiles(fileName) + "' style='width:100%;height:100%;' ></iframe>");
+				fileChecked = 0;
+			} else {
+
+				if (fileChecked == 2){
+
+					$('#viewerPageContent').html("<iframe src='https://docs.google.com/gview?url=http://ivancapistran.com/" + getDocumentFiles(fileName) +  "&embedded=true' style='width:680px;height:100%;'></iframe>");
+					fileChecked = 0;
+					
+				} else {
+
+					var sanitizedData = $('<div>').text(data).html();
+					$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + sanitizedData + "</pre>");
+
+
+
+				}
+
+
+				
+			}
+			
+		});	
 		//alert(convertToText);
 		//alert(convertToText);
 		//var fileToEmbed = "<embed id='viewerPageContent' src='"+getDocumentFiles(fileName)+"'  class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>";
@@ -1650,7 +1694,7 @@
 	<img id="workIcon" src="workIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	<img id="calcIcon" src="calcIcon.ico" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	<img id="matrixIcon" src="terminalIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
-	<img id="globeIcon" src="globeicon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
+	<!-- <img id="globeIcon" src="globeicon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br> -->
 	
 	
 	<div id='startMenu' style='width:90px;height:50px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);z-index:100;bottom:30px;left:0px;position:absolute;display:none;padding:5px 5px 5px 5px;'>				
