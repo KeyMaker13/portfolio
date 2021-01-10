@@ -1308,10 +1308,13 @@
 		  //alert("Invalid file type: "+extension+".  Please use DOC, PDF or Zip.");
 		  
 		  return 1;
-	   } else if (extension == 'docx'){
+	   } else if (extension == 'docx' || extension == 'doc'){
 
 
 		  return 2;
+	  } else if (extension == 'jpg'){
+
+		return 3;
 	  } else {
 
 		  //alert('here');
@@ -1376,7 +1379,8 @@
 
 			if (fileChecked == 1){
 
-				$('#viewerPageContent').html("<iframe src='"+ getDocumentFiles(fileName) + "' style='width:100%;height:100%;' ></iframe>");
+				//$('#viewerPageContent').html("<iframe src='"+ getDocumentFiles(fileName) + "' style='width:100%;height:100%;' ></iframe>");
+				$('#viewerPageContent').html("<iframe src='https://docs.google.com/gview?url=http://www.ivancapistran.com/" + getDocumentFiles(fileName) +  "&embedded=true' style='width:680px;height:100%;'></iframe>");
 				fileChecked = 0;
 			} else {
 
@@ -1387,10 +1391,16 @@
 					
 				} else {
 
-					var sanitizedData = $('<div>').text(data).html();
-					$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + sanitizedData + "</pre>");
+					if (fileChecked == 3) {
 
+						$('#viewerPageContent').html("<img style='width:100%;height:100%;' src='" + getDocumentFiles(fileName) + "' > ");
+						fileChecked = 0;
+					} else {
 
+						var sanitizedData = $('<div>').text(data).html();
+						$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + sanitizedData + "</pre>");
+
+					}
 
 				}
 
@@ -1563,9 +1573,12 @@
 						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='aboutPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='aboutPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 					</div>
 				</div>				
-				<div class='col-md-12' style='width:500px;'>					
-					<code>
-						This is my portfolio website. I used plain javascript and jQuery. You can check out my social media.<br>
+				<div class='col-md-12' >					
+					<code style='width:500px;overflow-y:auto;height:570px;'>
+						Email : ivancapistran@programmer.net. This is my portfolio website. I used plain javascript and jQuery. 
+						To work with the directory I used a perl script to create a javascript file that lists all the 
+						file locations.	You can check out my social media. Be sure to check out my linkedin page. 
+						The pages that pop are draggable. The main highlight is browsing all my college code.<br>
 								<a href='https://www.linkedin.com/in/ivancapistran/' style='font-size:16px;'>Linkedin</a> : 
 								<a href='https://github.com/keymaker13' style='font-size:16px;'>Github</a> :
 								<a href='https://www.facebook.com/KeyMaker13/' style='font-size:16px;'> Facebook </a> : 
@@ -1575,30 +1588,33 @@
 								<a href='https://www.pinterest.com/ivancapistran13/_saved/' style='font-size:16px;'> Pinterest </a> : 
 								<a href='https://www.reddit.com/user/codecaptain' style='font-size:16px;'> Reddit </a> : 
 								<a href='https://www.tiktok.com/@ivancapistran?lang=en' style='font-size:16px;'> Tiktok </a> : 
-								<a href='https://www.tumblr.com/blog/codecaptain' style='font-size:16px;'> Tumblr </a> : 
+								<a href='https://codecaptain.tumblr.com' style='font-size:16px;'> Tumblr1 </a> : 
+								<a href='https://keymaker13.tumblr.com' style='font-size:16px;'> Tumblr2 </a> : 
 								<a href='https://stackoverflow.com/users/2926236/keymaker13' style='font-size:16px;'> Stackoverflow </a> :
 								<a href='https://steamcommunity.com/id/ivancapistran/' style='font-size:16px;'> Steam </a> :								
 							<br>
+							
 							This Portfolio has the directory folder and listing of college files.<br>
 							+++Projects+++<br>
 							+ Constructed a program that simulates cache in memory. <br>
 							 cFiles/computerArchitecture/assignment3/memory.c <br>
-							<a href="https://github.com/KeyMaker13/c/blob/master/Computer%20Architecture/cs3853/assignment3/memory.c" > github link </a><br>
+							<a href="https://github.com/KeyMaker13/c/blob/master/Computer%20Architecture/cs3853/assignment3/memory.c" > github link </a>
 
 							<br>+ Made a custom command line interpreter. <br>
 							cFiles/systemsProgramming/assign8a/mesh.c <br> 
-							<a href="https://github.com/KeyMaker13/c/blob/master/Systems%20Programming%20Class/courses/cs/3423/assign8a/mesh.c"> github link</a><br>
+							<a href="https://github.com/KeyMaker13/c/blob/master/Systems%20Programming%20Class/courses/cs/3423/assign8a/mesh.c"> github link</a>
 							
 							<br>+ Created a binary search tree that links the nodes. <br>
 							javaFiles/dataStructures/bstproject/LinkedBinarySearchTreeTester.java <br>
-							<a href="https://github.com/KeyMaker13/java/blob/master/DataStructuresClass/bstproject/src/bst/LinkedBinarySearchTreeTester.java">github link</a> <br> 
+							<a href="https://github.com/KeyMaker13/java/blob/master/DataStructuresClass/bstproject/src/bst/LinkedBinarySearchTreeTester.java">github link</a>  
 							<br>+ Wrote the game of life. <br>
 							cFiles/advancedProgramming/Homeworks/hw02/hw02.c<br>
-							<a href="https://github.com/KeyMaker13/c/blob/master/Advanced%20Programming%20Class/Homeworks/hw02/hw02.c">github link</a> <br>
+							<a href="https://github.com/KeyMaker13/c/blob/master/Advanced%20Programming%20Class/Homeworks/hw02/hw02.c">github link</a>
 							<br>+ Worked a simulator of customers that interact with clerks. <br>
 							javaFiles/dataStructures/banksimulationproject/BufferedSimulationTester.java <br>
 							<a href="https://github.com/KeyMaker13/java/blob/master/DataStructuresClass/banksimulationproject/src/bank/BufferedSimulationTester.java">github link</a>
-					</code>	
+							
+						</code>	
 						<br>
 						
 				</div>			
@@ -1697,7 +1713,7 @@
 	<img id="workIcon" src="workIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	<img id="calcIcon" src="calcIcon.ico" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	<img id="matrixIcon" src="terminalIcon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
-	<!-- <img id="globeIcon" src="globeicon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br> -->
+	<img id="globeIcon" src="globeicon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	
 	
 	<div id='startMenu' style='width:90px;height:50px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);z-index:100;bottom:30px;left:0px;position:absolute;display:none;padding:5px 5px 5px 5px;'>				
