@@ -79,6 +79,7 @@
 	var zIndexViewerPage = 10;
 	var zIndexMatrixPage = 10;
 	var zIndexGlobePage = 10;
+	var zIndexPaintPage = 10;
 	
 	var positionAboutPageX = 60;
 	var positionWorkPageX = 80;
@@ -86,6 +87,7 @@
 	var positionViewerPageX = 120;
 	var positionMatrixPageX = 140;
 	var positionGlobePageX = 150;
+	var positionPaintPageX = 160;
 	
 	var positionAboutPageY = 40;
 	var positionWorkPageY = 50;
@@ -93,6 +95,7 @@
 	var positionViewerPageY = 65;
 	var positionMatrixPageY = 50;
 	var positionGlobePageY = 65;
+	var positionPaintPageY = 75;
 
 	var aboutPageShow = 0;
 	var workPageShow = 0;
@@ -101,6 +104,7 @@
 	var matrixPageShow = 0;
 	var startMenuShow = 0;
 	var globePageShow = 0;
+	var paintPageShow = 0;
 	
 	var bottomNavAboutPageShow = 0;
 	var bottomNavWorkPageShow = 0;
@@ -108,6 +112,7 @@
 	var bottomNavViewerPageShow = 0;
 	var bottomNavMatrixPageShow = 0;
 	var bottomNavGlobePageShow = 0;
+	var bottomNavPaintPageShow = 0;
 	
 	
 	/* Login to Desktop */
@@ -187,6 +192,7 @@
 	    $( "#matrixPage" ).draggable( {containment: "parent"});
 		$( "#viewerPage" ).draggable( {containment: "parent"});
 		$( '#globePage').draggable( {containment: "parent"});
+		$( '#paintPage').draggable( {containment: "parent"});
 	});
 	
 	/* Icon on click */
@@ -221,6 +227,9 @@
 				if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 			}						
 		});
         
@@ -241,7 +250,10 @@
 			}
 			if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+			}
+			if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
         
 		$('#aboutPage').on("drag", function(){
@@ -260,8 +272,11 @@
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
 			if (bottomNavGlobePageShow == 1) {
-					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavPaintPageShow == 1) {
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#workIcon').on("click", function (){ 
@@ -293,9 +308,11 @@
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 
 				}
-
 				if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 				}
 			}				
 		});
@@ -315,10 +332,12 @@
 			if (bottomNavViewerPageShow == 1) {
 				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 			}
-
 			if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+			}
+			if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#workPage').on("drag", function(){
@@ -338,7 +357,10 @@
 			}
 			if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+			}
+			if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 			
 		$('#calcIcon').on("click", function () {
@@ -371,6 +393,9 @@
 				if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -391,7 +416,10 @@
 			}
 			if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+			}
+			if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
         
 		$('#calculator').on("drag", function(){
@@ -411,7 +439,10 @@
 			}
 			if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+			}
+			if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#viewerPage').on("click", function(){
@@ -431,8 +462,11 @@
 				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
 			}
 			if (bottomNavGlobePageShow == 1) {
-					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavPaintPageShow == 1) {
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#viewerPage').on("drag", function(){
@@ -452,7 +486,10 @@
 			}
 			if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+			}
+			if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		
@@ -491,6 +528,9 @@
 				if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -511,7 +551,10 @@
 			}
 			if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+			}
+			if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#matrixPage').on("drag", function(){
@@ -531,12 +574,13 @@
 			}
 			if (bottomNavGlobePageShow == 1) {
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+			}
+			if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 
 
-		
-		
 		$('#globeIcon').on("click", function () {
 			if ( globePageShow == 0 ){
 				changePosition('globePage');
@@ -569,8 +613,11 @@
 					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 				}
 				if (bottomNavMatrixPageShow == 1) {
-				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
-			}
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -592,6 +639,9 @@
 			if (bottomNavMatrixPageShow == 1) {
 				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavPaintPageShow == 1) {
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#globePage').on("drag", function(){
@@ -611,6 +661,95 @@
 			}
 			if (bottomNavMatrixPageShow == 1) {
 				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavPaintPageShow == 1) {
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
+		});
+
+		$('#paintIcon').on("click", function () {
+			if ( paintPageShow == 0 ){
+				changePosition('paintPage');
+				document.getElementById('paintPage').style.display = 'block';
+				paintPageShow = 1;
+				changeZIndex('paintPage');				
+				if (bottomNavPaintPageShow == 0){
+					
+					bottomNavPaintPageShow = 1;
+					appendBottomNav('paintPage');
+				} else{ 
+					
+					
+				}
+				
+			} else if (paintPageShow == 1){
+				
+				changeZIndex('paintPage');
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+			}
+		});
+		
+		$('#paintPage').on("click", function(){
+			changeZIndex('paintPage');
+			document.getElementById('bottomNavPaintPage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+			}
+		});
+		
+		$('#paintPage').on("drag", function(){
+			changeZIndex('paintPage');
+			document.getElementById('bottomNavPaintPage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 			}
 		});
 
@@ -648,6 +787,11 @@
 			document.getElementById(divName).style.top = ''+positionGlobePageY+'px';
 			document.getElementById(divName).style.left = ''+positionGlobePageX+'px';
 		}
+		if (divName == 'paintPage'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionPaintPageY+'px';
+			document.getElementById(divName).style.left = ''+positionPaintPageX+'px';
+		}
 
 	}
 	
@@ -672,6 +816,9 @@
 				if(bottomNavGlobePageShow == 1){
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavPaintPageShow == 1){
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 				
 				$('#bottomNavAboutPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -689,8 +836,11 @@
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
 					if(bottomNavGlobePageShow == 1){
-					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+						document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavPaintPageShow == 1){
+						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+					}
 					changeZIndex('aboutPage');
 				});	
 			}
@@ -714,6 +864,9 @@
 				if(bottomNavGlobePageShow == 1){
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavPaintPageShow == 1){
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 				
 				$('#bottomNavWorkPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -731,8 +884,11 @@
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
 					if(bottomNavGlobePageShow == 1){
-					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+						document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavPaintPageShow == 1){
+						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+					}
 					
 					changeZIndex('workPage');
 				});	
@@ -758,6 +914,9 @@
 				if(bottomNavGlobePageShow == 1){
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavPaintPageShow == 1){
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 				
 				$('#bottomNavViewerPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -775,8 +934,12 @@
 						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
 					}
 					if(bottomNavGlobePageShow == 1){
-					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+						document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavPaintPageShow == 1){
+						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+					}
+					
 					
 					changeZIndex('viewerPage');
 				});	
@@ -804,6 +967,9 @@
 				if(bottomNavGlobePageShow == 1){
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavPaintPageShow == 1){
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 				$('#bottomNavCalculator').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
 					document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
@@ -820,8 +986,11 @@
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
 					if(bottomNavGlobePageShow == 1){
-					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+						document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavPaintPageShow == 1){
+						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+					}
 					changeZIndex('calculator');
 				});	
 			}
@@ -845,6 +1014,9 @@
 				if(bottomNavGlobePageShow == 1){
 					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavPaintPageShow == 1){
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 								
 				$('#bottomNavMatrixPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -862,8 +1034,11 @@
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
 					if(bottomNavGlobePageShow == 1){
-					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
-				}
+						document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavPaintPageShow == 1){
+						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+					}
 					
 					changeZIndex('matrixPage');
 				});	
@@ -890,6 +1065,9 @@
 				if(bottomNavMatrixPageShow == 1){
 					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavPaintPageShow == 1){
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
 
 								
 				$('#bottomNavGlobePage').on("click", function() {
@@ -908,10 +1086,66 @@
 						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
 					}
 					if(bottomNavMatrixPageShow == 1){
-					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
-				}
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavPaintPageShow == 1){
+						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+					}
 					
 					changeZIndex('globePage');
+				});	
+			}
+		}
+
+
+		if (divName == 'paintPage'){
+			
+			if (bottomNavPaintPageShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavPaintPage' style='color:snow;float:left;width:80px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> Paint </div>  ");
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavMatrixPageShow == 1){
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+
+								
+				$('#bottomNavPaintPage').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavViewerPageShow == 1) {
+						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavMatrixPageShow == 1){
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavGlobePageShow == 1){
+						document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+					}
+					
+					changeZIndex('paintPage');
 				});	
 			}
 		}
@@ -947,6 +1181,10 @@
 			$('#bottomNavGlobePage').remove();
 			bottomNavGlobePageShow = 0;
 		}
+		if (divName == 'paintPage'){
+			$('#bottomNavPaintPage').remove();
+			bottomNavPaintPageShow = 0;
+		}
 
 		
 	}
@@ -971,6 +1209,9 @@
 		}
 		if (divName == 'globePage'){
 			globePageShow = 0;
+		}
+		if (divName == 'paintPage'){
+			paintPageShow = 0;
 		}
 	}
 	
@@ -1019,6 +1260,11 @@
 			globePageShow = 0;
 			removeBottomNav('globePage');
 		}
+		if (divName == 'paintPage'){
+			
+			paintPageShow = 0;
+			removeBottomNav('paintPage');
+		}
 		
 	}
 	
@@ -1034,6 +1280,7 @@
 			document.getElementById('matrixPage').style.zIndex=6;
 			document.getElementById('viewerPage').style.zIndex=5;
 			document.getElementById('globePage').style.zIndex=4;
+			document.getElementById('paintPage').style.zIndex=3;
 			
 		}
 		if (divName == 'workPage'){
@@ -1045,6 +1292,7 @@
 			document.getElementById('matrixPage').style.zIndex=6;
 			document.getElementById('viewerPage').style.zIndex=5;
 			document.getElementById('globePage').style.zIndex=4;
+			document.getElementById('paintPage').style.zIndex=3;
 			
 		}
 		if (divName == 'calculator'){
@@ -1056,6 +1304,7 @@
 			document.getElementById('matrixPage').style.zIndex=6;
 			document.getElementById('viewerPage').style.zIndex=5;
 			document.getElementById('globePage').style.zIndex=4;
+			document.getElementById('paintPage').style.zIndex=3;
 			
 		}
 		if (divName == 'matrixPage'){
@@ -1067,6 +1316,7 @@
 			document.getElementById('calculator').style.zIndex=6;
 			document.getElementById('viewerPage').style.zIndex=5;
 			document.getElementById('globePage').style.zIndex=4;
+			document.getElementById('paintPage').style.zIndex=3;
 			
 		}
 		if (divName == 'viewerPage'){
@@ -1078,6 +1328,7 @@
 			document.getElementById('calculator').style.zIndex=6;
 			document.getElementById('matrixPage').style.zIndex=5;
 			document.getElementById('globePage').style.zIndex=4;
+			document.getElementById('paintPage').style.zIndex=3;
 			
 		}
 		if (divName == 'globePage'){
@@ -1089,6 +1340,19 @@
 			document.getElementById('calculator').style.zIndex=6;
 			document.getElementById('matrixPage').style.zIndex=5;
 			document.getElementById("viewerPage").style.zIndex=4;
+			document.getElementById('paintPage').style.zIndex=3;
+			
+		}
+		if (divName == 'paintPage'){
+			
+			
+			document.getElementById(divName).style.zIndex=zIndexPaintPage;
+			document.getElementById('workPage').style.zIndex=8;
+			document.getElementById('aboutPage').style.zIndex=7;
+			document.getElementById('calculator').style.zIndex=6;
+			document.getElementById('matrixPage').style.zIndex=5;
+			document.getElementById("viewerPage").style.zIndex=4;
+			document.getElementById('globePage').style.zIndex=3;
 			
 		}
 				
@@ -1359,6 +1623,12 @@
 			}
 			if (bottomNavAboutPageShow == 1) {
 				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavPaintPageShow == 1) {
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 			}
 		}
 				
@@ -1700,6 +1970,19 @@
 		</div>
 
 
+		<div id='paintPage' style='width:600px;height:500px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Paint </span> </div>
+				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
+					<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='paintPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='paintPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
+				</div>
+			</div>
+			<div style="width:100%;height:100%;position:absolute;margin-top:30px;">
+				<iframe style="width:100%;height:100%;" src="paint.html"> </iframe>
+			</div>
+		</div>
+
+
 
 	
 	
@@ -1716,14 +1999,16 @@
 	<img id="globeIcon" src="globeicon.png" width="50" height="50" style='margin:5px 5px 5px 5px;z-index:5;'><br>
 	
 	
-	<div id='startMenu' style='width:90px;height:50px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);z-index:100;bottom:30px;left:0px;position:absolute;display:none;padding:5px 5px 5px 5px;'>				
-			<button class='btn btn-warning' onclick='off()' style='float:right;'>Suspend</button>		
+	<div id='startMenu' style='width:150px;height:200px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);z-index:100;bottom:30px;left:0px;position:absolute;display:none;padding:5px 5px 5px 5px;color:white;'>				
+		<img id="paintIcon" src="paintIcon.png" width="50" height="50" > Paint <br>	
+		
+		<button class='btn btn-warning' onclick='off()' style='position:absolute;bottom:20px;'>Suspend</button>		
 	</div>
 	
 	
 	<!-- Bottom Menu -->
 	<div id='bottomNav' style='width:100%;height:30px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8); bottom:0px;position:absolute;padding:0px 0px 0px 0px;display:inline-block;z-index:100;border-radius:10px 10px 10px 10px;'>		
-			<button id='bottomNavMenuButton' style='height:30px;float:left;' class='btn btn-primary' onclick='startMenu()'>Menu</button>			
+		<button id='bottomNavMenuButton' style='height:30px;float:left;' class='btn btn-primary' onclick='startMenu()'>Menu</button>			
 	</div>	
 </div>
 
