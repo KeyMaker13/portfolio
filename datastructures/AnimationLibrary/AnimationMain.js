@@ -205,6 +205,7 @@ function addControl(type, name, location) {
 
 function addControlToAnimationBar(type,name,containerType)
 {
+	
 	if (containerType == undefined)
 	{
 			containerType = "input";
@@ -212,8 +213,16 @@ function addControlToAnimationBar(type,name,containerType)
 	var element = document.createElement(containerType);
 	
     element.setAttribute("type", type);
-    element.setAttribute("value", name);
+	element.setAttribute("value", name);
 	
+	if (type === 'Button'){
+		
+		element.setAttribute("class", "btn btn-primary");
+	} 
+	if (type === 'Text'){
+		element.setAttribute("style", "color:black");
+
+	}
 	
 	var tableEntry = document.createElement("td");
 	
@@ -339,24 +348,24 @@ function initCanvas()
 	canvas.height = height;
 	
 	
-	/*
+	
 	tableEntry = document.createElement("td");
 	txtNode = document.createTextNode(" w:"); 
 	tableEntry.appendChild(txtNode);
 	controlBar.appendChild(tableEntry);
-	*/
-	/*
+	
+	
 	widthEntry = addControlToAnimationBar("Text", canvas.width);
 	widthEntry.size = 4;
 	widthEntry.onkeydown = this.returnSubmit(widthEntry, animationManager.changeSize.bind(animationManager), 4, true);
-	*/
-	/*
+	
+	
 	tableEntry = document.createElement("td");
 	txtNode = document.createTextNode("       h:"); 
 	tableEntry.appendChild(txtNode);
 	controlBar.appendChild(tableEntry);
-	*/
-	/*
+	
+	
 	heightEntry = addControlToAnimationBar("Text", canvas.height);
 	heightEntry.onkeydown = this.returnSubmit(heightEntry, animationManager.changeSize.bind(animationManager), 4, true);
 
@@ -364,7 +373,7 @@ function initCanvas()
 	sizeButton = addControlToAnimationBar("Button", "Change Cavnas Size");
 	
 	sizeButton.onclick = animationManager.changeSize.bind(animationManager) ;
-	*/
+	
 	
 	
 	

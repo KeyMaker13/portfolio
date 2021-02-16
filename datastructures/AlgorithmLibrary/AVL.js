@@ -20,9 +20,17 @@ AVL.HEIGHT_LABEL_COLOR = "#0x00AA00"
 
 
 AVL.LINK_COLOR = "#007700";
+
+
 AVL.HIGHLIGHT_CIRCLE_COLOR = "#007700";
+
 AVL.FOREGROUND_COLOR = "0x007700";
+
+
+
 AVL.BACKGROUND_COLOR = "#DDFFDD";
+
+
 AVL.PRINT_COLOR = AVL.FOREGROUND_COLOR;
 
 AVL.WIDTH_DELTA  = 50;
@@ -66,10 +74,14 @@ AVL.prototype.addControls =  function()
 	this.deleteField.onkeydown = this.returnSubmit(this.deleteField,  this.deleteCallback.bind(this), 4);
 	this.deleteButton = addControlToAlgorithmBar("Button", "Delete");
 	this.deleteButton.onclick = this.deleteCallback.bind(this);
+	
+	
 	this.findField = addControlToAlgorithmBar("Text", "");
 	this.findField.onkeydown = this.returnSubmit(this.findField,  this.findCallback.bind(this), 4);
 	this.findButton = addControlToAlgorithmBar("Button", "Find");
 	this.findButton.onclick = this.findCallback.bind(this);
+	
+	
 	this.printButton = addControlToAlgorithmBar("Button", "Print");
 	this.printButton.onclick = this.printCallback.bind(this);
 }

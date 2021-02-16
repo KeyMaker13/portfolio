@@ -2066,7 +2066,7 @@
 	}
 </script>
 </head>
-<body style='background-color:steelblue;'>
+<body style='background-color:steelblue;overflow-y:hidden;'>
 <!-- Classic Login Screen -->
 <div id='login' class='loginContainer' >
 	<div id='menu' class='loginContainerMenu' >
@@ -2210,7 +2210,7 @@
 		</div>
 		
 		
-		<div id='workPage' style='width:500px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 
+		<div id='workPage' style='width:600px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 
 			
 				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Documents </span>  </div>
@@ -2301,7 +2301,7 @@
 			</div>
 		</div>
 
-		<div id='datastructuresPage' style='width:1000px;height:700px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
+		<div id='datastructuresPage' style='width:1100px;height:700px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
 			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Data Structures </span> </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
@@ -2309,20 +2309,20 @@
 				</div>
 			</div>
 			<div style="width:100%;height:100%;position:absolute;margin-top:30px;">
-				<div> 
+				<div style='width:100%;'> 
 					<select id='datastructuresPageSelect' > 
+						<option value = "datastructures/index.html"> Index  </option>
 						<option value = "datastructures/AVLtree.html"> AVL Tree </option>
 						<option value  = "datastructures/BFS.html" > Breadth-First Search </option>
 						<option value = "datastructures/BinomialQueue.html" > Binomial Queue </option>
 						<option value = "datastructures/BPlusTree.html"> BPlusTree </option>
 						<option value = "datastructures/BST.html" > BST </option>
-						<option value = "datastructures/BTree.html"> BTree <option> 
+						<option value = "datastructures/BTree.html"> BTree </option> 
 						<option value = "datastructures/BucketSort.html" > Bucket Sort </option>
 						<option value = "datastructures/ClosedHashBucket.html" > Closed Hash Bucket </option>
 						<option value = "datastructures/ClosedHash.html" > Closed Hash </option>
 						<option value = "datastructures/ComparisonSort.html" > Comparison Sort </option>
 						<option value = "datastructures/ConnectedComponent.html" >  Connected Component </option>
-						
 						<option value = "datastructures/CountingSort.html"> Counting Sort </option>
 						<option value = "datastructures/DFS.html" > DFS </option>
 						<option value = "datastructures/Dijkstra.html" > Dijkstra </option>
@@ -2346,7 +2346,7 @@
 					</select>  Insert values in the box to animate the data structure.
 				</div>
 
-				<iframe id = "datastructuresPageIframe" style="width:100%;height:100%;" src="datastructures/index.html" > </iframe>
+				<iframe id = "datastructuresPageIframe" style="width:100%;height:100%;" src="datastructures/index.html"  > </iframe>
 			</div>
 		</div>
 
@@ -2368,7 +2368,10 @@
 	
 	
 	<div id='startMenu' style='width:200px;height:200px;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);z-index:100;bottom:30px;left:0px;position:absolute;display:none;padding:5px 5px 5px 5px;color:white;'>				
+		
 		<img id="paintIcon" src="paintIcon.png" width="50" height="50" > Paint <br>	
+		
+		
 		<img id="datastructuresIcon" src="datastructuresIcon.png" width="50" height="50" > Data Structures <br>	
 		
 		<button class='btn btn-warning' onclick='off()' style='position:absolute;bottom:20px;'>Suspend</button>		

@@ -77,6 +77,20 @@ function addControlToAlgorithmBar(type, name) {
     element.setAttribute("value", name);
     element.setAttribute("name", name);
 	
+	if (type === 'Text'){
+
+		element.setAttribute("style", "color:black");
+	}
+
+	if (type === 'Button' ){
+
+		if (name === 'Delete'){
+			element.setAttribute("class", "btn btn-danger");
+		} else {
+			element.setAttribute("class", "btn btn-primary");
+		}
+		
+	}
 	
 	var tableEntry = document.createElement("td");
 	

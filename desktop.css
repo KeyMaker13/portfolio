@@ -40,7 +40,7 @@
     	border-spacing: 0;
 	}
 	.ui-datepicker {
-		left:35%;
+		left:30%;
 		position:absolute;
     	display: none;
     	width: 330px;
@@ -204,8 +204,9 @@
 		height:100%;
 		width:100%;
 		
-		background:url("dragonbg.jpg");
+		background:url("dragonbgLarge.jpg") important;
 		background-position: center;
+		background-repeat: no-repeat;
 		
 		border:4px black solid;
 		border-radius:10px 10px 10px 10px;
