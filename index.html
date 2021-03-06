@@ -81,6 +81,7 @@
 	var zIndexGlobePage = 10;
 	var zIndexPaintPage = 10;
 	var zIndexDatastructuresPage = 10;
+	var zIndexProjectsPage = 10;
 	
 	var positionAboutPageX = 60;
 	var positionWorkPageX = 80;
@@ -90,6 +91,7 @@
 	var positionGlobePageX = 150;
 	var positionPaintPageX = 160;
 	var positionDatastructuresPageX = 170;
+	var positionProjectsPageX = 180;
 
 	var positionAboutPageY = 40;
 	var positionWorkPageY = 50;
@@ -99,6 +101,7 @@
 	var positionGlobePageY = 65;
 	var positionPaintPageY = 75;
 	var positionDatastructuresPageY = 75;
+	var positionProjectsPageY = 75;
 
 	var aboutPageShow = 0;
 	var workPageShow = 0;
@@ -109,6 +112,7 @@
 	var globePageShow = 0;
 	var paintPageShow = 0;
 	var datastructuresPageShow = 0;
+	var projectsPageShow = 0;
 	
 	var bottomNavAboutPageShow = 0;
 	var bottomNavWorkPageShow = 0;
@@ -118,6 +122,7 @@
 	var bottomNavGlobePageShow = 0;
 	var bottomNavPaintPageShow = 0;
 	var bottomNavDatastructuresPageShow = 0;
+	var bottomNavProjectsPageShow = 0;
 	
 	
 	/* Login to Desktop */
@@ -194,6 +199,11 @@
   		})
 	});
 
+
+
+
+
+
 	/* Drag and Drop */
 	$( function() {
 	    $( "#aboutIcon" ).draggable( {containment: "parent"});
@@ -209,6 +219,8 @@
 		$( '#globePage').draggable( {containment: "parent"});
 		$( '#paintPage').draggable( {containment: "parent"});
 		$( '#datastructuresPage').draggable( {containment: "parent"});
+		$( '#projectsPage').draggable( {containment: "parent"});
+
 		
 	});
 	
@@ -250,6 +262,9 @@
 				if (bottomNavDatastructuresPageShow == 1){
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 
 
 			}						
@@ -279,6 +294,9 @@
 			if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+			}
 		});
         
 		$('#aboutPage').on("drag", function(){
@@ -304,6 +322,9 @@
 			}
 			if (bottomNavDatastructuresPageShow == 1) {
 				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		});
 		
@@ -345,6 +366,9 @@
 				if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 			}				
 		});
         
@@ -372,6 +396,9 @@
 			if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#workPage').on("drag", function(){
@@ -397,6 +424,9 @@
 			}
 			if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		});
 			
@@ -436,6 +466,9 @@
 				if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -463,6 +496,9 @@
 			if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+			}
 		});
         
 		$('#calculator').on("drag", function(){
@@ -488,6 +524,9 @@
 			}
 			if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		});
 		
@@ -516,6 +555,9 @@
 			if (bottomNavDatastructuresPageShow == 1) {
 				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#viewerPage').on("drag", function(){
@@ -541,6 +583,9 @@
 			}
 			if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		});
 		
@@ -586,6 +631,9 @@
 				if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -613,6 +661,9 @@
 			if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#matrixPage').on("drag", function(){
@@ -638,6 +689,9 @@
 			}
 			if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		});
 
@@ -682,6 +736,9 @@
 				if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -706,8 +763,8 @@
 			if (bottomNavPaintPageShow == 1) {
 				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 			}
-			if (bottomNavDatastructuresPageShow == 1) {
-				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		});
 		
@@ -734,6 +791,9 @@
 			}
 			if (bottomNavDatastructuresPageShow == 1) {
 				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		});
 
@@ -777,6 +837,9 @@
 				if (bottomNavDatastructuresPageShow == 1) {
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -804,6 +867,9 @@
 			if (bottomNavDatastructuresPageShow == 1) {
 				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#paintPage').on("drag", function(){
@@ -829,6 +895,9 @@
 			}
 			if (bottomNavDatastructuresPageShow == 1) {
 				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		});
 
@@ -872,6 +941,9 @@
 				if (bottomNavPaintPageShow == 1) {
 					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 				}
+				if (bottomNavProjectsPageShow == 1) {
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 			}
 		});
 		
@@ -899,6 +971,9 @@
 			if (bottomNavPaintPageShow == 1) {
 				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+			}
 		});
 		
 		$('#datastructuresPage').on("drag", function(){
@@ -925,7 +1000,177 @@
 			if (bottomNavPaintPageShow == 1) {
 				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 			}
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+			}
 		});
+
+
+		/* Multiple Icons for Projects Page */
+		$('#javascriptIcon').on("click", function () {
+			if ( projectsPageShow == 0 ){
+				var value = 'projects/javascript.html';
+				$('#projectsPageIframe').attr("src",value);
+
+				changePosition('projectsPage');
+				document.getElementById('projectsPage').style.display = 'block';
+				projectsPageShow = 1;
+				changeZIndex('projectsPage');				
+				if (bottomNavProjectsPageShow == 0){
+					
+					bottomNavProjectsPageShow = 1;
+					appendBottomNav('projectsPage');
+				} else{ 
+					
+					
+				}
+				
+			} else if (projectsPageShow == 1){
+				var value = 'projects/javascript.html';
+				$('#projectsPageIframe').attr("src",value);
+				changeZIndex('projectsPage');
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavDatastructuresPageShow == 1) {
+					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+				}
+			}
+		});
+
+		$('#phpIcon').on("click", function () {
+			if ( projectsPageShow == 0 ){
+				var value = 'projects/php.html';
+				$('#projectsPageIframe').attr("src",value);
+
+				changePosition('projectsPage');
+				document.getElementById('projectsPage').style.display = 'block';
+				projectsPageShow = 1;
+				changeZIndex('projectsPage');				
+				if (bottomNavProjectsPageShow == 0){
+					
+					bottomNavProjectsPageShow = 1;
+					appendBottomNav('projectsPage');
+				} else{ 
+					
+					
+				}
+				
+			} else if (projectsPageShow == 1){
+				var value = 'projects/php.html';
+				$('#projectsPageIframe').attr("src",value);
+				changeZIndex('projectsPage');
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavMatrixPageShow == 1) {
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavGlobePageShow == 1) {
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavPaintPageShow == 1) {
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavDatastructuresPageShow == 1) {
+					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+				}
+			}
+		});
+
+
+		
+		$('#projectsPage').on("click", function(){
+			changeZIndex('projectsPage');
+			document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavPaintPageShow == 1) {
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavDatastructuresPageShow == 1) {
+				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+		});
+		
+		$('#projectsPage').on("drag", function(){
+			changeZIndex('projectsPage');
+			document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#565656';
+			if (bottomNavAboutPageShow == 1) {
+				document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavWorkPageShow == 1) {
+				document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavCalculatorShow == 1) {
+				document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+			}
+			if (bottomNavViewerPageShow == 1) {
+				document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavMatrixPageShow == 1) {
+				document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavGlobePageShow == 1) {
+				document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavPaintPageShow == 1) {
+				document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavDatastructuresPageShow == 1) {
+				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+		});
+
+
+
+
+
 
 
 
@@ -973,6 +1218,11 @@
 			document.getElementById(divName).style.top = ''+positionDatastructuresPageY+'px';
 			document.getElementById(divName).style.left = ''+positionDatastructuresPageX+'px';
 		}
+		if (divName == 'projectsPage'){
+			document.getElementById(divName).style.position = 'absolute';
+			document.getElementById(divName).style.top = ''+positionProjectsPageY+'px';
+			document.getElementById(divName).style.left = ''+positionProjectsPageX+'px';
+		}
 
 	}
 	
@@ -1003,6 +1253,10 @@
 				if(bottomNavDatastructuresPageShow == 1){
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
+
 				
 				$('#bottomNavAboutPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -1027,6 +1281,9 @@
 					}
 					if(bottomNavDatastructuresPageShow == 1){
 						document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavProjectsPageShow == 1){
+						document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 					}
 					changeZIndex('aboutPage');
 				});	
@@ -1057,6 +1314,9 @@
 				if(bottomNavDatastructuresPageShow == 1){
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 				
 				$('#bottomNavWorkPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -1079,8 +1339,8 @@
 					if(bottomNavPaintPageShow == 1){
 						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 					}
-					if(bottomNavDatastructuresPageShow == 1){
-						document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+					if(bottomNavProjectsPageShow == 1){
+						document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 					}
 					
 					changeZIndex('workPage');
@@ -1113,6 +1373,9 @@
 				if(bottomNavDatastructuresPageShow == 1){
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 				
 				$('#bottomNavViewerPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -1137,6 +1400,9 @@
 					}
 					if(bottomNavDatastructuresPageShow == 1){
 						document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavProjectsPageShow == 1){
+						document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 					}
 					
 					
@@ -1172,6 +1438,9 @@
 				if(bottomNavDatastructuresPageShow == 1){
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 				$('#bottomNavCalculator').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
 					document.getElementById('bottomNavCalculator').style.backgroundColor = '#565656';					
@@ -1195,6 +1464,9 @@
 					}
 					if(bottomNavDatastructuresPageShow == 1){
 						document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavProjectsPageShow == 1){
+						document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 					}
 					changeZIndex('calculator');
 				});	
@@ -1225,6 +1497,9 @@
 				if(bottomNavDatastructuresPageShow == 1){
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 								
 				$('#bottomNavMatrixPage').on("click", function() {
 					document.getElementById(divName).style.display = 'block';
@@ -1249,6 +1524,9 @@
 					}
 					if(bottomNavDatastructuresPageShow == 1){
 						document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavProjectsPageShow == 1){
+						document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 					}
 					
 					changeZIndex('matrixPage');
@@ -1282,6 +1560,9 @@
 				if(bottomNavDatastructuresPageShow == 1){
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 
 								
 				$('#bottomNavGlobePage').on("click", function() {
@@ -1307,6 +1588,9 @@
 					}
 					if(bottomNavDatastructuresPageShow == 1){
 						document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavProjectsPageShow == 1){
+						document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 					}
 					
 					changeZIndex('globePage');
@@ -1341,6 +1625,9 @@
 				if(bottomNavDatastructuresPageShow == 1){
 					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 
 								
 				$('#bottomNavPaintPage').on("click", function() {
@@ -1366,6 +1653,9 @@
 					}
 					if(bottomNavDatastructuresPageShow == 1){
 						document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavProjectsPageShow == 1){
+						document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 					}
 					
 					changeZIndex('paintPage');
@@ -1399,6 +1689,9 @@
 				if(bottomNavPaintPageShow == 1){
 					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 				}
+				if(bottomNavProjectsPageShow == 1){
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+				}
 
 								
 				$('#bottomNavDatastructuresPage').on("click", function() {
@@ -1425,12 +1718,80 @@
 					if(bottomNavPaintPageShow == 1){
 						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
 					}
+					if(bottomNavProjectsPageShow == 1){
+						document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
+					}
 					
 					changeZIndex('datastructuresPage');
 				});	
 			}
 		}
 
+
+		if (divName == 'projectsPage'){
+			
+			if (bottomNavProjectsPageShow == 1){
+				$('#bottomNav').append(" <div id='bottomNavProjectsPage' style='color:snow;float:left;width:110px;height:30px;background-color:#778899;border:1px solid black;padding:5px 0px 0px 0px;text-align:center;cursor:pointer;'> Projects </div>  ");
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#565656';
+				if (bottomNavAboutPageShow == 1) {
+					document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavWorkPageShow == 1) {
+					document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+				}
+				if (bottomNavCalculatorShow == 1) {
+					document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+				}
+				if (bottomNavViewerPageShow == 1) {
+					document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavMatrixPageShow == 1){
+					document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavGlobePageShow == 1){
+					document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavPaintPageShow == 1){
+					document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+				}
+				if(bottomNavDatastructuresPageShow == 1){
+					document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+				}
+
+
+								
+				$('#bottomNavProjectsPage').on("click", function() {
+					document.getElementById(divName).style.display = 'block';
+					document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#565656';					
+					if (bottomNavAboutPageShow == 1) {
+						document.getElementById('bottomNavAboutPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavWorkPageShow == 1) {
+						document.getElementById('bottomNavWorkPage').style.backgroundColor = '#778899';
+					}
+					if (bottomNavCalculatorShow == 1) {
+						document.getElementById('bottomNavCalculator').style.backgroundColor = '#778899';
+					}
+					if (bottomNavViewerPageShow == 1) {
+						document.getElementById('bottomNavViewerPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavMatrixPageShow == 1){
+						document.getElementById('bottomNavMatrixPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavGlobePageShow == 1){
+						document.getElementById('bottomNavGlobePage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavPaintPageShow == 1){
+						document.getElementById('bottomNavPaintPage').style.backgroundColor = '#778899';
+					}
+					if(bottomNavDatastructuresPageShow == 1){
+						document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+					}
+					
+					changeZIndex('projectsPage');
+				});	
+			}
+		}
 
 
 
@@ -1472,6 +1833,10 @@
 			$('#bottomNavDatastructuresPage').remove();
 			bottomNavDatastructuresPageShow = 0;
 		}
+		if (divName == 'projectsPage'){
+			$('#bottomNavProjectsPage').remove();
+			bottomNavProjectsPageShow = 0;
+		}
 
 		
 	}
@@ -1502,6 +1867,9 @@
 		}
 		if (divName == 'datastructuresPage'){
 			datastructuresPageShow = 0;
+		}
+		if (divName == 'projectsPage'){
+			projectsPageShow = 0;
 		}
 	}
 	
@@ -1560,6 +1928,11 @@
 			datastructuresPageShow = 0;
 			removeBottomNav('datastructuresPage');
 		}
+		if (divName == 'projectsPage'){
+			
+			projectsPageShow = 0;
+			removeBottomNav('projectsPage');
+		}
 		
 	}
 	
@@ -1577,6 +1950,7 @@
 			document.getElementById('globePage').style.zIndex=4;
 			document.getElementById('paintPage').style.zIndex=3;
 			document.getElementById('datastructuresPage').style.zIndex=2;
+			document.getElementById('projectsPage').style.zIndex=1;
 			
 		}
 		if (divName == 'workPage'){
@@ -1590,6 +1964,7 @@
 			document.getElementById('globePage').style.zIndex=4;
 			document.getElementById('paintPage').style.zIndex=3;
 			document.getElementById('datastructuresPage').style.zIndex=2;
+			document.getElementById('projectsPage').style.zIndex=1;
 			
 		}
 		if (divName == 'calculator'){
@@ -1603,6 +1978,7 @@
 			document.getElementById('globePage').style.zIndex=4;
 			document.getElementById('paintPage').style.zIndex=3;
 			document.getElementById('datastructuresPage').style.zIndex=2;
+			document.getElementById('projectsPage').style.zIndex=1;
 			
 		}
 		if (divName == 'matrixPage'){
@@ -1616,6 +1992,7 @@
 			document.getElementById('globePage').style.zIndex=4;
 			document.getElementById('paintPage').style.zIndex=3;
 			document.getElementById('datastructuresPage').style.zIndex=2;
+			document.getElementById('projectsPage').style.zIndex=1;
 			
 		}
 		if (divName == 'viewerPage'){
@@ -1629,6 +2006,7 @@
 			document.getElementById('globePage').style.zIndex=4;
 			document.getElementById('paintPage').style.zIndex=3;
 			document.getElementById('datastructuresPage').style.zIndex=2;
+			document.getElementById('projectsPage').style.zIndex=1;
 			
 		}
 		if (divName == 'globePage'){
@@ -1642,6 +2020,7 @@
 			document.getElementById("viewerPage").style.zIndex=4;
 			document.getElementById('paintPage').style.zIndex=3;
 			document.getElementById('datastructuresPage').style.zIndex=2;
+			document.getElementById('projectsPage').style.zIndex=1;
 			
 		}
 		if (divName == 'paintPage'){
@@ -1655,6 +2034,7 @@
 			document.getElementById("viewerPage").style.zIndex=4;
 			document.getElementById('globePage').style.zIndex=3;
 			document.getElementById('datastructuresPage').style.zIndex=2;
+			document.getElementById('projectsPage').style.zIndex=1;
 			
 		}
 
@@ -1669,6 +2049,21 @@
 			document.getElementById("viewerPage").style.zIndex=4;
 			document.getElementById('globePage').style.zIndex=3;
 			document.getElementById('paintPage').style.zIndex=2;
+			document.getElementById('projectsPage').style.zIndex=1;
+			
+		}
+		if (divName == 'projectsPage'){
+			
+			
+			document.getElementById(divName).style.zIndex=zIndexPaintPage;
+			document.getElementById('workPage').style.zIndex=8;
+			document.getElementById('aboutPage').style.zIndex=7;
+			document.getElementById('calculator').style.zIndex=6;
+			document.getElementById('matrixPage').style.zIndex=5;
+			document.getElementById("viewerPage").style.zIndex=4;
+			document.getElementById('globePage').style.zIndex=3;
+			document.getElementById('paintPage').style.zIndex=2;
+			document.getElementById('datastructuresPage').style.zIndex=1;
 			
 		}
 				
@@ -1916,7 +2311,6 @@
 			changeZIndex('viewerPage');
 			
 			if (bottomNavViewerPageShow == 0){
-				
 				bottomNavViewerPageShow = 1;
 				appendBottomNav('viewerPage');
 			} else{ 
@@ -1948,6 +2342,9 @@
 			}
 			if (bottomNavDatastructuresPageShow == 1) {
 				document.getElementById('bottomNavDatastructuresPage').style.backgroundColor = '#778899';
+			}
+			if (bottomNavProjectsPageShow == 1) {
+				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#778899';
 			}
 		}
 				
@@ -2301,7 +2698,7 @@
 			</div>
 		</div>
 
-		<div id='datastructuresPage' style='width:1100px;height:700px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
+		<div id='datastructuresPage' style='width:700px;height:700px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
 			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Data Structures </span> </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
@@ -2352,6 +2749,20 @@
 
 
 
+		<div id='projectsPage' style='width:700px;height:500px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
+				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Projects </span> </div>
+				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
+					<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='projectsPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='projectsPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
+				</div>
+			</div>
+			<div style="width:100%;height:100%;position:absolute;margin-top:30px;">
+				<iframe id ="projectsPageIframe" style="width:100%;height:100%;" src="projects/index.html"> </iframe>
+			</div>
+		</div>
+
+
+
 	
 	
 	</div>
@@ -2377,6 +2788,8 @@
 		<img id ="javascriptIcon" src="icons/javascriptIcon.png" width="50" height="50" > JavaScript <br>
 
 		<img id="phpIcon" src="icons/phpIcon.png" width="50" height="50"> PHP <br>
+
+
 		
 		<button class='btn btn-warning' onclick='off()' style='position:absolute;bottom:20px;'>Suspend</button>		
 	</div>
