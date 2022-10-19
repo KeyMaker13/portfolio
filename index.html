@@ -2353,7 +2353,7 @@
 		$('#documentViewerFileNameSpan').html(getDocumentFileNames(fileName));
 		
 		//var convertToText = " ";
-		var fileToEmbed = "<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;overflow-y:auto;'>   </div>";
+		var fileToEmbed = "<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:310px;background-color:Cornsilk;border:1px solid gray;overflow-y:auto;'>   </div>";
 		$('#viewerPageContent').remove();
 		$('#viewerPageContentContainer').append(fileToEmbed);	
 		
@@ -2366,25 +2366,25 @@
 			if (fileChecked == 1){
 
 				//$('#viewerPageContent').html("<iframe src='"+ getDocumentFiles(fileName) + "' style='width:100%;height:100%;' ></iframe>");
-				$('#viewerPageContent').html("<iframe src='https://docs.google.com/gview?url=http://www.ivancapistran.com/" + getDocumentFiles(fileName) +  "&embedded=true' style='width:680px;height:100%;'></iframe>");
+				$('#viewerPageContent').html("<iframe src='https://docs.google.com/gview?url=http://www.ivancapistran.com/" + getDocumentFiles(fileName) +  "&embedded=true' style='width:680px;height:300px;'></iframe>");
 				fileChecked = 0;
 			} else {
 
 				if (fileChecked == 2){
 
-					$('#viewerPageContent').html("<iframe src='https://docs.google.com/gview?url=http://www.ivancapistran.com/" + getDocumentFiles(fileName) +  "&embedded=true' style='width:680px;height:100%;'></iframe>");
+					$('#viewerPageContent').html("<iframe src='https://docs.google.com/gview?url=http://www.ivancapistran.com/" + getDocumentFiles(fileName) +  "&embedded=true' style='width:680px;height:300px;'></iframe>");
 					fileChecked = 0;
 					
 				} else {
 
 					if (fileChecked == 3) {
 
-						$('#viewerPageContent').html("<img style='width:100%;height:100%;' src='" + getDocumentFiles(fileName) + "' > ");
+						$('#viewerPageContent').html("<img style='width:100%;height:300px;' src='" + getDocumentFiles(fileName) + "' > ");
 						fileChecked = 0;
 					} else {
 
 						var sanitizedData = $('<div>').text(data).html();
-						$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;'>" + sanitizedData + "</pre>");
+						$('#viewerPageContent').html("<pre style='background-color:black;color:SpringGreen;height:300px;'>" + sanitizedData + "</pre>");
 
 					}
 
@@ -2552,15 +2552,15 @@
 						</div>				
 		</div>
 		
-		<div id='aboutPage'  style='width:620px;height:650px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>			
+		<div id='aboutPage'  style='width:620px;height:350px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>			
 				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;'> 
 					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> About Me </span> </div>
 					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
 						<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='aboutPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='aboutPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 					</div>
 				</div>				
-				<div class='col-md-12' >					
-					<code style='width:500px;overflow-y:auto;height:570px;'>
+				<div class='col-md-12' style='overflow-y:auto;' >					
+					<p style='width:500px;height:300px;'>
 						Email : ivancapistran@programmer.net. This is my portfolio website. I used plain javascript and jQuery. 
 						To work with the directory I used a perl script to create a javascript file that lists all the 
 						file locations.	You can check out my social media. Be sure to check out my linkedin page. 
@@ -2600,14 +2600,14 @@
 							javaFiles/dataStructures/banksimulationproject/BufferedSimulationTester.java <br>
 							<a href="https://github.com/KeyMaker13/java/blob/master/DataStructuresClass/banksimulationproject/src/bank/BufferedSimulationTester.java">github link</a>
 							
-						</code>	
+						</p>	
 						<br>
 						
 				</div>			
 		</div>
 		
 		
-		<div id='workPage' style='width:600px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 
+		<div id='workPage' style='width:600px;height:350px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 
 			
 				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Documents </span>  </div>
@@ -2627,7 +2627,7 @@
 							<!-- <div id='currentProjects' style='width:100%;height:20px;border:1px solid black;box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);background:rgba(40,57,101,.8);color:snow;' onclick='openDocument(this.id)'> <span style='cursor:pointer;padding-left:15px;'> Current Projects </span> </div> 
 							-->
 							</div>
-						<div id='workPageDocumentsFolderList' class='col-md-8' style='border:1px solid black;overflow-y:auto;max-height:520px;padding-top:5px;'>																																	
+						<div id='workPageDocumentsFolderList' class='col-md-8' style='border:1px solid black;overflow-y:auto;max-height:520px;height:300px;padding-top:5px;'>																																	
 						</div>
 					</div>
 					
@@ -2635,7 +2635,7 @@
 			
 		</div>
 		
-		<div id ='viewerPage' style='width:700px;height:600px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
+		<div id ='viewerPage' style='width:700px;height:350px;background-color:#F0F8FF;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
 			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> File Viewer </span>  </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
@@ -2646,12 +2646,12 @@
 				<span id='documentViewerFileNameSpan' style='margin-left:5px;font-size:20px;'>  </span>   				
 			</div>
 			<div id = 'viewerPageContentContainer' class='col-md-12' style='padding:0px 0px 0px 0px;'>
-				<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;overflow-y:auto;'> </div>
+				<div id='viewerPageContent' class='col-md-12' style='position:absolute;top:65px;max-height:300px;background-color:Cornsilk;border:1px solid gray;overflow-y:auto;'> </div>
 				<!--<embed id='viewerPageContent' src='' class='col-md-12' style='position:absolute;top:65px;height:500px;background-color:Cornsilk;border:1px solid gray;'>-->
 			</div>		
 		</div>
 
-		<div id='matrixPage' style='width:700px;height:600px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+		<div id='matrixPage' style='width:700px;height:350px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
 				<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 					<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Terminal </span> </div>
 					<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
@@ -2668,7 +2668,7 @@
 				-->
 				
 				
-				<canvas id='matrixLetters' style='width:698px;height:569px;position:absolute;bottom:0px;right:0px;'></canvas>	
+				<canvas id='matrixLetters' style='width:698px;height:300px;position:absolute;bottom:0px;right:0px;'></canvas>	
 				
 		</div>
 		
@@ -2686,7 +2686,7 @@
 		</div>
 
 
-		<div id='paintPage' style='width:600px;height:500px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+		<div id='paintPage' style='width:600px;height:350px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
 			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Paint </span> </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
@@ -2698,7 +2698,7 @@
 			</div>
 		</div>
 
-		<div id='datastructuresPage' style='width:700px;height:700px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
+		<div id='datastructuresPage' style='width:700px;height:350px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'>
 			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Data Structures </span> </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
@@ -2749,7 +2749,7 @@
 
 
 
-		<div id='projectsPage' style='width:700px;height:500px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+		<div id='projectsPage' style='width:700px;height:350px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
 			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
 				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Projects </span> </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
