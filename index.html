@@ -1009,7 +1009,7 @@
 		/* Multiple Icons for Projects Page */
 		$('#javascriptIcon').on("click", function () {
 			if ( projectsPageShow == 0 ){
-				var value = 'projects/javascript.html';
+				var value = 'projects/javascript/solitaire/index.html';
 				$('#projectsPageIframe').attr("src",value);
 
 				changePosition('projectsPage');
@@ -1026,7 +1026,7 @@
 				}
 				
 			} else if (projectsPageShow == 1){
-				var value = 'projects/javascript.html';
+				var value = 'projects/javascript/solitaire/index.html';
 				$('#projectsPageIframe').attr("src",value);
 				changeZIndex('projectsPage');
 				document.getElementById('bottomNavProjectsPage').style.backgroundColor = '#565656';
@@ -2721,15 +2721,15 @@
 
 
 
-		<div id='projectsPage' style='width:700px;height:350px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;'> 			
+		<div id='projectsPage' style='width:500px;height:490px;background-color:white;border:1px solid black;padding:0px 0px 0px 0px;border-radius:5px 5px 5px 5px;display:none;overflow:hidden;'> 			
 			<div class='col-md-12' style='height:30px;background-color:blue;border-radius:5px 5px 5px 5px;padding: 0px 0px 0px 0px;top:0px;position:absolute;'> 
-				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Projects </span> </div>
+				<div class='col-md-8' style='color:white;padding:5px 0px 0px 0px;'> <span  style='color:snow;margin-left:50px;font-size:16px;'> Solitaire </span> </div>
 				<div class='col-md-4' style='padding:0px 0px 0px 0px;'> 
 					<button class='btn btn-warning' style='width:20px;height:25px;right:30px;position:absolute;' onclick='minPage(this.value)' value='projectsPage'></button><button class='btn btn-danger' onclick='closePage(this.value)' value='projectsPage' style='width:20px;height:25px;right:0px;position:absolute;'></button> 
 				</div>
 			</div>
-			<div style="width:100%;height:100%;position:absolute;margin-top:30px;">
-				<iframe id ="projectsPageIframe" style="width:100%;height:100%;" src="projects/index.html"> </iframe>
+			<div style="width:100%;height:100%;position:absolute;margin-top:30px;overflow:hidden;">
+				<iframe id ="projectsPageIframe" style="width:100%;height:100%;overflow:hidden;" src="projects/javascript/solitiare/index.html"> </iframe>
 			</div>
 		</div>
 
@@ -2754,13 +2754,13 @@
 
 		<img id="paintIcon" src="paintIcon.png" width="50" height="50" > Paint <br>	
 		
-		<!-- 
+		 <!--
 		<img id="datastructuresIcon" src="datastructuresIcon.png" width="50" height="50" > Data Structures <br>	
-		
-		<img id ="javascriptIcon" src="icons/javascriptIcon.png" width="50" height="50" > JavaScript <br>
-
+		 -->
+		<img id ="javascriptIcon" src="icons/solIcon.png" width="50" height="50" > Solitaire <br>
+<!--
 		<img id="phpIcon" src="icons/phpIcon.png" width="50" height="50"> PHP <br>
-		-->
+				-->
 
 		<div style = 'display:flex;justify-content:center;align-items:center;'>
 			<button class='btn btn-warning' onclick='off()' style='position:absolute;bottom:20px;'>Suspend</button>		
